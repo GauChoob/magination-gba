@@ -1,0 +1,18 @@
+1400 8019723E
+43 00 20 00 B4 00 31 08 00 00 16 00 B8 22 1D 00 44 00 48 00
+1404 80197252
+
+8051070 PointerText
++6C0
+8051730 = CrawlingID
+8756A08 TextBase
++FFFE31C5 (English patch)
+8739BCD = Crawling
+
+
+
+BytecodeSceneDebuggingGiaHouse @ 0x08186B08
+0x15(0x01)
+0x31(0x87) = LoadScene(ID) = function is at 0802431C = Need to debug to see where the ID is used?
+
+08 6B 18 08

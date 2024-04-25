@@ -1,0 +1,212 @@
+https://densinh.github.io/DenSinH/emulation/2021/02/01/gba-eeprom.html
+
+EEPROM is addressed at 0xD000000
+EEPROM is large (size = 0x2000 bytes)
+
+The highest bits of most vars are discarded down to:
+ScriptLookupTableID: 15 bits
+UNKBool_MaybeSetIfInOverworld: 1 bit
+DanX_RightShifted8Times: 24-bits (lowest 8 bits discarded in this case)
+DanY_RightShifted8Times: 24-bits (lowest 8 bits discarded in this case)
+Creature: 149*25.25 bytes in size
+Relic: 37*4 bits in size
+Item: 60*5 bits in size
+Spell: 20*3 bits in size
+Animite: 86*1 byte in size
+GameCount: 1 byte in size
+Script_SaveVars: Full size
+Script_SaveBits: Full size
+Script_Treasure: Full size
+
+BYTE:BIT
+0000:0 EEPROM
+0000:0 DEADBEEF_EEPROMValidMagicNumber
+0004:0 DEADBEEF_Unused
+0008:0 CAFEF00D_Game1ValidMagicNumber
+000C:0 CAFEF00D_Game1_Unused
+0010:0 Game1_SaveData
+0010:0 ScriptLookupTableID
+0011:7 UNKBool_MaybeSetIfInOverworld
+0012:0 DanX_RightShifted8Times
+0015:0 DanY_RightShifted8Times
+0018:0 InventoryStruct
+0018:0 Creature_Dan
+0031:2 Creature_0x00
+004A:4 Creature_0x01
+0063:6 Creature_0x02
+007D:0 Creature_0x03
+0096:2 Creature_0x04
+00AF:4 Creature_0x05
+00C8:6 Creature_0x06
+00E2:0 Creature_0x07
+00FB:2 Creature_0x08
+0114:4 Creature_0x09
+012D:6 Creature_0x0A
+0147:0 Creature_0x0B
+0160:2 Creature_0x0C
+0179:4 Creature_0x0D
+0192:6 Creature_0x0E
+01AC:0 Creature_0x0F
+01C5:2 Creature_0x10
+01DE:4 Creature_0x11
+01F7:6 Creature_0x12
+0211:0 Creature_0x13
+022A:2 Creature_0x14
+0243:4 Creature_0x15
+025C:6 Creature_0x16
+0276:0 Creature_0x17
+028F:2 Creature_0x18
+02A8:4 Creature_0x19
+02C1:6 Creature_0x1A
+02DB:0 Creature_0x1B
+02F4:2 Creature_0x1C
+030D:4 Creature_0x1D
+0326:6 Creature_0x1E
+0340:0 Creature_0x1F
+0359:2 Creature_0x20
+0372:4 Creature_0x21
+038B:6 Creature_0x22
+03A5:0 Creature_0x23
+03BE:2 Creature_0x24
+03D7:4 Creature_0x25
+03F0:6 Creature_0x26
+040A:0 Creature_0x27
+0423:2 Creature_0x28
+043C:4 Creature_0x29
+0455:6 Creature_0x2A
+046F:0 Creature_0x2B
+0488:2 Creature_0x2C
+04A1:4 Creature_0x2D
+04BA:6 Creature_0x2E
+04D4:0 Creature_0x2F
+04ED:2 Creature_0x30
+0506:4 Creature_0x31
+051F:6 Creature_0x32
+0539:0 Creature_0x33
+0552:2 Creature_0x34
+056B:4 Creature_0x35
+0584:6 Creature_0x36
+059E:0 Creature_0x37
+05B7:2 Creature_0x38
+05D0:4 Creature_0x39
+05E9:6 Creature_0x3A
+0603:0 Creature_0x3B
+061C:2 Creature_0x3C
+0635:4 Creature_0x3D
+064E:6 Creature_0x3E
+0668:0 Creature_0x3F
+0681:2 Creature_0x40
+069A:4 Creature_0x41
+06B3:6 Creature_0x42
+06CD:0 Creature_0x43
+06E6:2 Creature_0x44
+06FF:4 Creature_0x45
+0718:6 Creature_0x46
+0732:0 Creature_0x47
+074B:2 Creature_0x48
+0764:4 Creature_0x49
+077D:6 Creature_0x4A
+0797:0 Creature_0x4B
+07B0:2 Creature_0x4C
+07C9:4 Creature_0x4D
+07E2:6 Creature_0x4E
+07FC:0 Creature_0x4F
+0815:2 Creature_0x50
+082E:4 Creature_0x51
+0847:6 Creature_0x52
+0861:0 Creature_0x53
+087A:2 Creature_0x54
+0893:4 Creature_0x55
+08AC:6 Creature_0x56
+08C6:0 Creature_0x57
+08DF:2 Creature_0x58
+08F8:4 Creature_0x59
+0911:6 Creature_0x5A
+092B:0 Creature_0x5B
+0944:2 Creature_0x5C
+095D:4 Creature_0x5D
+0976:6 Creature_0x5E
+0990:0 Creature_0x5F
+09A9:2 Creature_0x60
+09C2:4 Creature_0x61
+09DB:6 Creature_0x62
+09F5:0 Creature_0x63
+0A0E:2 Creature_0x64
+0A27:4 Creature_0x65
+0A40:6 Creature_0x66
+0A5A:0 Creature_0x67
+0A73:2 Creature_0x68
+0A8C:4 Creature_0x69
+0AA5:6 Creature_0x6A
+0ABF:0 Creature_0x6B
+0AD8:2 Creature_0x6C
+0AF1:4 Creature_0x6D
+0B0A:6 Creature_0x6E
+0B24:0 Creature_0x6F
+0B3D:2 Creature_0x70
+0B56:4 Creature_0x71
+0B6F:6 Creature_0x72
+0B89:0 Creature_0x73
+0BA2:2 Creature_0x74
+0BBB:4 Creature_0x75
+0BD4:6 Creature_0x76
+0BEE:0 Creature_0x77
+0C07:2 Creature_0x78
+0C20:4 Creature_0x79
+0C39:6 Creature_0x7A
+0C53:0 Creature_0x7B
+0C6C:2 Creature_0x7C
+0C85:4 Creature_0x7D
+0C9E:6 Creature_0x7E
+0CB8:0 Creature_0x7F
+0CD1:2 Creature_0x80
+0CEA:4 Creature_0x81
+0D03:6 Creature_0x82
+0D1D:0 Creature_0x83
+0D36:2 Creature_0x84
+0D4F:4 Creature_0x85
+0D68:6 Creature_0x86
+0D82:0 Creature_0x87
+0D9B:2 Creature_0x88
+0DB4:4 Creature_0x89
+0DCD:6 Creature_0x8A
+0DE7:0 Creature_0x8B
+0E00:2 Creature_0x8C
+0E19:4 Creature_0x8D
+0E32:6 Creature_0x8E
+0E4C:0 Creature_0x8F
+0E65:2 Creature_0x90
+0E7E:4 Creature_0x91
+0E97:6 Creature_0x92
+0EB1:0 Creature_0x93
+0ECA:2 Creature_End
+0ECA:2 Ring_Count
+0ECB:2 Equipped_Rings
+0ED5:2 Equipped_Rings_End
+0ED5:2 Relic_Quantity_Null
+0ED5:6 Relic_Quantity_ArchaicLeaf
+0ED6:2 Relic_Quantity_ArmorOrb
+0ED6:6 Relic_Quantity_BagOfBones
+0EE7:6 Item_Quantity_Null
+0EE8:3 Item_Quantity_BalooLeaf
+0EE9:0 Item_Quantity_BalooSap
+0EE9:5 Item_Quantity_BalooRoot
+0F0D:2 Spell_Quantity_Null
+0F0D:5 Spell_Quantity_LeafCut
+0F0D:0 Spell_Quantity_Grow
+0F0E:3 Spell_Quantity_Burrow
+0F14:6 Animite_Quantity_Abaquist
+0F15:6 Animite_Quantity_Agovo
+0F69:6 Animite_Quantity_Xyx
+0F6A:6 InventoryStruct_End
+0F6A:6 Unused
+0F6C:0 GameCount
+0F6D:0 Script_SaveVars
+0FA2:0 Script_SaveBits
+0FCB:0 Script_Treasure
+0FF3:0 Game1_SaveData_End
+1000:0 CAFEF00D_Game2ValidMagicNumber
+1004:0 CAFEF00D_Game2_Unused
+1008:0 Game2_SaveData
+1FEB:0 Game2_SaveData_End
+2000:0 EEPROM_End

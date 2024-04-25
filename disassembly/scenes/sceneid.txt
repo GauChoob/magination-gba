@@ -1,0 +1,12 @@
+0x3000000 BasePointer
+0x3000004 BaseStruct = *BasePointer
+0x3000A28 BaseStruct.SceneRelated
+0x3000A38 BaseStruct.SceneRelated.&SceneObject
+*(&SceneObject + 0x0C) SceneID
+
+We can debug the scene IDs with the following:
+Use the save state BytecodeSceneDebuggingGiaHouse
+ROM location of bytecode is: 0x08186B08
+0x15(0x01)
+0x31(0x87) = LoadScene(ID) = function is at 0802431C
+Change the ID from 0x0087 to other values and see what you get

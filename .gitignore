@@ -1,0 +1,13 @@
+# HxD
+*.gba.bak
+
+# Ida Pro
+*.gba.i64
+*.gba.id0
+*.gba.id1
+*.gba.nam
+*.gba.til
+
+# ROM
+*.gba
+

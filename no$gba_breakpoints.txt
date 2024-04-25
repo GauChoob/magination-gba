@@ -1,0 +1,8 @@
+Any Save Var change except unchanged disabled Start Menu and Exit_Disable
+[03002AB4..03002AF4]!!
+0x20: MENU_Disable:
+[03002AF5]!
+[03002AF6..03002B1D]!!
+Exit_Disable: (maybe don't need to include at all)
+[03002B1E]!
+[03002B1F..03002B3B]!!

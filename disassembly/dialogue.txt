@@ -1,0 +1,1 @@
+dialogue located at [TextDialogue_TextBase + [TextDialogue_PointerTable + 4*textid]]
