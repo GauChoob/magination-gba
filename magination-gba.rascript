@@ -16,9 +16,11 @@ BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID = 0x0C
 function scene_id() =>
     word(map(dword(BaseStruct_SceneRelatedStruct_SceneObjectPointer), EWRAM) + BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID)
 
-// Scene ID Debugger
+/////////////////////////
+// Scene ID Identifier //
+/////////////////////////
 function frame_counter() =>
-    byte(0x00000030) // Dword that increments every frame, so triggers every 256 frames
+    byte(0x00000030) // Dword that increments every frame, so triggers every 256 frames. Memory address has not been investigated and could have unexpected behaviour
 leaderboard(
     title = "SceneID",
     description = "Debug display of SceneID",
