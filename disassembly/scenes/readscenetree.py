@@ -17,7 +17,8 @@ def read_tree(pointer, recursion):
     sceneobject = get_word(pointer + 8)
     nodecount = get_word(pointer + 12)
     nodepointer = get_word(pointer + 16)
-    print('    '*recursion + f'{sceneid:04X} {dir} {sceneobject:04X}')
+    #print('    '*recursion + f'{sceneid:03} {dir} {sceneobject:04X}')
+    print(f'{recursion},{sceneid:03},{dir}')
     if nodecount > 0:
         for i in range(nodecount):
             read_tree(nodepointer + 20*i, recursion + 1)
