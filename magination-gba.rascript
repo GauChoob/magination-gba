@@ -2,7 +2,8 @@
 // #ID = 13941
 
 // Gameboy Advance Memory map: https://github.com/RetroAchievements/rcheevos/blob/develop/src/rcheevos/consoleinfo.c#L449
-
+// GBADoc: https://gbadev.net/gbadoc/intro.html
+// no$gba reference: http://problemkaputt.de/gbatek-gba-reference.htm
 
 // Converts a pointer from GBA memory addressing space to the RetroAchievements addressing scheme
 EWRAM = 0x02000000 - 0x00008000
