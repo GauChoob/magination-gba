@@ -9,3 +9,10 @@ Use Battle_Run_Enable + Battle_Exit_Code to determine when you win boss fights!
 Memory finder:
 1) Hotspot/Scene ID
 2) Ring most recently crafted (or else looks at delta totalrings + point to last creature's ID - works equally well I guess)
+
+
+New achievements:
+Open all chests
+Get all spells
+Get Wence's arrow
+Opening chests - pair with scene id
