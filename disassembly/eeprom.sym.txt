@@ -5,7 +5,7 @@ EEPROM is large (size = 0x2000 bytes)
 
 The highest bits of most vars are discarded down to:
 ScriptLookupTableID: 15 bits
-UNKBool_MaybeSetIfInOverworld: 1 bit
+IsInOverworld: 1 bit (If set, Dan's X and Y will not be loaded as his location is loaded by the Script. There may be other undocumented effects)
 DanX_RightShifted8Times: 24-bits (lowest 8 bits discarded in this case)
 DanY_RightShifted8Times: 24-bits (lowest 8 bits discarded in this case)
 Creature: 149*25.25 bytes in size
@@ -26,7 +26,7 @@ BYTE:BIT
 000C:0 CAFEF00D_Game1_Unused
 0010:0 Game1_SaveData
 0010:0 ScriptLookupTableID
-0011:7 UNKBool_MaybeSetIfInOverworld
+0011:7 IsInOverworld
 0012:0 DanX_RightShifted8Times
 0015:0 DanY_RightShifted8Times
 0018:0 InventoryStruct

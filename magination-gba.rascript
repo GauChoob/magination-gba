@@ -1,21 +1,47 @@
 // Magi Nation
 // #ID = 13941
 
-// Gameboy Advance Memory map: https://github.com/RetroAchievements/rcheevos/blob/develop/src/rcheevos/consoleinfo.c#L449
 // GBADoc: https://gbadev.net/gbadoc/intro.html
 // no$gba reference: http://problemkaputt.de/gbatek-gba-reference.htm
 
-// Converts a pointer from GBA memory addressing space to the RetroAchievements addressing scheme
-EWRAM = 0x02000000 - 0x00008000
-IWRAM = 0x03000000
-function map(pointer, wram) =>
-    pointer - wram
+// Gameboy Advance Memory map: https://github.com/RetroAchievements/rcheevos/blob/develop/src/rcheevos/consoleinfo.c#L449
+// static const rc_memory_region_t _rc_memory_regions_gameboy_advance[] = {
+//    { 0x000000U, 0x007FFFU, 0x03000000U, RC_MEMORY_TYPE_SYSTEM_RAM, "System RAM" }, /* 32KB  Internal Work RAM */
+//    { 0x008000U, 0x047FFFU, 0x02000000U, RC_MEMORY_TYPE_SYSTEM_RAM, "System RAM" }, /* 256KB External Work RAM */
+//    { 0x048000U, 0x057FFFU, 0x0E000000U, RC_MEMORY_TYPE_SAVE_RAM, "Save RAM" }      /* 64KB  Game Pak SRAM */
+//};
+
+
+GBA_EWRAM = 0x02000000
+GBA_IWRAM = 0x03000000
+RETRO_EWRAM = 0x008000
+RETRO_IWRAM = 0x000000
+// Maps a GBA memory address to a RetroAchievements memory address
+// map(0x03000000) -> 0x000000
+// map(0x02000000) -> 0x008000
+// EEPROM not implemented
+function map(address) {
+    if (address < GBA_IWRAM) {
+        return address - GBA_EWRAM + RETRO_EWRAM
+    } else {
+        return address - GBA_IWRAM + RETRO_IWRAM
+    }
+}
+
+// Dereference an address containing a pointer to IWRAM, where the returned value uses the RetroAchievements memory addressing scheme
+function ipointer(address) =>
+    tbyte(address) + RETRO_EWRAM
+
+// Dereference an address containing a pointer to EWRAM, where the returned value uses the RetroAchievements memory addressing scheme
+function epointer(address) =>
+    tbyte(address) + RETRO_EWRAM
+
 
 // Gets Scene ID via pointer
-BaseStruct_SceneRelatedStruct_SceneObjectPointer = 0x000A38
+BaseStruct_SceneRelatedStruct_SceneObjectPointer = map(0x03000A38)
 BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID = 0x0C
 function scene_id() =>
-    word(map(dword(BaseStruct_SceneRelatedStruct_SceneObjectPointer), EWRAM) + BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID)
+    word(epointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer) + BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID)
 
 /////////////////////////
 // Scene ID Identifier //
