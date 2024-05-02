@@ -30,7 +30,7 @@ function map(address) {
 
 // Dereference an address containing a pointer to IWRAM, where the returned value uses the RetroAchievements memory addressing scheme
 function ipointer(address) =>
-    tbyte(address) + RETRO_EWRAM
+    tbyte(address) + RETRO_IWRAM
 
 // Dereference an address containing a pointer to EWRAM, where the returned value uses the RetroAchievements memory addressing scheme
 function epointer(address) =>
