@@ -1,14 +1,208 @@
+02000400 Heap_Start
 
-020278F8 Battle_CreatureTony
-02027A38 Battle_CreatureAlly1
-02027B78 Battle_CreatureAlly2
-02027CB8 Battle_CreatureAlly3
-02027DF8 Battle_CreatureAlly4
-02027F38 Battle_CreatureEnemy1
-02028078 Battle_CreatureEnemy2
-020281B8 Battle_CreatureEnemy3
-020282F8 Battle_CreatureEnemy4
-02028438 Battle_CreatureMagi
+02027534 VolatileHeap
+
+
+VolatileHeap_Above
+
+BattleEnd
+02027614 Struct2C0
+020278D4 Struct2C0_End
+020278E4 Struct08
+020278EC Struct08_End
+
+020278F4 BattleCreaturesStruct
+020278F4 BattleCreaturesStruct_ProbablyLength_Equals0x0A
+020278F8 BattleCreaturesStruct_CreatureTony
+02027A38 BattleCreaturesStruct_CreatureAlly1
+02027B78 BattleCreaturesStruct_CreatureAlly2
+02027CB8 BattleCreaturesStruct_CreatureAlly3
+02027DF8 BattleCreaturesStruct_CreatureAlly4
+02027F38 BattleCreaturesStruct_CreatureEnemy1
+02028078 BattleCreaturesStruct_CreatureEnemy2
+020281B8 BattleCreaturesStruct_CreatureEnemy3
+020282F8 BattleCreaturesStruct_CreatureEnemy4
+02028438 BattleCreaturesStruct_CreatureMagi
+02028578 BattleCreaturesStruct_End
+
+02028584 Struct20_1_2
+020285A4 Struct20_1_2_End
+020285B4 Struct20_1_1
+020285D4 Struct20_1_1_End
+020285E4 Struct20_1_0
+02028604 Struct20_1_0_End
+02028614 Struct20_0_2
+02028634 Struct20_0_2_End
+02028644 Struct20_0_1
+02028664 Struct20_0_1_End
+02028674 Struct20_0_0
+02028694 Struct20_0_0_End
+
+020286A4 Struct20_B_2
+020286C4 Struct20_B_2_End
+020286D4 Struct20_B_1
+020286F4 Struct20_B_1_End
+02028704 Struct20_B_0
+02028724 Struct20_B_0_End
+02028734 Struct20_A_2
+02028754 Struct20_A_2_End
+02028764 Struct20_A_1
+02028784 Struct20_A_1_End
+02028794 Struct20_A_0
+020287B4 Struct20_A_0_End
+020287C4 Struct20_9_2
+020287E4 Struct20_9_2_End
+020287F4 Struct20_9_1
+02028814 Struct20_9_1_End
+02028824 Struct20_9_0
+02028844 Struct20_9_0_End
+02028854 Struct20_8_2
+02028874 Struct20_8_2_End
+02028884 Struct20_8_1
+020288A4 Struct20_8_1_End
+020288B4 Struct20_8_0
+020288D4 Struct20_8_0_End
+020288E4 Struct20_7_2
+02028904 Struct20_7_2_End
+02028914 Struct20_7_1
+02028934 Struct20_7_1_End
+02028944 Struct20_7_0
+02028964 Struct20_7_0_End
+02028974 Struct20_6_2
+02028994 Struct20_6_2_End
+020289A4 Struct20_6_1
+020289C4 Struct20_6_1_End
+020289D4 Struct20_6_0
+020289F4 Struct20_6_0_End
+02028A04 Struct20_5_2
+02028A24 Struct20_5_2_End
+02028A34 Struct20_5_1
+02028A54 Struct20_5_1_End
+02028A64 Struct20_5_0
+02028A84 Struct20_5_0_End
+02028A94 Struct20_4_2
+02028AB4 Struct20_4_2_End
+02028AC4 Struct20_4_1
+02028AE4 Struct20_4_1_End
+02028AF4 Struct20_4_0
+02028B14 Struct20_4_0_End
+02028B24 Struct20_3_2
+02028B44 Struct20_3_2_End
+02028B54 Struct20_3_1
+02028B74 Struct20_3_1_End
+02028B84 Struct20_3_0
+02028BA4 Struct20_3_0_End
+02028BB4 Struct20_2_2
+02028BD4 Struct20_2_2_End
+02028BE4 Struct20_2_1
+02028C04 Struct20_2_1_End
+02028C14 Struct20_2_0
+02028C34 Struct20_2_0_End
+02028C44 Struct20_1_2
+02028C64 Struct20_1_2_End
+02028C74 Struct20_1_1
+02028C94 Struct20_1_1_End
+02028CA4 Struct20_1_0
+02028CC4 Struct20_1_0_End
+02028CD4 Struct20_0_2
+02028CF4 Struct20_0_2_End
+02028D04 Struct20_0_1
+02028D24 Struct20_0_1_End
+02028D34 Struct20_0_0
+02028D54 Struct20_0_0_End
+
+02028D64 Struct0C_8
+02028D70 Struct0C_8_End
+
+02028D74 Struct26F8
+0202B46C Struct26F8_End
+BattleAbove
+
+0202B474 StructAC
+0202B520 StructAC_End
+0202B524 Struct74
+0202B598 Struct74_End
+Above 2 Structs are unstable/might be freed?
+
+0202B5A4 Struct0C_7
+0202B5B0 Struct0C_7_End
+
+0202B5B4 Struct254
+0202B808 Struct254_End
+
+0202B814 Struct10
+0202B824 Struct10_End
+
+0202B834 Struct20_3
+0202B854 Struct20_3_End
+0202B864 Struct20_2
+0202B884 Struct20_2_End
+0202B894 Struct20_1
+0202B8B4 Struct20_1_End
+0202B8C4 Struct20_0
+0202B8E4 Struct20_0_End
+0202B8F4 Struct200_B
+0202BAF4 Struct200_B_End
+0202BB04 Struct200_A
+0202BD04 Struct200_A_End
+0202BD14 Struct0C_6
+0202BD20 Struct0C_End
+0202BD24 Struct0C_5
+0202BD30 Struct0C_End
+0202BD34 Struct8000
+02033D34 Struct8000_End
+02033D44 Struct0C_4
+02033D50 Struct0C_End
+02033D54 Struct0C_3
+02033D60 Struct0C_End
+02033D64 Struct0C_2
+02033D70 Struct0C_End
+02033D74 Struct0C_1
+02033D80 Struct0C_End
+02033D84 Struct0C_0
+02033D90 Struct0C_End
+
+Struct0C:
+00000000 ReferenceToNextStruct
+00000004 ReferenceToPreviousStruct
+00000008 Pointer
+BaseStructInitializationAbove
+
+ProgramInitEndsHere
+
+02033D94 StructA00_0x80Elements_OfSize0x14
+02034794 StructA00_End
+
+020347A4 Struct2C0_0x10Elements_OfSize0x2C
+02034A64 Struct2C0_End
+
+02034A74 Struct100_0x10Elements_OfSize0x10
+02034B74 Struct100_End
+
+02034B84 Struct500_0x40Elements_OfSize0x14
+02035084 Struct500_End
+
+02035094 Struct_GroupA_780_0xA0Elements_OfSize0x0C
+00000000 SelfReference
+00000004 InitializedAs0
+00000008 SelfReference
+02035814 Struct_GroupA_780_End
+
+02035824 Struct_GroupA_300_0x40Elements_OfSize0x0C
+02035B24 Struct_GroupA_300_End
+
+02035B34 Struct_GroupA_280
+02035DB4 Struct_GroupA_280_End
+
+02035DC4 Struct6000_0x400Elements_OfSize0x18
+0203BDC4 Struct6000_End
+
+0203BDD4 Struct280_0x10Elements_OfSize0x28
+0203C054 Struct280_End
+
+0203C064 Struct300_0x10Elements_OfSize0x30
+0203C364 Struct300_End
+
 0203C374 InventoryStruct
 0203C374 CreatureDan
 0203C39C Creature_0x00
@@ -238,10 +432,20 @@
 0000006D Probably_Creature_NoMagi
 0000006E Creature_Null
 0203DB88 Animite16bit
-0203DB8A InventoryStruct_End
+0203DB8A Unused
+0203DB8C InventoryStruct_End
+0203DB94 Struct2100_0x40Elements_OfSize0x84
+0203FC94 Struct2100_End
+0203FCA4 Struct348_ListOf0x69Entries
+0203FFEC Struct348_End
+0203FFF0 Heap_DummyLastEntrySize0
+02040000 Heap_End
 03000000 BaseStructPointer
 03000004 BaseStruct
+030015DC BaseStruct_SubStruct
 030016C0 Ticker
+03001C14 UnknownStruct
+03001C18 UnknownStruct_Struct348_Pointer
 03002AB4 Script_Treasure
 03002ADC Script_SaveBits
 03002B05 Script_SaveVars
@@ -253,6 +457,8 @@
 03002F8C DanStruct.DanY_Movement
 03002FAC DanStruct.DanDirection
 030034DC DanStruct.InventoryStructPointer
+030034E0 DanStruct_End_HereMaybe
+030034E4 DanStruct_End_OrMaybeHere
 03003FB4 EEPROM_MagicNumber_CAFEF00D
 03003FB8 EEPROM_MagicNumber_DEADBEEF
 03003FC4 EEPROM_BusWidth

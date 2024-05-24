@@ -13,35 +13,52 @@
 
 
 GBA_EWRAM = 0x02000000
+GBA_NONSTATIC_HEAP_START = 0x02000400
+GBA_NONSTATIC_HEAP_END = 0x02027610
 GBA_IWRAM = 0x03000000
+GBA_EEPROM = 0x0E000000
 RETRO_EWRAM = 0x008000
 RETRO_IWRAM = 0x000000
+RETRO_EEPROM = 0x048000
+SIZE_EWRAM = 0x040000
+SIZE_IWRAM = 0x008000
+SIZE_EEPROM = 0x002000
+THROW_ERROR = 0x88888888
 // Maps a GBA memory address to a RetroAchievements memory address
 // map(0x03000000) -> 0x000000
 // map(0x02000000) -> 0x008000
-// EEPROM not implemented
+// map(0x0E000000) -> 0x048000
+// Returns garbage value (THROW_ERROR) for memory addresses within the nonstatic part of the heap, or for unmapped addresses
 function map(address) {
-    if (address < GBA_IWRAM) {
-        return address - GBA_EWRAM + RETRO_EWRAM
-    } else {
+    if(address >= GBA_IWRAM && address <= GBA_IWRAM + SIZE_IWRAM)
         return address - GBA_IWRAM + RETRO_IWRAM
-    }
+    if(address >= GBA_NONSTATIC_HEAP_START && address < GBA_NONSTATIC_HEAP_END)
+        return THROW_ERROR
+    if(address >= GBA_EWRAM && address <= GBA_EWRAM + SIZE_EWRAM)
+        return address - GBA_EWRAM + RETRO_EWRAM
+    if(address >= GBA_EEPROM && address <= GBA_EEPROM + SIZE_EEPROM)
+        return address - GBA_EEPROM + RETRO_EEPROM
+    return THROW_ERROR
 }
 
-// Dereference an address containing a pointer to IWRAM, where the returned value uses the RetroAchievements memory addressing scheme
-function ipointer(address) =>
-    tbyte(address) + RETRO_IWRAM
+// We use dword and subtract GBA_EWRAM or GBA_IWRAM so that
+// null pointers point outside of the addressing scheme and return a value of 0
+// If we use tbyte and just add an offset null pointers will resolve a value from
+// the beginning of the memory map, which leaks random data
 
-// Dereference an address containing a pointer to EWRAM, where the returned value uses the RetroAchievements memory addressing scheme
-function epointer(address) =>
-    tbyte(address) + RETRO_EWRAM
+// Dereference an address containing a pointer to the heap
+function pointer(address, offset) =>
+    dword(address) - GBA_EWRAM + RETRO_EWRAM + offset
+// Dereference an address containing a pointer to IWRAM
+//function ipointer(address, offset) =>
+//    dword(address) - GBA_IWRAM + RETRO_IWRAM + offset
 
 
 // Gets Scene ID via pointer
 BaseStruct_SceneRelatedStruct_SceneObjectPointer = map(0x03000A38)
 BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID = 0x0C
 function scene_id() =>
-    word(epointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer) + BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID)
+    word(pointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer, BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID))
 
 /////////////////////////
 // Scene ID Identifier //

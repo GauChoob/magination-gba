@@ -11,3 +11,5 @@
 # ROM
 *.gba
 
+# Python output
+tmp.txt

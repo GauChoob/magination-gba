@@ -1,0 +1,1 @@
+The game erratically crashes/freezes when entering the passageway to get to the Orothe Geyser, so I did a heap analysis to see if it was an out of memory error, but doesn't seem like it.

@@ -11,8 +11,6 @@ Memory finder:
 2) Ring most recently crafted (or else looks at delta totalrings + point to last creature's ID - works equally well I guess)
 
 
-USE 24-BIT POINTERS INSTEAD OF 32-BIT TO AUTOMATICALLY CHOP OFF 0x03 and 0x02, STILL NEED TO MAP MEMORY FOR EWRAM
-
 New achievements:
 Open all chests
 Get all spells
