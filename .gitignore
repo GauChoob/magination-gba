@@ -13,3 +13,6 @@
 
 # Python output
 tmp.txt
+
+# VS Code
+*.code-workspace

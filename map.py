@@ -4,6 +4,8 @@ import re
 pattern = re.compile(r'^[0-9A-F]{8} ')
 
 
+# Map GBA addresses to retroachievement addresses
+
 def convert(text):
     if not pattern.match(text):
         return text
@@ -29,7 +31,7 @@ if __name__ == '__main__':
         while True:
             print(convert(input('Write text to convert\n')))
     elif len(sys.argv) == 2:
-        parse_file(sys.argv[1], 'out.txt')
+        parse_file(sys.argv[1], 'tmp.txt')
     elif len(sys.argv) == 3:
         parse_file(sys.argv[1], sys.argv[2])
     else:
