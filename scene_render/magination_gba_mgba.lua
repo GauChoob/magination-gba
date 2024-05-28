@@ -20,8 +20,8 @@ function Scene.new()
     end
     self.scene_id = emu:read16(self.address + 0x0C)
     self.scene_data = emu:read32(self.address + 0x38)
-    self.height = emu:read32(self.scene_data + 0x08)
-    self.width = emu:read32(self.scene_data + 0x0C)
+    self.width = emu:read32(self.scene_data + 0x08)
+    self.height = emu:read32(self.scene_data + 0x0C)
     if self.height > 0x500 or self.width > 0x500 then
         return self
     end
@@ -35,15 +35,16 @@ function Scene.new()
 end
 
 function Scene:save()
-    local f = io.open(string.format('./scene_%04d.bin', self.scene_id), 'wb')
+    local f = io.open(string.format('./scene_%04X.bin', self.scene_id), 'wb')
     f:write(string.pack('<i', self.scene_id))
-    f:write(string.pack('<i', self.height))
     f:write(string.pack('<i', self.width))
+    f:write(string.pack('<i', self.height))
     f:write(self.palette)
     f:write(self.tileset)
     f:write(self.tilemap)
     f:write(self.collmap)
     f:close()
+    console:log(string.format('Saved ./scene_%04X.bin',self.scene_id))
 end
 
 
