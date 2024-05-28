@@ -248,14 +248,14 @@ leaderboard(
     id = 0
 )
 rich_presence_display(
-    "SceneID: {0}\nScript: {1}",
+    "SceneID: {0}\nScript1: {1}\nScript1: {2}\nScript1: {3}\nScript1: {4}\nScript1: {5}\nScript1: {6}",
     rich_presence_value("SceneID", scene_id(), "VALUE"),
     rich_presence_value("Script1", get_nth_script_frame(1), "VALUE"),
-    rich_presence_value("Script1", get_nth_script_frame(2), "VALUE"),
-    rich_presence_value("Script1", get_nth_script_frame(3), "VALUE"),
-    rich_presence_value("Script1", get_nth_script_frame(4), "VALUE"),
-    rich_presence_value("Script1", get_nth_script_frame(5), "VALUE"),
-    rich_presence_value("Script1", get_nth_script_frame(6), "VALUE")
+    rich_presence_value("Script2", get_nth_script_frame(2), "VALUE"),
+    rich_presence_value("Script3", get_nth_script_frame(3), "VALUE"),
+    rich_presence_value("Script4", get_nth_script_frame(4), "VALUE"),
+    rich_presence_value("Script5", get_nth_script_frame(5), "VALUE"),
+    rich_presence_value("Script6", get_nth_script_frame(6), "VALUE")
 )
 achievement(
     title = "X", description = "Debug", points = 0,
