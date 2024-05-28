@@ -10,6 +10,7 @@
 
 # ROM
 *.gba
+*.sav
 
 # Python output
 tmp.txt

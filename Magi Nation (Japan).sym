@@ -5,6 +5,74 @@
 
 02000400 Heap_Start
 
+Struct44 = Script_Struct
+Struct0C = LinkedList_Struct
+Struct164 = 2027444
+Struct0C = LinkedList_Struct
+Struct0C = LinkedList_Struct
+Struct0C = LinkedList_Struct
+Struct0C = LinkedList_Struct
+Struct0C = LinkedList_Struct
+Struct0C = LinkedList_Struct
+Struct140 = Palette_Struct 2027294
+Struct140 = Palette_Struct 2027294
+Struct200 = Palette_Struct 2027354
+Struct200 = Palette_Struct 20270F4
+Struct70 = 2027534
++00 Self reference
++04 Self reference
++0C scene id (16-bit)
++14 ?LinkedList
++18 ?LinkListNullPointer
++38 scenedata 806AF28
+    +08 height
+    +0C width
+    +10 Pointer
+        +00 height
+        +02 width
+        +04 16-bit data
+    +14 Pointer
+    +18 Pointer
+        +00 Tilemap
+    +20 Pointer
++44 ActorLinkedList
+    +00 SceneStruct
+    +04 NextNode
+    +08 Struct1A4Actor
++48 NullPointerActorLinkedListEnd
++58 ?Sprites
++5C collmap
++60 tilemap
+StructAF00 =  201C624 - collmap
+    16-bits per ID
+StructAF00 =  2011714 - tilemap
+    16-bits per tile: palette/flip/number
+Struct34 =  2011674?
+Struct34 =  2011614?
+
+StructFF0 20106B0 = EEPROMBuffer
+Struct70 Scene 20105d4
+Struct 1EC 2010384
+Struct 254 2010114
+Struct200 = Palette 200FEB4
+Struct200 = Palette 200FC54
+Struct 1A4 = 200FF64
+Struct10 = 200FF34
+Struct 254 200FCD4 = Sprite?
+Struct 254 200FCF4 = Sprite?
+
+
+Struct70 2011694
+Struct1A4 2011484
+Struct0C 2011474 - 20116DC
++00 SceneStruct
++04 NextNode (ends by pointing to a null pointer in SceneStruct at +48)
++08 Struct1A4
+Struct10 = 2011454
+Struct 254 = 20111F4
+Struct1A4 2011044 - 020116DC
+Struct0C 2011034
+
 02027534 VolatileHeap
 
 
@@ -147,10 +215,10 @@ Above 2 Structs are unstable/might be freed?
 0202B8B4 Struct20_1_End
 0202B8C4 Struct20_0
 0202B8E4 Struct20_0_End
-0202B8F4 Struct200_B
-0202BAF4 Struct200_B_End
-0202BB04 Struct200_A
-0202BD04 Struct200_A_End
+0202B8F4 Struct200_Palette_Sprite
+0202BAF4 Struct200_Palette_Sprite_End
+0202BB04 Struct200_Palette_Background
+0202BD04 Struct200_Palette_Background_End
 0202BD14 Struct0C_6
 0202BD20 Struct0C_End
 0202BD24 Struct0C_5
@@ -179,7 +247,7 @@ ProgramInitEndsHere
 02033D94 StructA00_0x80Elements_OfSize0x14_SceneLoadRelatedMaybe
 02034794 StructA00_End
 
-020347A4 Struct2C0_0x10Elements_OfSize0x2C_MaybePaletteRelated
+020347A4 Struct2C0_0x10Elements_OfSize0x2C_PaletteRelated
 02034A64 Struct2C0_End
 
 02034A74 Struct100_0x10Elements_OfSize0x10
@@ -473,6 +541,7 @@ ProgramInitEndsHere
 030034DC DanStruct.InventoryStructPointer
 030034E0 DanStruct_End_HereMaybe
 030034E4 DanStruct_End_OrMaybeHere
+03003508 Script_LinkedList
 03003FB4 EEPROM_MagicNumber_CAFEF00D
 03003FB8 EEPROM_MagicNumber_DEADBEEF
 03003FC4 EEPROM_BusWidth

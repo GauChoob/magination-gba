@@ -12,6 +12,10 @@
 //};
 
 
+////////////
+// Memory //
+////////////
+
 GBA_EWRAM = 0x02000000
 GBA_NONSTATIC_HEAP_START = 0x02000400
 GBA_NONSTATIC_HEAP_END = 0x02027610
@@ -41,19 +45,36 @@ function map(address) {
     return THROW_ERROR
 }
 
-
 // Dereference an address containing a pointer to the heap
-// We use dword and subtract GBA_EWRAM so that
-// null pointers point outside of the addressing scheme and return a value of 0
-// If we use tbyte and just add an offset null pointers will resolve a value from
-// the beginning of the memory map, which leaks random data
+// We use dword and subtract GBA_EWRAM so that null pointers point outside of the
+// addressing scheme and return a value of 0.
+// If we use tbyte and just add a positive offset, null pointers will resolve a
+// value from the beginning of the memory map, which leaks random data and could
+// potentially cause false triggers
 function pointer(address, offset) =>
     dword(address) - GBA_EWRAM + RETRO_EWRAM + offset
 // Dereference an address containing a pointer to IWRAM
-//function ipointer(address, offset) =>
+//function iram_pointer(address, offset) =>
 //    dword(address) - GBA_IWRAM + RETRO_IWRAM + offset
 
 
+// Traverse through a linked list
+LinkedListStruct_NextNode = 0x00
+LinkedListStruct_PrevNode = 0x04
+LinkedListStruct_Struct = 0x08
+function _traverse_n_linked_list_nodes(n, linked_list) {
+    if(n == 1)
+        return linked_list
+    else
+        return pointer(_traverse_n_linked_list_nodes(n-1, linked_list), LinkedListStruct_NextNode)
+}
+function get_nth_linked_list_entry(n, linked_list) {
+    return pointer(_traverse_n_linked_list_nodes(n, linked_list), LinkedListStruct_Struct)
+}
+
+///////////
+// Enums //
+///////////
 
 Creature_Abaquist = 0x00
 Creature_Agovo = 0x01
@@ -152,16 +173,16 @@ Creature_Korg = 0x5D
 Creature_Zet = 0x5E
 Creature_Morag = 0x5F
 Creature_Agram = 0x60
-Creature_Agram = 0x61
-Creature_Agram = 0x62
-Creature_ShadowMagi = 0x63
-Creature_ShadowMagi = 0x64
-Creature_ShadowMagi = 0x65
-Creature_ShadowMagi = 0x66
-Creature_ShadowMagi = 0x67
-Creature_ShadowMagi = 0x68
-Creature_ShadowMagi = 0x69
-Creature_ShadowMagi = 0x6A
+Creature_Agram2 = 0x61
+Creature_Agram3 = 0x62
+Creature_ShadowMagi1 = 0x63
+Creature_ShadowMagi2 = 0x64
+Creature_ShadowMagi3 = 0x65
+Creature_ShadowMagi4 = 0x66
+Creature_ShadowMagi5 = 0x67
+Creature_ShadowMagi6 = 0x68
+Creature_ShadowMagi7 = 0x69
+Creature_ShadowMagi8 = 0x6A
 Creature_Salafy = 0x6B
 Creature_Null = 0x6E
 
@@ -191,9 +212,15 @@ Spell_CunningBlow = 0x13
 
 
 
-
-
-
+Script_LinkedList = map(0x03003508)
+ScriptStruct_Frame = 0x04
+ScriptStruct_FrameOffset = 0x14
+function get_nth_script_frame(n) {
+    return dword(pointer(get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_Frame))
+}
+function get_nth_script_offset(n) {
+    return dword(pointer(get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_FrameOffset))
+}
 
 
 
@@ -221,6 +248,16 @@ leaderboard(
     id = 0
 )
 rich_presence_display(
-    "SceneID: {0}",
-    rich_presence_value("SceneID", scene_id(), "VALUE")
+    "SceneID: {0}\nScript: {1}",
+    rich_presence_value("SceneID", scene_id(), "VALUE"),
+    rich_presence_value("Script1", get_nth_script_frame(1), "VALUE"),
+    rich_presence_value("Script1", get_nth_script_frame(2), "VALUE"),
+    rich_presence_value("Script1", get_nth_script_frame(3), "VALUE"),
+    rich_presence_value("Script1", get_nth_script_frame(4), "VALUE"),
+    rich_presence_value("Script1", get_nth_script_frame(5), "VALUE"),
+    rich_presence_value("Script1", get_nth_script_frame(6), "VALUE")
+)
+achievement(
+    title = "X", description = "Debug", points = 0,
+    trigger = get_nth_script_frame(4) == 0
 )
