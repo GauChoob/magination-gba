@@ -14,7 +14,7 @@
 
 # Python output
 tmp.txt
-temp/
+#temp/
 *.pyc
 
 # VS Code

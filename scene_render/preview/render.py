@@ -130,6 +130,8 @@ def combine_collinteract(collids, interactids):
             collids[i][j*3 + 2] = collids[i][j*3 + 2]//2 + interactids[i][j*3 + 2]//2
     return collids
 
+collids = defaultdict(lambda: 0)
+interactids = defaultdict(lambda: 0)
 class SceneFile:
 
     def save_palette(self):
@@ -170,8 +172,6 @@ class SceneFile:
             w.write(f, combined)
 
     def analyze_collmap(self):
-        collids = defaultdict(lambda: 0)
-        interactids = defaultdict(lambda: 0)
         for row in self.collmap:
             for tile in row:
                 collids[tile.collid] += 1
@@ -182,10 +182,11 @@ class SceneFile:
             sorted_list = sorted(ids.items(), key=sort_func, reverse=True)
             for item in sorted_list:
                 print(f'0x{item[0]:02X}: {item[1]}')
-        print('Coll IDs')
-        print_sorted(collids)
-        print('Interact IDs')
-        print_sorted(interactids)
+        if self.scene_id == 397:
+            print('Coll IDs')
+            print_sorted(collids)
+            print('Interact IDs')
+            print_sorted(interactids)
 
 
     def get_path(self, extension):
@@ -202,7 +203,7 @@ class SceneFile:
             self.tileset: list[list[int]] = process_tileset(f.read(0x8000))
             self.tilemap: list[list[Tile]] = process_tilemap(self.width, self.height, f.read(2*self.width*self.height))
             self.collmap: list[list[CollTile]] = process_collmap(self.width, self.height, f.read(2*self.width*self.height))
-        self.make_folder()
+        #self.make_folder()
         #self.save_palette()
         #self.save_tileset()
         self.save_tilemap()
@@ -211,7 +212,7 @@ class SceneFile:
         self.save_interactmap()
         self.save_overlaymap()
 
-for i in range(0x398):
+for i in range(398):
     file = f'scene_render/raw/scene_{i:04X}.bin'
     if os.path.exists(file):
         print(i)
