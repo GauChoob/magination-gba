@@ -526,6 +526,7 @@ ProgramInitEndsHere
 030016C0 Ticker
 03001C14 UnknownStruct
 03001C18 UnknownStruct_Struct348_Pointer
+030028FC RNGesus_8bytes
 03002AB4 Script_Treasure
 03002ADC Script_SaveBits
 03002B05 Script_SaveVars

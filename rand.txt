@@ -1,0 +1,45 @@
+
+
+Eldritch Awl tracker
+
+DreamSparkInitialized
+    rand(50)+25 per dream spark
+DreamSpark (loop until valid destination? up to 64 tries):
+    rand(200)-100
+    rand(160)-80
+
+
+BattleStart
+    rand(len(rand_battle_list)) ?
+
+Turn End
+LevelUp:
+    rand() LVL_UP_STAT_INDEX (unused)
+    rand(4) EnergyUp
+    rand(8) StrUp [1,2,1,2,0,3,2,1]
+    rand(10) Skill from table
+    rand(10) Speed from table
+    rand(10) Def from table
+    rand(2) Def 50% chance of +1
+    rand(10) Resist from table
+    rand(2) Resist 50% chance of +1
+    Luck(10) LearnNewCommand level offset
+
+
+
+Small Def/Resist:
+Large Speed/Skill:
+Weak = [0, 0, 1, 1, 1, 1, 0, 0, 2, 0]
+Med = [0, 2, 1, 1, 1, 1, 0, 0, 2, 0]
+Large Def/Resist:
+Small Speed/Skill
+Strong = [0, 3, 1, 1, 1, 1, 0, 1, 2, 0]
+
+BattleLuck
+    rand(255)*val/255*(+-luck%)
+
+AI_Creature
+    while CommandIsNotUnlocked:
+        Command = rand(5)
+    rand(2)?
+Luck

@@ -11,6 +11,7 @@
 # ROM
 *.gba
 *.sav
+*.sav.bak
 
 # Python output
 tmp.txt
@@ -19,3 +20,14 @@ tmp.txt
 
 # VS Code
 *.code-workspace
+
+# mGBA
+*.ss1
+*.ss2
+*.ss3
+*.ss4
+*.ss5
+*.ss6
+*.ss7
+*.ss8
+*.ss9

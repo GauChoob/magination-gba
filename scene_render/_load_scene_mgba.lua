@@ -108,7 +108,7 @@ end
 
 emu:loadStateFile('scene_downloader.ss0')
 buffer = console:createBuffer('info')
-scene_id = 247
+scene_id = 393
 console:log(string.format('Loading scene'))
 scenes = 398
 callbacks:add('frame', loop)
