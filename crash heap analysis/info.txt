@@ -1,0 +1,3 @@
+The game erratically crashes/freezes when entering the passageway to get to the Orothe Geyser, so I did a heap analysis
+
+.bin contains the entire EWRAM only
