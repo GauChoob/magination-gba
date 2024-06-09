@@ -17,31 +17,14 @@ Opening chests - pair with scene id
 Check for game resets via losing, winning
 Does not seem to have any Konami code
 
-Equip 10 rings
-Useless Item Collection: Collect 2 feathers + wence's arrow
 
 Core stones - maybe gamecount is a better way of tracking? vs scene id
 
-Defeat Salafy - use her max energy
 
-Have an equipped creature with all 4 abilities unlocked
-
-255 Damage and cure statuses
-Other damage achievements
-
-Talk to the Underneath historian and get gibberish
 
 Use 0x002af7:6 for the end of game party achievement?
-Gia_Funeral great for funeral achievement
 
 Trigger condition for unlocking the fungicide door? Vash13_PuzzleFailed and Vash13_PuzzleEnabled
 
-Core Ringsmith - enter his playground instead?
-
 Beat Morag Underneath (termination?)
 
-Chug x water of life
-
-Get only 1 relic for KaEryn
-
-Use x blast urns

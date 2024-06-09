@@ -88,6 +88,7 @@ def build_collections(vars):
         'Feather': 'Treasure_Useless',
         'HldPrisoner': 'HldPrisoners',
         'Party': 'PartyPeople',  # PartyGia intentionally excluded as it is a freebie
+        'BlastUrn': 'BlastUrns',
     }
     collections = {}
     bitfields = {}
