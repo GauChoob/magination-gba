@@ -18,9 +18,6 @@ Check for game resets via losing, winning
 Does not seem to have any Konami code
 
 
-Core stones - maybe gamecount is a better way of tracking? vs scene id
-
-
 
 Use 0x002af7:6 for the end of game party achievement?
 

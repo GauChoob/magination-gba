@@ -2372,31 +2372,31 @@ achievement(
     title = "Hero of Naroom", points = 5,
     description = "Complete the Naroom Shadow Geyser",
     id = 000000, badge = "000000",// type = "progression",
-    trigger = game_loaded() && always_false() // todo
+    trigger = game_loaded() && changes_from_to(GameCount, GC_NAROOM_GEYSER, GC_GLOVES)
 )
 achievement(
     title = "Hero of the Underneath", points = 5,
     description = "Complete the Underneath Shadow Geyser",
     id = 000000, badge = "000000",// type = "progression",
-    trigger = game_loaded() && always_false() // todo
+    trigger = game_loaded() &&  changes_from_to(Glyph_Count, 2, 3)
 )
 achievement(
     title = "Hero of the Cald", points = 5,
     description = "Complete the Cald Shadow Geyser",
     id = 000000, badge = "000000",// type = "progression",
-    trigger = game_loaded() && always_false() // todo
+    trigger = game_loaded() && changes_from_to(Glyph_Count, 3, 4)
 )
 achievement(
     title = "Hero of Orothe", points = 10,
     description = "Complete the Orothe Shadow Geyser",
     id = 000000, badge = "000000",// type = "progression",
-    trigger = game_loaded() && always_false() // todo
+    trigger = game_loaded() && changes_from_to(Glyph_Count, 4, 5)
 )
 achievement(
     title = "Hero of Arderial", points = 10,
     description = "Defeat Morag",
     id = 000000, badge = "000000",// type = "progression",
-    trigger = game_loaded() && always_false() // todo
+    trigger = game_loaded() && changes_from_to(Glyph_Count, 5, 6)
 )
 
 
