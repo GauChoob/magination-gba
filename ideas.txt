@@ -12,13 +12,8 @@ Memory finder:
 
 
 New achievements:
-Open all chests
-    Mention the invisible chest in Orothe
-    Mention the Algae and Vash's portrait/fireplace?
 Get all spells
-Get Wence's arrow
 Opening chests - pair with scene id
-GameCount == 0 means no save state loaded. Might need to combine with invalid scene count or scene id of loading screen, because I think save data persists after death.
 Check for game resets via losing, winning
 Does not seem to have any Konami code
 
@@ -48,3 +43,5 @@ Beat Morag Underneath (termination?)
 Chug x water of life
 
 Get only 1 relic for KaEryn
+
+Use x blast urns
