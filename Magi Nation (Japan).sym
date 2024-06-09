@@ -519,6 +519,7 @@ ProgramInitEndsHere
 02040000 Heap_End
 03000000 BaseStructPointer
 03000004 BaseStruct
+03000054 BaseStruct.IsInBattle
 03000C58 BaseStruct.SubStruct
 03000C74 BaseStruct.SubStruct.MaybePaletteOrTilesetLoadedIDForScene
 03000E70 BaseStruct.StringBuffer
