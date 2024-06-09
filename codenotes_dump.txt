@@ -1,0 +1,945 @@
+ it goes from most significant bit to least significant bit (i.e. 0x80 -> 0x01)
+
+(0x80) NRMGLADE01_Chest1 = Non-existant chest with Baloo Leaf
+(0x40) NRMVASH04_Chest1 = Undefined
+0x20 NRMVASH15_Chest1 = Vash Naroom - Orwin's - Archaic Leaf
+0x10 NRMVASH19_Chest1 = Vash Naroom - first room southeast - Baloo Leaf
+0x08 NRMVASH14_Chest2 = Vash Naroom - Tryn's - Remedy Drink (n.b., order changed with next bit compared to GBC)
+(0x04) NRMVASH14_Chest1 = Undefined
+0x02 NRMRIVER02_Chest1 = Naroom Grove - Left - Rune of Might
+0x01 NRMRIVER02_Chest2 = Naroom Grove - Right - Bark Thimble
+		
+0x2ab5 	
+0x80 NRMVASH09_Chest1 = Vash Naroom - Poad's - Baloo Leaf
+0x40 NRMVASH17_Chest1 = Vash Naroom - Beside Spooky kid's - Baloo Leaf
+0x20 NRMVASH18_Chest1 = Vash Naroom - NorthEast Empty Room - Baloo Leaf
+(0x10) NRMVASH20_Chest1 = replaced by 0x2AF5:6
+0x08 NRMGLADE07_Chest1 = Naroom Glade - Cul de sac - Karmic Might
+0x04 NRMFOREST05_Chest1 = Naroom Forest - Middle cul de sac cache - Rabbage Foot
+0x02 NRMFOREST06_Chest1 = Naroom Forest - Outside Wence's - Baloo Leaf
+0x01 WVEPATHVALLEY08_Chest1 = Weave - Farm inside - Bag of Bones
+		
+0x2ab6 	
+0x80 NRMGLADE04_Chest1 = Naroom Glade - Entrance - Baloo Leaf
+0x40 NRMLAKE02_Chest1 = Seer's - Inside - Grow
+0x20 NRMFOREST04_Chest1 = Naroom Forest - Northeast - Baloo Sap
+0x10 OROTUNNEL05_Chest1 = Orothe Tunnels - Whirlpool west - 3-Headed Coin
+0x08 OROTUNNEL05_Chest2 = Orothe Tunnels - Whirlpool east - Balance Scale
+0x04 OROTUNNEL04_Chest1 = Orothe Tunnels - MarPathwayB - Water of life
+0x02 OROTUNNEL03_Chest1 = Orothe Tunnels - MarPathwayA - Remedy Drink
+0x01 OROTUNNEL08_Chest1 = Orothe Tunnels - Cache northeast - Baloo Root
+		
+0x2ab7 	
+0x80 WVEPATHVALLEY05_Chest1 = Weave - on hill - Baloo Sap
+0x40 WVEPATHVALLEY02_Chest1 = Weave - across lake - Energy Gem
+0x20 NRMGLADE05_Chest1 = Naroom Glade - Boxxle - Golden Clover
+0x10 NRMGEYSER02_Chest1 = Naroom Geyser - South - Baloo Sap (changed from GBC which has a Baloo Leaf)
+0x08 NRMGEYSER03_Chest1 = Naroom Geyser - Southwest - Baloo Sap
+0x04 NRMGEYSER04_Chest1 = Naroom Geyser - West - Shield Orb
+0x02 NRMGEYSER06_Chest1 = Naroom Geyser - East - Remedy Drink
+0x01 NRMGEYSER07_Chest1 = Naroom Geyser - Northeast - Baloo Sap
+		
+0x2ab8 	
+(0x80) NRMGEYSER12_Chest1 = Unimplemented chest with Baloo Sap
+0x40 WVEGIASHUT02_Chest1 = Gia's - Inside - Wishbone
+0x20 UNDTUNNEL06_Chest1 = Underneath Tunnels - Shortcut north cul de sac - Baloo Leaf
+0x10 UNDTUNNEL06_Chest2 = Underneath Tunnels - Shortcut south staircase outside - Baloo Leaf
+0x08 UNDTUNNEL12_Chest1 = Underneath Tunnels - bottomleft cul de sac - Karmic Hope
+0x04 UNDTUNNEL17_Chest1 = Underneath Tunnels - middle cul de sac - Rune of Hope
+0x02 UNDTUNNEL20_Chest1 = Underneath Tunnels - bottomright cul de sac top - Rune of Hope
+0x01 UNDTUNNEL20_Chest2 = Underneath Tunnels - bottomright cul de sac bottom - Rune of Hope
+		
+0x2ab9 	
+0x80 UNDCAVERN02_Chest1 = Underneath Caverns - North cul de sac- Baloo Leaf
+0x40 UNDCAVERN02_Chest2 = Underneath Caverns - North large room - Baloo Sap
+0x20 UNDCAVERN03_Chest1 = Underneath Caverns - East cul de sac - Gibbous Gem
+(0x10) UNDCAVERN03_Chest2 = undefined
+0x08 UNDGEYSER01_Chest1 = Underneath Geyser - south - Cave In
+(0x04) UNDGEYSER01_Chest2 = undefined
+0x02 UNDGEYSER02_Chest1 = Underneath Geyser - southwest bottom - Stone Essence
+0x01 UNDGEYSER02_Chest2 = Underneath Geyser - southwest right - Remedy Drink
+		
+0x2aba 	
+0x80 UNDGEYSER02_Chest3 = Underneath Geyser - southwest left - Karmic Hope
+0x40 UNDGEYSER02_Chest4 = Underneath Geyser - southwest top's bottom - Baloo Sap
+0x20 UNDGEYSER02_Chest5 = Underneath Geyser - southwest top's middle - Baloo Sap
+0x10 UNDGEYSER02_Chest6 = Underneath Geyser - southwest top's top - Baloo Sap
+0x08 UNDGEYSER08_Chest1 = Underneath Geyser - southeast topleft - Baloo Leaf
+0x04 UNDGEYSER08_Chest2 = Underneath Geyser - southeast topmiddle - Baloo Leaf
+0x02 UNDGEYSER08_Chest3 = Underneath Geyser - southeast topright - Baloo Sap
+(0x01) UNDGEYSER08_Chest4 = unimplemented chest with Master Rune
+		
+0x2abb 	
+0x80 UNDGEYSER08_Chest5 = Underneath Geyser - southeast bottom - Rune of Hope
+(0x40) UNDGEYSER08_Chest6 = Unimplemented chest with Rune of Hope
+0x20 CLDLAVATOWN09_CHEST1 = Ashyn - Ashgar's - Baloo Sap
+0x10 CLDLAVATOWN11_CHEST1 = Ashyn - Inn - Baloo Root
+0x08 CLDLAVATUBE03_CHEST1 = East Lava Tubes - IntersectionX - Karmic Fury
+0x04 CLDLAVATUBE06_CHEST1 = East Lava Tubes - PathwayI west - Rune of Fury
+0x02 CLDLAVATUBE06_CHEST2 = East Lava Tubes - PathwayI east - Rune of Fury
+0x01 CLDLAVATUBE09_CHEST1 = East Lava Tubes - Detour west - Water of Life
+		
+0x2abc 	
+0x80 CLDLAVATUBE09_CHEST2 = East Lava Tubes - Detour east east - Rune of Fury
+0x40 CLDLAVATUBE09_CHEST3 = East Lava Tubes - Detour east middle - Karmic Fury
+0x20 CLDLAVATUBE10_CHEST1 = East Lava Tubes - PathwayU west - Baloo Sap
+0x10 CLDLAVATUBE10_CHEST2 = East Lava Tubes - PathwayU east - Baloo Sap
+(0x08) ARDCLOUD05_CHEST1 = undefined
+(0x04) ARDCLOUD06_CHEST1 = undefined
+(0x02) ARDCLOUD07_CHEST1 = undefined
+(0x01) ARDCLOUD08_CHEST1 = undefined
+		
+0x2abd 	
+0x80 CLDLAVAVENT02_CHEST1 = Cald Lava Vent - pathway b - Flame Essence
+0x40 CLDLAVAVENT03_CHEST1 = Cald Lava Vent - Intersection west - Baloo Root
+0x20 OROTUNNEL08_Chest2 = Orothe Tunnels - Cache southeast - Water of Life
+0x10 OROTUNNEL08_Chest3 = Orothe Tunnels - Cache northwest - Crescent Gem
+0x08 OROTUNNEL06_Chest1 = Orothe Tunnels - Alcove south - Water of Life
+0x04 OROTUNNEL06_Chest2 = Orothe Tunnels - Alcove north - Baloo Root
+0x02 ORORUINS01_Chest1 = Ruins - entrance north - Master Rune
+0x01 ORORUINS01_Chest2 = Ruins - entrance south - Baloo Root
+		
+0x2abe 	
+0x80 ORORUINS02_Chest1 = Ruins - northwest blurry north - Water of Life
+(0x40) ORORUINS02_Chest2 = replaced by 0x2AF6:6
+0x20 ORORUINS02_Chest3 = Ruins - northwest blurry southeast - Entangle
+0x10 ORORUINS02_Chest4 = Ruins - northwest northwest - Master Rune
+0x08 ORORUINS03_Chest1 = Ruins - southwest northmiddle - Rune of Power
+0x04 ORORUINS03_Chest2 = Ruins - southwest northwest - Rune of Power
+0x02 ORORUINS03_Chest3 = Ruins - southwest southwest - Karmic Power
+0x01 ORORUINS03_Chest4 = Ruins - southwest southmiddle invisible chest - Baloo Root
+		
+0x2abf 	
+0x80 ORORUINS03_Chest5 = Ruins - southwest southeast - Baloo Root
+(0x40) NRMVASH09_Chest2 = undefined
+(0x20) UNDTOWN02_Chest1 = undefined
+(0x10) UNDTOWN04_Chest1 = undefined
+(0x08) UNDTOWN01_Chest1 = unimplemented chest with Baloo Sap
+0x04 [NRMVASH12_Empty] = Set on game init to always disable chest - Vash Naroom - Evu's west - Contains null (NRMVASH12_Chest2 was replaced with 0x2AFA:7 and so this bit was available to be overwritten with this null chest - also note that position is swapped with next bit)
+0x02 NRMVASH12_Chest1 = Vash Naroom - Evu's - Baloo Leaf (swapped with previous bit compared to GBC)
+0x01 NRMVASH22_Chest1 = Vash Naroom - Training room closet - Fungicide
+		
+0x2ac0 	
+0x80 CLDLAVAVENT03_CHEST2 = Cald Lava Vent - Intersection east - Baloo Sap
+0x40 CLDLAVAVENT04_CHEST1 = Cald Lava Vent - Pathway Island - Baloo Sap
+(0x20) HLDCELL01Chest1 = undefined
+0x10 HLDCELL04Chest1 = Shadowhold - Marina false intersection - Shadow Veil
+(0x08) HLDMAZE04Chest1 = replaced with 0x2AF6:5
+0x04 HLDMAZE06Chest1 = Shadowhold - middle north pathway - Rune of Hope
+0x02 HLDMAZE08Chest1 = Shadowhold - screwdriver room north - Rune of Will
+0x01 HLDMAZE08Chest2 = Shadowhold - screwdriver room east - End Bringer
+		
+0x2ac1 	
+(0x80) HLDMAZE08Chest3 = replaced by 0x2AF9:3
+0x40 HLDMAZE10Chest1 = Shadowhold - middle east pathway big puzzle east - Rune of Fury
+0x20 HLDMAZE10Chest2 = Shadowhold - middle east pathway big puzzle west - Rune of Fury
+0x10 HLDMAZE11Chest1 = Shadowhold - middle east pathway arrow room north - Rune of Power
+(0x08) HLDMAZE13Chest1 = replaced by 0x2AF6:3
+0x04 HLDMAZE16Chest1 = Shadowhold - Deep cells - Rune of Power
+(0x02) HLDMAZE20Chest1 = undefined
+0x01 HLDMAZE20Chest1 = Shadowhold - deep south pathway - Master Rune
+		
+0x2ac2 	
+0x80 HLDMAZE21Chest1 = Shadowhold - deep north pathway - Stone of Doom
+(0x40) HLDMAZE22Chest1 = replaced with 0x2AF6:1
+0x20 HLDMAZE04Chest2 = Shadowhold - middle first intersection east - Rune of Might
+0x10 WVESHORTCUT01_Chest1 = chest uses variable at 0x2B08 to work
+(0x08) WVEPATHVALLEY07Chest1 = replaced with 0x2AD9:0
+(0x04) WVEPATHVALLEY07Chest2 = replaced with 0x2ADA:7
+(0x02) WVEPATHVALLEY07Chest3 = replaced with 0x2ADB:6
+0x01 WVEPATHVALLEY02_Chest2 = Weave - Across pond - Armor Orb
+		
+0x2ac3 	
+Note that CLDGEYSER02_Chest1 - CLDGEYSER02_Chest19 have a different order compared to the GBC version. The 9 normal chests are inserted in the first 9 slots. Then there are 10 remaining empty slots to represent the 4 kickable chests that are replaced at 0x2AE0 and the 6 unimplemented chests
+0x80 CLDGEYSER02_Chest19 = Cald Geyser - PuzzleA cul de sac end middlewest - Flame Geyser
+0x40 CLDGEYSER02_Chest9 = Cald Geyser - PuzzleA cul de sac end northeast - Remedy Drink
+0x20 CLDGEYSER02_Chest10 = Cald Geyser - PuzzleA cul de sac end southwest - Baloo Sap
+0x10 CLDGEYSER02_Chest11 = Cald Geyser - PuzzleA cul de sac end southeast - 200 Animite
+0x08 CLDGEYSER02_Chest3 = Cald Geyser - PuzzleA first switch bridge - Baloo Leaf
+0x04 CLDGEYSER02_Chest1 = Cald Geyser - PuzzleA starting platform - Baloo Leaf
+0x02 CLDGEYSER02_Chest17 = Cald Geyser - PuzzleA third platform - Baloo Root
+0x01 CLDGEYSER02_Chest13 = Cald Geyser - PuzzleA middle puzzle reward - 200 animite
+		
+0x2ac4 	
+0x80 CLDGEYSER02_Chest14 = Cald Geyser - PuzzleA east chest via PuzzleB - Baloo Sap
+
+These 6 slots represent 6/10 of these unimplemented chests, in no particular order. The last 4 empty slots are represented at 0x2ACC-D
+(0x40)
+(0x20)
+(0x10)
+(0x08)
+(0x04)
+(0x02)
+CLDGEYSER02_Chest2 = unimplemented chest with 75 animite
+CLDGEYSER02_Chest4 = unimplemented chest with Baloo Leaf
+CLDGEYSER02_Chest5 = replaced with 0x2AE1:5
+CLDGEYSER02_Chest6 = replaced with 0x2AE1:4
+CLDGEYSER02_Chest7 = replaced with 0x2AE1:7
+CLDGEYSER02_Chest8 = replaced with 0x2AE1:6
+CLDGEYSER02_Chest12 = unimplemented chest with Baloo Root
+CLDGEYSER02_Chest15 = unimplemented chest with Baloo Leaf
+CLDGEYSER02_Chest16 = unimplemented chest with Baloo Root
+CLDGEYSER02_Chest18 = unimplemented chest with Baloo Root
+
+Note that CLDGEYSER03_Chest1 - CLDGEYSER03_Chest13 have a different order compared to the GBC version. The 5 chests are inserted in the first 5 slots. Then there are 8 remaining empty slots to represent the 8 unimplemented and undefined chests.
+0x01 CLDGEYSER03_Chest12 = Cald Geyser - PuzzleB starting platform northeast - Rune of Fury
+		
+0x2ac5 	
+0x80 CLDGEYSER03_Chest4 = Cald Geyser - PuzzleB northeast puzzle reward - Baloo Sap
+0x40 CLDGEYSER03_Chest1 = Cald Geyser - PuzzleB northeast tiny island - Karmic Fury
+0x20 CLDGEYSER03_Chest9 = Cald Geyser - PuzzleB middle island north - Baloo Sap
+0x10 CLDGEYSER03_Chest8 = Cald Geyser - PuzzleB middle island south - 65 animite
+
+These 6 slots represent 6/8 of these unimplemented chests, in no particular order. The last 2 empty slots are represented at 0x2ACA
+(0x08)
+(0x04)
+(0x02)
+(0x01)
+		
+0x2ac6 	
+(0x80)
+(0x40)
+CLDGEYSER03_Chest2 = unimplemented chest with Baloo Leaf
+CLDGEYSER03_Chest3 = unimplemented chest with Baloo Leaf
+CLDGEYSER03_Chest5 = undefined
+CLDGEYSER03_Chest6 = unimplemented chest with Flame Aura
+CLDGEYSER03_Chest7 = unimplemented chest with Haste Gem
+CLDGEYSER03_Chest10 = unimplemented chest with Baloo Sap
+CLDGEYSER03_Chest11 = unimplemented chest with Baloo Leaf
+CLDGEYSER03_Chest13 = unimplemented chest with Baloo Leaf
+
+0x20 OROGEYSER10_Chest1 = Orothe Geyser - currents southeast west - Baloo Leaf
+0x10 OROGEYSER10_Chest2 = Orothe Geyser - currents southeast east - Baloo Sap
+0x08 OROGEYSER10_Chest3 = Orothe Geyser - currents southwest southeast - Rune of Power
+0x04 OROGEYSER10_Chest4 = Orothe Geyser - currents southwest northwest - Tidal Wave
+0x02 OROGEYSER10_Chest5 = Orothe Geyser - currents northwest west - Master Rune
+0x01 OROGEYSER10_Chest6 = Orothe Geyser - currents northwest east - Baloo Root
+		
+0x2ac7 	
+0x80 OROGEYSER10_Chest7 = Orothe Geyser - currents northeast middle - Baloo Sap
+0x40 OROGEYSER10_Chest8 = Orothe Geyser - currents northeast south - Baloo Leaf
+0x20 OROGEYSER10_Chest9 = Orothe Geyser - currents northeast north - Rune of Power
+(0x10) OROGEYSER08_Chest1 = unimplemented chest with Baloo Root
+(0x08) OROGEYSER08_Chest2 = unimplemented chest with Rune of Power
+0x04 OROGEYSER08_Chest3 = Orothe Geyser - sewers southeast - Karmic Power
+(0x02) OROGEYSER08_Chest4 = unimplemented chest with Baloo Leaf
+0x01 OROGEYSER09_Chest1 = Orothe Geyser - sewers southwest - Baloo Root
+		
+0x2ac8 	
+Note that the order of ARDGEYSER chests is different compared to the GBC. Some are arranged in logical geyser progression order, and some mimic their ordering in the GBC game. There are a total of 24 used and 5 unused chests, (29 slots)
+
+0x80 ARDGEYSER01_Chest1 = Arderial Geyser - entrance - Star Key
+0x40 ARDGEYSER02_Chest2 = Arderial Geyser - key maze middle south - Remedy Drink
+0x20 ARDGEYSER02_Chest1 = Arderial Geyser - key maze middle north - Master Rune
+0x10 ARDGEYSER02_Chest10 = Arderial Geyser - key maze north - Baloo Root
+0x08 ARDGEYSER02_Chest6 = Arderial Geyser - key maze northwest - Sword of Wind
+0x04 ARDGEYSER02_Chest3 = Arderial Geyser - key maze east west - Baloo Sap
+0x02 ARDGEYSER02_Chest4 = Arderial Geyser - key maze east middle - Water of Life
+0x01 ARDGEYSER02_Chest5 = Arderial Geyser - key maze east east - Baloo Sap
+		
+0x2ac9 	
+0x80 ARDGEYSER19_Chest3 = Arderial Geyser - starry end west west - Baloo Root
+0x40 ARDGEYSER19_Chest4 = Arderial Geyser - starry end west east - Baloo Sap
+0x20 ARDGEYSER19_Chest1 = Arderial Geyser - starry end southwest - Star Key
+0x10 ARDGEYSER19_Chest2 = Arderial Geyser - starry end south - Star Key
+0x08 ARDGEYSER19_Chest5 = Arderial Geyser - starry end northeast - Baloo Sap
+
+0x04 UNDGEYSER07_Chest1 = Underneath Geyser - cul de sac via east tunnel - Titan Ring
+0x02 UNDGEYSER06_Chest1 = Underneath Geyser - northeast top - Master Rune
+0x01 UNDGEYSER06_Chest2 = Underneath Geyser - northeast bottom - Baloo Root
+		
+0x2aca 	
+0x80 UNDGEYSER05_Chest1 = Underneath Geyser - northwest - Thunderquake
+(0x40) UNDGEYSER05_Chest2 = Unimplemented
+(0x20) UNDGEYSER05_Chest3 = Unimplemented
+
+The last 2/8 empty slots of CLDGEYSER03_Chest1-13 (see 0x2AC5-6)
+(0x10)
+(0x08)
+
+Arderial Geyser continued:
+(0x04)
+(0x02)
+0x01 ARDGEYSER18_Chest2 = Arderial Geyser - fourth pipe end east - Rune of Will
+		
+0x2acb 	
+0x80 ARDGEYSER18_Chest1 = Arderial Geyser - fourth pipe end west - Karmic Will
+0x40 ARDGEYSER24_Chest1 = Arderial Geyser - west of small starry cul-de-sac - Baloo Root
+0x20 ARDGEYSER25_Chest1 = Arderial Geyser - small starry cul-de-sac west - Baloo Leaf
+0x10 ARDGEYSER12_Chest1 = Arderial Geyser - west orothe west - Star Key
+0x08 ARDGEYSER11_Chest1 = Arderial Geyser - east orothe - Star Key
+0x04 ARDGEYSER10_Chest1 = Arderial Geyser - east naroom north - Star Key
+0x02 ARDGEYSER09_Chest1 = Arderial Geyser - west naroom - Star Key
+0x01 ARDGEYSER08_Chest1 = Arderial Geyser - west cache - Star Key
+		
+0x2acc 	
+0x80 ARDGEYSER07_Chest1 = Arderial Geyser - east cache - Star Key
+0x40 ARDGEYSER06_Chest1 = Arderial Geyser - east cald - Star Key
+0x20 ARDGEYSER05_Chest2 = Arderial Geyser - east underneath north - Baloo Sap
+0x10 ARDGEYSER04_Chest1 = Arderial Geyser - west cald - Star Key
+0x08 ARDGEYSER03_Chest1 = Arderial Geyser - west underneath - Star Key
+
+The last 4/10 empty slots of CLDGEYSER02_Chest1-10 (see 0x2AC3-4)
+(0x04)
+(0x02)
+(0x01)
+		
+0x2acd 	
+(0x80)
+0x40 OROGEYSER01_Chest1 = Orothe Geyser - sewers northeast west - Rune of Power
+0x20 OROGEYSER01_Chest2 = Orothe Geyser - sewers northeast east - Master Rune
+
+Arderial Geyser continued:
+0x10 ARDGEYSER10_Chest2 = Arderial Geyser - east naroom east - Baloo Sap
+0x08 ARDGEYSER05_Chest1 = Arderial Geyser - east underneath south - Star Key
+0x04 ARDGEYSER12_Chest2 = Arderial Geyser - west orothe east - Baloo Sap
+0x02 ARDGEYSER25_Chest2 = Arderial Geyser - small starry cul-de-sac middle - Sword of Wind
+0x01 ARDGEYSER25_Chest3 = Arderial Geyser - small starry cul-de-sac east - Baloo Root
+		
+0x2ace 	
+(0x80)
+0x40 ARDGEYSER23_Chest1 = Arderial Geyser - second pipe end west - Star Key
+0x20 ARDGEYSER23_Chest3 = Arderial Geyser - second pipe end middle west - Baloo Sap
+0x10 ARDGEYSER23_Chest2 = Arderial Geyser - second pipe end middle middle - Star Key
+0x08 ARDGEYSER23_Chest4 = Arderial Geyser - second pipe end middle east - Baloo Sap
+(0x04)
+0x02 ARDGEYSER27_Chest1 = Arderial Geyser - end cald - Star Key
+0x01 ARDGEYSER14_Chest1 = Arderial Geyser - behind first pipe west west - Baloo Root
+		
+0x2acf 	
+0x80 ARDGEYSER14_Chest2 = Arderial Geyser - behind first pipe west middle - Lightning
+0x40 ARDGEYSER14_Chest3 = Arderial Geyser - behind first pipe west east - Baloo Root
+0x20 ARDGEYSER15_Chest1 = Arderial Geyser - third pipe end northwest - Star Key
+0x10 ARDGEYSER15_Chest2 = Arderial Geyser - third pipe end west - Baloo Root
+0x08 ARDGEYSER15_Chest3 = Arderial Geyser - third pipe end east - Remedy Drink
+(0x04)
+0x02 ARDGEYSER16_Chest1 = Arderial Geyser - large starry cul-de-sac southwest - Star Key
+0x01 ARDGEYSER16_Chest2 = Arderial Geyser - large starry cul-de-sac east - Updraft
+
+End of Arderial Geyser section. The 5 unused treasures represented by the 5 empty slots above are:
+ARDGEYSER02_Chest7 = unimplemented chest with Baloo Sap
+ARDGEYSER02_Chest8 = unimplemented chest with Baloo Root
+ARDGEYSER02_Chest9 = unimplemented chest with Remedy Drink
+ARDGEYSER02_Chest11 = unimplemented chest with Baloo Sap
+ARDGEYSER02_Chest12 = unimplemented chest with Baloo Sap
+		
+0x2ad0 	
+0x80 NRMVASH10_Chest1 = Vash Naroom - Shop - Hyren's Claw
+(0x40) Vault_Chest = replaced by 0x2AF5:3
+0x20 OROTUNNEL10_Chest2 = Orothe Tunnels - Vault southwest - Water Orb
+0x10 UNDGEYSER03_Chest1 = Underneath Geyser - southwest altar - Rune of Hope
+(0x08) UNDGEYSER03_Chest2 = undefined
+0x04 NRMLAKE01_Chest1 = Seer's - Back corner - Leaf Essence
+0x02 NRMLAKE01_Chest2 = Seer's - Island - Grail of Life
+0x01 NRMFOREST07_Chest1 = Naroom Forest - Inside Wence's - Gem of Naroom
+		
+0x2ad1 	
+(0x80) UNDTOWN05_Chest1 = undefined
+0x40 UNDMUSHFARM03_Chest1 = Gruk's - Basement middleleft - Ombors Amulet
+(0x20) FORT03_Chest1 = replaced by 0x002b03:1
+0x10 CLDLAVAVENT08_Chest1 = Cald Lava Vent - Broken Bridge End - Rune of Fury
+(0x08) OROCITY04_Chest1 = undefined
+(0x04) OROCITY04_Chest2 = undefined
+(0x02) OROCITY04_Chest3 = undefined
+(0x01) OROISLANDS02_Chest1 = undefined
+		
+0x2ad2 	
+(0x80) ARDCLOUDS06_Chest1 = replaced by 0x2ADB:7
+(0x40) ARDCLOUDS06_Chest2 = replaced by 0x2ADB:6
+(0x20) ARDCLOUDS03_Chest1 = replaced by 0x2ADA:0
+0x10 HDNROOM04_Chest1 = Underneath Tunnels - inside shortcut right - Baloo Root
+(0x08) HDNROOM04_Chest2 = replaced by 0x2B03:4
+0x04 HDNROOM04_Chest3 = Underneath Tunnels - inside shortcut middle - Water of Life
+0x02 OVRSURFACE01B_Chest1 = Hyren Forest - Hyren's Claw
+0x01 NRMLAKE04_Chest1 = Seer's - Hyren cave - Water of life
+		
+0x2ad3 	
+(0x80) NRMGLADE11B_Chest1 = replaced by 0x2AD9:5
+(0x40) NRMGLADE11B_Chest2 = replaced by 0x2AD9:4
+0x20 [CLDLAVATUBE10_CHEST_GBA] = East Lava Tubes - PathwayU northwest - Baloo Root (chest is GBA-exclusive) - This chest overwrites the old chest which was NRMGLADE11C_Chest1, which is replaced at 0x2AD9:2
+(0x10) NRMGLADE11C_Chest2 = replaced by 0x2AD9:1
+(0x08) NRMGLADE11C_Chest3 = replaced by 0x2AD9:3
+0x04 HDNUNDTUN02_Chest1 = Underneath Tunnels - Top blast urn - Water of Life
+0x02 HDNUNDTUN01_Chest1 = East Underneath Tunnels - Blast urn left - Water of life
+0x01 HDNUNDTUN01_Chest2 = East Underneath Tunnels - Blast urn left - Master rune
+		
+0x2ad4 	
+(0x80) HDNLAVATUBE03_Trig1 = replaced by 0x2B03:5 because it is not actually a chest, but a switch!
+(0x40) CLDVENTINT01_Chest1 = replaced by 0x2ADB:5
+(0x20) CLDVENTINT02_Chest1 = replaced by 0x2ADB:4
+0x10 FORT02_Chest1 = Abandoned Tower - Bottom floor top - Earth's Aura
+0x08 HDNLAVATUBE03_Chest1 = East Lava Tubes - secret room west empty chest - Baloo Root
+0x04 HDNLAVATUBE03_Chest2 = East Lava Tubes - secret room middle empty chest - Baloo Root
+0x02 HDNLAVATUBE03_Chest3 = East Lava Tubes - secret room east empty chest - Baloo Root
+0x01 HDNLAVATUBE03_Chest4 = East Lava Tubes - secret room northeast chest - Master Rune
+		
+0x2ad5 	
+0x80 HDNLAVATUBE03_Chest5 = East Lava Tubes - secret room north empty chest - Water of life
+0x40 HDNLAVATUBE03_Chest6 = East Lava Tubes - secret room locked room west - Fireball
+0x20 HDNLAVATUBE03_Chest7 = East Lava Tubes - secret room locked room east - Water of life
+(0x10) CLDVENTINT04_Chest1 = replaced by 0x2ADB:3
+(0x08) ARDGARDEN07_Chest1 = unimplemented chest with Rune of Will near the Arderial historian, likely cut due to running out of development time as it exists in the GBC version.
+(0x04) ARDGARDEN07_Chest2 = unimplemented chest with Rune of Will near the Arderial historian, likely cut due to running out of development time as it exists in the GBC version.
+(0x02) ARDGARDEN05_Chest1 = unimplemented chest with Karmic Will in the Arderial Inn, likely cut due to running out of development time as it exists in the GBC version.
+(0x01) ARDGARDEN05_Chest2 = unimplemented chest with Karmic Will in the Arderial Inn, likely cut due to running out of development time as it exists in the GBC version.
+		
+0x2ad6 	
+0x80 ARDGARDEN01_Chest1 = Arderial Palace - first room east and north plant - Master Rune (interestingly this trigger somehow has custom dialogue, despite being in Script_Treasure - it is the only chest in this struct that has acts in a special way) - bug - there are two plants in this scene, and they accidentally share the same bit (in the GBC, there are two separate triggers each for a Master Rune)
+(0x40) ARDGARDEN01_Chest2 = See explanation in previous bit
+0x20 OROCORAL05_Chest1 = Corals - end whirlpool chest - Corf Pearl
+0x10 OROCORAL05_Chest2 = Corals - end north - Karmic Power
+0x08 OROCORAL05_Chest3 = Corals - end west - Rune of Power
+(0x04) CLDVENTINT03_Chest1 = replaced by 0x2ADB:2
+(0x02) WVEPATHVALLEY04_Chest1 = replaced by 0x2B04
+(0x01) HDNLOAD1B_Chest1 = undefined
+		
+0x2ad7 	
+(0x80) HDNLOAD1B_Chest2 = undefined
+(0x40) HDNLOAD1B_Chest3 = undefined
+(0x20) HDNLOAD1C_Chest1 = undefined
+0x10 OROCORAL02_Chest1 = Corals - entrance northwest - Water of Life
+0x08 OROCORAL02_Chest2 = Corals - entrance east - Remedy Drink
+0x04 OROCORAL02_Chest3 = Corals - entrance southwest - Haste Gem
+(0x02) HDNUNDTUN04_Chest1 = replaced by 0x2B03:2
+(0x01) HDNUNDTUN04_Chest2 = replaced by 0x2B03:3
+		
+0x2ad8 	
+(0x80) HLDMAZE23_Chest1 = replaced with 0x2AD8:3
+
+The GBC-ordering of chests ends here. All vars from now on were added on at the end by the GBA development team. There are three types of chests here:
+1) Null chests that are always set to give the appearance of an empty chest
+2) Chests that are defined previously, but the numbering system from the GBC team was too confusing and so instead of trying to fit the chests in their proper spots, duplicate vars were just created here.
+3) HldChest1-8 were actually defined in Script_SaveBits in the GBC version, but act like normal chests, so they need to be added in Script_Treasure in the GBA version for functionality
+
+0x40 [OROCORAL05_Empty] = Set on game init to always disable chest - Corals - southeast - Contains null
+0x20 HldChest1 = Shadowhold - middle east pathway door - Shadow Key
+0x10 HldChest2 = Shadowhold - middle east pathway puzzle room west - Shadow Key
+0x08 HLDMAZE23_Chest1 = Core Ringsmith - Star Key (this chest actually isn't openable in the GBC version - it was possibly a debug chest that they removed the trigger from, although it graphically is visible in the GBC game. Therefore, this chest only exists in the GBA version) (overwrites HldChest3 which was replaced by 0x2AF6:2)
+0x04 HldChest4 = Shadowhold - labyrinth puzzle pathway - Shadow Key
+0x02 HldChest5 = Shadowhold - deep first puzzle northwest - Shadow Key
+0x01 HldChest6 = Shadowhold - deep south pathway west - Shadow Key
+		
+0x2ad9 	
+0x80 HldChest7 = Shadowhold - deep first puzzle northwest - Screwdriver
+0x40 HldChest8 = Shadowhold - middle south intersection - Cloud Frond
+0x20 NRMGLADE11B_Chest1 = Naroom Forest - Puzzle Left - Water of Life
+0x10 NRMGLADE11B_Chest2 = Naroom Forest - Puzzle Right - Rune of Might
+0x08 NRMGLADE11C_Chest3 = Naroom Forest - Puzzle Blast Urn Left - Karmic Might
+0x04 NRMGLADE11C_Chest1 = Naroom Forest - Puzzle Blast Urn Middle - Water of Life
+0x02 NRMGLADE11C_Chest2 = Naroom Forest - Puzzle Blast Urn Right - Rune of Might
+0x01 WVEPATHVALLEY07Chest1 = Weave - Key east door - Crimsom Void
+		
+0x2ada 	
+0x80 WVEPATHVALLEY07Chest2 = Weave - Key west door west - Channeled Gem
+0x40 WVEPATHVALLEY07Chest3 = Weave - Key west door east - Baloo Root
+0x20 [UNDMUSHFARM03_Empty1] = Set on game init to always disable chest - Gruk's basement - Bottomleft - Contains null
+0x10 [UNDMUSHFARM03_Empty2] = Set on game init to always disable chest - Gruk's basement - Middlemiddle - Contains null
+0x08 [UNDMUSHFARM03_Empty3] = Set on game init to always disable chest - Gruk's basement - Topright - Contains null
+0x04 [UNDMUSHFARM03_Empty4] = Set on game init to always disable chest - Gruk's basement - Middleright - Contains null
+0x02 [UNDMUSHFARM03_Empty5] = Set on game init to always disable chest - Gruk's basement - Bottomright - Contains null
+0x01 ARDCLOUDS03_Chest1 = Middle Clouds - intersection - Baloo Leaf
+		
+0x2adb 	
+0x80 ARDCLOUDS06_Chest1 = Middle Clouds - end west - Phantom Wind
+0x40 ARDCLOUDS06_Chest2 = Middle Clouds - end east - Sky Essence
+0x20 CLDVENTINT01_Chest1 = Cald Lava Vent - West Blast Urn - Rage Stone
+0x10 CLDVENTINT02_Chest1 = Cald Lava Vent - East Blast Urn - Master Rune
+0x08 CLDVENTINT04_Chest1 = Cald Lava Vent - Island Blast Urn - Karmic Fury
+0x04 CLDVENTINT03_Chest1 = Cald Lava Vents - Pathway Island Blast Urn - Water of life
+
+(0x02)
+(0x01)
+		
+0x2adc 	
+Script_SaveBits [41 bytes of bitfield]
+This struct contains bits that are controllable by the scripting engine. All values default to reset unless otherwise specified. Some bits are unused as they were unused in the GBC game, or the var has otherwise been moved/replaced.
+
+Formatted as follows:
+0xBitmask Variable = Description
+
+The bitmask is surrounded by parentheses ( ) when the bit is actually unused in the game.
+Variable names enclosed in square brackets are GBA-exclusive
+All bits are reset on boot/new game, unless otherwise specified.
+Note that the bit order in the source code might be opposite of what you might expect: it goes from most significant bit to least significant bit (i.e. 0x80 -> 0x01)
+
+The first section contains bits related to GameCount progression, the second section contains "global" bits, and the third section contains GBA-designed vars (or GBC WRAM vars moved into here to be script-accessible)
+
+GameCount-related vars:
+
+GC_OPENING:
+(0x80) Charades_Bit = unused
+0x40 [Eidon_Intercepted_Training_Exit] = Set after triggering Eidon dialogue when trying to leave training grounds during GC_NRM_INTRO, to disable the dialogue from triggering a second time. Reset after leaving training grounds
+
+GC_FIND_ORWIN:
+(0x20) Orwin_Lost = unused
+
+GC_QUEST_FOR_GIA:
+0x10 Talked_To_Eidon = Set to disable Dan surprise at seeing Eidon at Gia's Hut
+0x08 Shrub_Insult = Set to disable Gia criticizing Dan for going down the wrong path (set when going the wrong way, or after entering the subsequent scene)
+
+GC_NAROOM_GEYSER:
+0x04 Nrmgeyser_switch1 = Set when switch activated
+0x02 Nrmgeyser_switch2 = Set when switch activated
+0x01 Nrmgeyser_switch3 = Set when switch activated
+		
+0x2add 	
+0x80 Nrmgeyser_switch4 = Set when switch activated
+0x40 Nrmgeyser_switch5 = Set when switch activated
+(0x20) Ngeyser1 = unused
+(0x10) Ngeyser2 = unused
+(0x08) Ngeyser3 = unused
+(0x04) Ngeyser4 = unused
+(0x02) Ngeyser5 = unused
+0x01 NaroomGeyser_Wall_Fixed = Set when bone removed
+		
+0x2ade 	
+(0x80) Final_Door = Unused
+
+GC_GLOVES:
+0x40 Encountered_Wence = Set at beginning of Wence Black Agovo cutscene (also set again after Agovo is defeated, but it is already set)
+
+GC_UND_INTRO:
+0x20 Talked_To_Ulk = Set when talking to Ulk for the first time. Shortens her dialogue
+0x10 Talked_To_Gogor = Set when Gorgor intro cutscene ended. Disables cutscene
+0x08 Learned_Of_Gruk = Set after talking to Gruk, enables kidnapping
+
+GC_UND_QUAKE:
+(0x04) Rock_Drop = unused
+
+GC_UND_GEYSER:
+Trigger1-Trigger4 variables moved to 0x2AF1-0x2AF2
+
+GC_CALD_INTRO:
+0x02 Bonus_Battle00 = Set when Ashyn northwest magi dead
+0x01 Bonus_Battle01 = Set when Ashyn northeast magi dead
+		
+0x2adf 	
+0x80 Bonus_Battle02 = Set when Ashyn southwest magi dead
+0x40 Bonus_Battle03 = Set when Ashyn south magi dead
+
+GC_BOOTS_QUEST:
+(0x20) Dynamite_Scene = Unused
+0x10 Orlons_door = Set when secret passage is opened on Orothe Island. Reset when closed.
+0x08 Orlons_library1 = Flips when checking west bookshelf on Orothe island, to provide two different flavour texts
+0x04 Orlons_library2 = Flips when checking middle bookshelf on Orothe island, to provide two different flavour texts
+0x02 Orlons_Talked = Set when talking to Orlon for the first time (flavour text)
+0x01 Algae1 = Picked up first west Algae
+		
+0x2ae0 	
+0x80 Algae2 = Picked up second middle Algae
+0x40 Algae3 = Picked up third southeast Algae (and got Water of Life)
+
+GC_CALD_GEYSER:
+0x20 Cldgeyser_Trig1 = Cald Geyser PuzzleA 1st switch triggered from first platform
+0x10 Cldgeyser_Trig2 = Cald Geyser PuzzleA 2nd switch triggered from first platform
+0x08 Cldgeyser_Trig3 = Cald Geyser PuzzleA 1st switch triggered from second platform
+0x04 Cldgeyser_Trig4 = Cald Geyser PuzzleA 3rd switch triggered from first platform
+0x02 Cldgeyser_Trig5 = Cald Geyser PuzzleA switch triggered from third platform
+0x01 Cldgeyser_Trig6 = Cald Geyser PuzzleA 2nd switch triggered from second platform
+		
+0x2ae1 	
+0x80 CLDGEYSER02_Chest7 = Cald Geyser - PuzzleA cul de sac end northwest, kickable - Rune of Fury
+0x40 CLDGEYSER02_Chest8 = Cald Geyser - PuzzleA cul de sac end middleeast, kickable - Baloo Leaf
+0x20 CLDGEYSER02_Chest5 = Cald Geyser - PuzzleA cul de sac first chest, kickable - Baloo Leaf
+0x10 CLDGEYSER02_Chest6 = Cald Geyser - PuzzleA cul de sac second chest, kickable - 65 Animite (decreased from 100 animite in GBC)
+0x08 Cldgeyser_Trig11 = Cald Geyser PuzzleA unimplemented northeast door switch triggered
+0x04 Cldgeyser03_Trig1 = Cald Geyser PuzzleB northeast switch triggered
+0x02 Cldgeyser03_Trig2 = Cald Geyser PuzzleB southeast 1st switch triggered
+0x01 Cldgeyser03_Trig3 = Cald Geyser PuzzleB southeast 2nd switch triggered
+		
+0x2ae2 	
+0x80 Cldgeyser03_Trig4 = Cald Geyser PuzzleB southwest lava switch triggered
+0x40 Cldgeyser03_Trig5 = Cald Geyser PuzzleB southwest barrier switch triggered
+0x20 Cldgeyser04_Trig1 = Cald Geyser Antechamber switch triggered
+0x10 Cldgeyser05_Trig1 = Cald Geyser core stone room switch triggered
+0x08 Cldgeyser_Boxxle1 = Set after solving PuzzleA bottom puzzle (so you don't have to solve it again)
+0x04 Cldgeyser_Boxxle2 = Set after solving PuzzleA middle puzzle
+0x02 Cldgeyser_Boxxle3 = Set after solving PuzzleB northeast puzzle. Reset whenever Cldgeyser03_Trig1 is set
+0x01 Cldgeyser_Boxxle4 = Set after solving PuzzleB southwest puzzle. Reset whenever Cldgeyser03_Trig4 is set
+		
+0x2ae3 	
+0x80 Cldgeyser_Boxxle5 = Set after solving PuzzleB southeast puzzle. Reset whenever Cldgeyser03_Trig2 or Cldgeyser03_Trig3 is set
+(0x40) Cldgeyser_Boxxle6 = unused
+0x20 Cldgeyser_Boxxle7 = Set after solving Antechamber puzzle
+0x10 Cldgeyser_Boxxle8 = Set after solving PuzzleA cul de sac kickable chests
+
+GC_TONY_KIDNAPPED:
+(0x08) Party_Intro = unused
+0x04 Playscene = Set to transition the animation in the Cald play. Set when Dan is supposed to jump in a chase the ShadowMagi in the Cald party play. Reset once Dan jumps in. Set when Dan is supposed to kick away the ShadowMagi.
+(0x02) Girl_Stormed_Off = unused, but similar var is used in 2AF0:0
+
+GC_SHADOWHOLD_JAIL:
+Note that all the door and switch variables were moved to 0x2AF2-0x2AF5
+(0x01) BigRedKey = unused (screwdriver is used instead)
+		
+0x2ae4 	
+0x80 FloorFell = Floor is collapsed in after taking Shadow Key in labyrinth
+0x40 HLDMAZE07_Corefight = Set when triggering Magi fight. Prevents fight from occurring twice
+0x20 HLDMAZE07_Feather = Set when Cloud Frond room feather is picked up, to prevent it from respawning
+0x10 Stuff = Set when Dan gets his stuff back from the Shadowhold chest
+0x08 Outside_key = Set when Shadow Key picked up from ground in Shadowhold Marina
+0x04 HldMaze04Trigger1 = Set when switch in Shadowhold middle first intersection is triggered by Arderial guard
+(0x02) Hold_Bit = unused, but a similar var is at 0x2AF5:0
+
+GC_BACK_IN_OROTHE:
+(0x01) Talked_To_Orlon = unused
+		
+0x2ae5 	
+GC_OROTHE_GEYSER:
+0x80 Warrada_Scene2 = Set when encountering Warrada mid-geyser (so it only triggers once)
+0x40 Warrada_Scene3 = Set when encountering Warrada by the core stone (so it only triggers once)
+Geyser switches are relocated to 0x2AF7-0x2AF8
+
+GC_FALSE_END:
+(0x20)
+
+GC_ARD_GEYSER:
+Moved to 0x2AFC-0x2B00
+
+GC_END_FUNERAL:
+0x10 Gia_Funeral = Set when loading Glade
+0x08 Gogor_Funeral = Set after talking to Ulk
+0x04 Wence_Funeral = Set after Wence & Gia cutscene
+0x02 Eidon_Funeral = Talked to Eidon
+
+GC_END_PARTY:
+0x01 Party_Gia = Set at the start of the party
+		
+0x2ae6 	
+0x80 Party_Orlon = Beat Orlon's rock shuffle game
+0x40 Party_Seer = Beat the Seer's game without a hint
+0x20 Party_Blu = Talked to Blu
+0x10 Party_Gruk = Talked to Gruk (Underneath quest part 1)
+0x08 Party_Ulk = Talked to Ulk (Underneath quest part 2)
+0x04 Party_Gogor = Talked to Gogor (Underneath quest part 3)
+0x02 Party_Pruitt = Talked to Pruitt
+0x01 Party_Salafy = Talked to Salafy
+		
+0x2ae7 	
+0x80 Party_Evu = Completed Evu jellybean fetch quest (part 3)
+0x40 Party_Poad = Talked to Poad
+0x20 Party_Yaki = Talked to Yaki
+0x10 Party_Logan = Talked to Logan, started Worveline fetch quest
+0x08 Party_Worveline = Completed Worveline fetch quest, Worveline given back to Logan
+0x04 Party_Eidon = Talked to Eidon
+0x02 Party_Valkan = Talked to Valkan
+0x01 SeerGameHint = Set when used a hint in the Seer's game. Reset at end of game.
+		
+0x2ae8 	
+0x80 Evu_Conversation_2 = Evu requested jellybeans (part 1 of Evu quest)
+0x40 Party_Jellybeans = Jellybeans obtained for Evu (part 2 of Evu quest)
+0x20 Worveline_Caught = Set when Worveline found. Reset when given back to Logan
+0x10 Party_Secret = Set when leaving party if all Party_ vars were set. Enables Evu's secret cutscene
+
+Global vars:
+
+0x08 Worveline = Set when talking to Logan for Worveline scene in Underneath
+0x04 Sick_Orwin = If Orwin is sick. Set at end of cutscene after getting energy band, and reset with Cloud Frond when loading cutscene at Orwin's
+0x02 Cold_Shoulder = Set if Dan has not returned Ashgar's key before the Cald party play. Replaces Cald interactions with cold dialogue and disables Ringsmith and Shop
+0x01 I_Specialkey = Set when Dan has Ashgar's key, reset when given back
+		
+0x2ae9 	
+0x80 Wences_Arrow = Set when Wence's arrow is picked up
+0x40 Vash05_Wence_Talk = Set when talking to Wence about the Spooky Kid's house being overrun with fungus
+0x20 Vash13_Door_Open = Reset when entering Training grounds when Yaki is present. Set when completing the Training room puzzle, opening the door to get Fungicide
+0x10 HldPrisoner1 = Set if prisoner rescued from Shadowhold Marina Room
+0x08 HldPrisoner2 = Set if prisoner rescued from Shadowhold middle first puzzle room
+0x04 HldPrisoner3 = Set if prisoner rescued from Shadowhold middle east pathway arrow room
+0x02 HldPrisoner4 = Set if prisoner rescued from Shadowhold middle north pathway west room
+0x01 HldPrisoner5 = Set if prisoner rescued from Shadowhold middle north pathway east room
+		
+0x2aea 	
+0x80 HldPrisoner6 = Set if prisoner rescued from Shadowhold deep cell southwest room
+0x40 HldPrisoner7 = Set if prisoner rescued from Shadowhold deep cell southeast room
+(0x20) HldPrisoner8 = unused
+0x10 MUSHFARM03_Door = Set when Gruk's basement door is open
+0x08 Vash20_Hollow_Stool = Set when you picked up the Hollow Stool
+0x04 NRMLAKE01_Door = Set when Seer door is open (triggered by Poad, Pruitt, Evu, Tryn)
+0x02 Uncavern03_PoisonedWall = Set when Fungicide wall is destroyed
+(0x01) Uncavern03_Stairway = ?unused. In the GBC game, keeps the Underneath Cavern secret staircase visible after you reveal it once, but it seems to be hidden every time you load the scene in GBA.
+		
+0x2aeb 	
+(0x80) Vash24_MinigameLeftTar = unused
+(0x40) Vash24_MinigameMidTar = unused
+(0x20) Vash24_MinigameRigtTar = unused
+(0x10) Oro_City_Left = unused
+0x08 Forcefield_Dispelled = Set when entering Orothe geyser after Oscent Mar leaves
+(0x04) Core_Ringsmith_Door = unused (the door is always open, unlike the GBC game where it must be opened with a Star Key)
+0x02 Talked_Eidon_With_Stone = Set when talking to Eidon after beating Naroom geyser
+(0x01) Salafy_Bit = unused
+		
+0x2aec 	
+(0x80) Loss_Bit = unused
+0x40 Warrada_Easyway = Reset if refuse Warrada deal, set if accept (which triggers Arderial boss fight). Reset after Arderial Warrada fight
+0x20 WVEPATHVALLEY07Door1 = Set when opening the west Weave door with Ashgar's Key
+0x10 WVEPATHVALLEY07Door2 = Set when opening the east Weave door with Ashgar's Key
+0x08 GiaScene_BeatNaroom = Set when entering Gia's hut after beating Naroom Geyser
+0x04 GiaScene_CaldGeyser = Set when telling Gia and Eidon what happened after being kidnapped to the Cald
+(0x02) EidonScene_QFG = unused
+(0x01) EidonScene_BeatNaroom = unused
+		
+0x2aed 	
+0x80 OroIsl_TonyStranded = Set when Dan sees that the Ferry left without him and he is stranded in Orothe. Allows you to talk to Orlon after
+0x40 Warrada_Scene = Set when Warrada scene triggered in Cald Geyser
+0x20 Right_Thing = Set when Valkan meets you after you get the Boots and you can choose to give Ashgar's Key or not. Prevents the cutscene from triggering twice
+0x10 Beat_CldGeyser = Set when starting cutscene with Korremar at the end of the Cald geyser to prevent the cutscene from happening again
+0x08 CoreDoor_Opening = Set when you open the core door
+0x04 AvoidAgovo_Win = Set when opening the victory chest. Reset when entering the game
+0x02 AvoidAgovo_Played = Set when entering the game, reset when leaving the game
+0x01 AvoidAgovo_Rules = Set after rules explained
+		
+0x2aee 	
+0x80 HdnRoom03_Bombed = Underneath Tunnels - Hyren - Blast Urn
+0x40 BoxxleGlade_Bombed = Naroom Forest - Puzzle - Blast Urn
+0x20 Undtunnel18_Bombed = Underneath Tunnels - Top wall - Blast Urn
+0x10 Undtunnel21_Bombed = Underneath Tunnels - Bottom wall - Blast Urn
+0x08 Undtunnel22_Bombed = East Underneath Tunnels - Blast Urn
+0x04 Cldlavavent01_Bombed01 = Cald Lava Vents - West - Blast Urn
+0x02 Cldlavavent01_Bombed02 = Cald Lava Vents - East - Blast Urn
+0x01 Cldlavavent04_Bombed = Cald Lava Vents - Pathway Island - Blast Urn
+		
+0x2aef 	
+0x80 Cldlavavent05_Bombed = Cald Lava Vents - Island - Blast Urn
+0x40 HldPrisoner1Talk = Set when getting reward from prisoner in Vash Naroom (Water of Life)
+0x20 HldPrisoner2Talk = Set when getting reward from prisoner in east Ashyn (Master Rune)
+0x10 HldPrisoner3Talk = Set when getting reward from prisoner at Wheat Farm (Master Rune)
+0x08 HldPrisoner4Talk = Set when getting reward from prisoner in destroyed Bogrom (Master Rune)
+0x04 HldPrisoner5Talk = Set when getting reward from prisoner in Underneath Caverns secret room (Master Rune)
+0x02 HldPrisoner6Talk = Set when getting reward from prisoner in the Cald Lava Vents secret room (Water of Life)
+0x01 HldPrisoner7Talk = Set when getting reward from prisoner at the Orothe Ferry (Master Rune)
+		
+0x2af0 	
+(0x80) HldPrisoner8Talk = unused (the scene where the character appears was cut from the GBA game likely due to running out of dev time. in the GBC game, you can just meet the character by hacking)
+0x40 NRMVASH01_Oldman_Told = Set when Old Man on Naroom Stairs tells Dan Orwin is sick, to prevent dialogue from triggering twice
+(0x20) HDNLOAD01_Door = unused, probably (as not implemented)
+0x10 Orlons_Buddy = Set when loading Orothe Island house scene after OroIsl_TonyStranded is set. Allows you to talk to Orlon to leave the island, and enables Soap_Gag
+0x08 Soap_Gag = Set when telling Eidon where Soap comes from after travelling with Oflardt
+0x04 Poop_Gag = Set when Poop gag is triggered at Gia's Hut's storage shed
+0x02 Wence_On_His_Way = Set when talking to Ulk for the first time (same time as Talked_To_Ulk). Makes Wence disappear from his house
+
+GBA exclusive variables start from now on (including GBC variables re-implemented in a different way). Comes in no particular ordering.
+
+0x01 [Girl_Stormed_Off2] = Set after the first magic trick in west Ashyn during the party. Reset upon scene load
+		
+0x2af1 	
+GC_UND_GEYSER & GC_ARD_GEYSER:
+0x80 [Geyser_State_Green] = Geyser: Green button pressed
+0x40 [Geyser_State_Orange] = Geyser: Orange button pressed
+0x20 [Geyser_State_Blue] = Geyser: Blue button pressed
+0x10 [Geyser_State_Red] = Geyser: Red button pressed
+
+0x08 [?TriggerCutscene_WenceHouse] = Set as Dan teleports to Wence's Hut, Reset once appearing there. Palette-fade-related? Or cutscene?
+(0x04) ? possibly unused
+0x02 [TriggerCutscene_Morag_Kidnaps] = Set at end of telling Gia about Morag and destroyed Bogrom, before being kidnapped. Activates Morag scene at Gia's hut, reset at start of scene
+
+GC_UND_GEYSER:
+0x01 Trigger1 = Underneath Geyser - east switch
+		
+0x2af2 	
+0x80 Trigger2 = Underneath Geyser - south switch
+0x40 Trigger3 = Underneath Geyser - north switch
+0x20 Trigger4 = Underneath Geyser - west switch
+
+GC_SHADOWHOLD_JAIL:
+Note that switches are disabled when pointing left, and enabled when pointing right, which is the *opposite* compared to the GBC game
+0x10 CellSwitch1 = Switch state at Middle Door
+0x08 CellSwitch2 = Switch state at Marina Room
+0x04 CellDoor1 = Set when opened Marina Room jail door for HldPrisoner1
+0x02 DOOR_1 = Set when opened middle first puzzle jail door for HldPrisoner2
+0x01 DOOR_2 = Set when opened middle east pathway arrow room jail door for HldPrisoner3
+		
+0x2af3 	
+0x80 DOOR_3 = Set when opened middle north pathway west jail door for HldPrisoner4
+0x40 DOOR_4 = Set when opened middle north pathway east jail door for HldPrisoner5
+0x20 DOOR_5 = Set when opened deep cell southwest jail door for HldPrisoner6
+0x10 DOOR_6 = Set when opened deep cell southeast jail door for HldPrisoner7
+0x08 DOOR_7 = Set when Screwdriver door is opened
+0x04 Switch1 = Switch state at middle first puzzle
+0x02 Switch2 = 1st switch state at middle east pathway arrow room
+0x01 Switch3 = 2nd switch state at middle east pathway arrow room
+		
+0x2af4 	
+0x80 Switch4 = 3rd switch state at middle east pathway arrow room
+0x40 Switch5 = 4th switch state at middle east pathway arrow room
+0x20 Switch6 = 5th switch state at middle east pathway arrow room
+0x10 Switch7 = switch state at middle first pathway room
+0x08 Switch8 = switch state at middle north pathway outside of jail rooms
+0x04 Switch9 = switch state at deep cells
+0x02 Switch10 = switch state at middle north pathway west jail room
+0x01 Switch11 = switch state at deep end
+		
+0x2af5 	
+0x80 Switch12 = 6th switch state at middle east pathway arrow room
+
+0x40 NRMVASH20_Chest1 = Vash Naroom - Spooky kid's - 5 animite
+0x20 MENU_Disable = Start Menu disabled (Start Menu, Tavel Gorge)
+0x10 [TriggerCutscene_LeavingVault] = Set when you leave the Vault with the boots, to trigger Blu's farewell vault cutscene. Reset at end of cutscene
+0x08 Vault_Chest = Orothe Tunnels - Vault - Agadon's Boots
+0x04 [TriggerCutscene_Abandoned_Tower] = Set in middle of cutscene in the bottom floor of Abandoned Tower, Reset once middle cutscene is over, but does not get reset if Dan leaves the tower and triggers the outside cutscene (instead of the inside cutscene)
+0x02 [Shadowhold_StartCell_Door] = Set when Dan's jail cell is open
+0x01 [TriggerCutscene_Shadowhold_ArderialSaviour] = Set while Dan stews in his Shadowhold cell to trigger the Arderial Guard saving Dan. Reset at end of cutscene
+		
+0x2af6 	
+0x80 [?TriggerCutscene_LeavingMar] = Set when starting Cutscene of Oscent Mar leaving. Reset at start of cutscene
+0x40 ORORUINS02_Chest2 = Ruins - northwest blurry southwest - Blurry
+0x20 HLDMAZE04Chest1 = Shadowhold - Middle First Intersection west - Gortah
+0x10 [?TriggerCutscene_BluShowsGeyser] = Set when entering Oscent Mar with Blu. Immediately reset. Cutscene-related?
+0x08 HLDMAZE13Chest1 = Shadowhold - Labyrinth south - Gortah
+0x04 HldChest3 = Shadowhold - Labyrinth north - Shadow Key + triggers ground collapse (see 0x2AE4:7)
+0x02 HLDMAZE22Chest1 = Shadowhold - Deep End south - Gortah
+0x01 [?FerryRelatedUnknown] = Reset when Dan debords in Orothe for the first time via Ferry? Already reset
+		
+0x2af7 	
+0x80 [?Cutscene_Oflardt_Weave] = Set right before triggering cutscene where Oflardt kicks Dan off at the Weave dock. Not reset
+0x40 [TriggerCutscene_Vash_Party1] = Set when Vash cutscene occuring for party. Reset after
+0x20 [TriggerCutscene_Vash_Party2] = Set when Vash cutscene occuring for party. Reset after
+0x10 [TriggerCutscene_Vash_Party3] = Set when Vash cutscene occuring for party/funeral. Reset after
+0x08 [?TriggerCutscene_Ashyn_Geyser] = Set right before loading Dan kidnapped to Cald scene, reset at end of scene. Scene trigger?
+(0x04) ? possibly unused
+
+GC_OROTHE_GEYSER:
+0x02 OROGEYSER01_Trig1 = Orothe Geyser north switch
+0x01 OROGEYSER01_Trig2 = Orothe Geyser east switch
+		
+0x2af8 	
+0x80 OROGEYSER01_Trig3 = Orothe Geyser south switch
+0x40 OROGEYSER09_Trig1 = Orothe Geyser southwest switch
+
+0x20 [?Unknown1] = Set when saving in Shadowhold jail & Orothe/Arderial Inn. Reset when save is done. Set when using Eldritch awl (sometimes?) Set when teleporting from Orothe Island to Vash when Eidon gets you. ?Palette-fade related
+(0x10) ? possibly unused
+0x08 [Cald_Battle_Phase1] = Set when triggering the first battle during the Ashyn ShadowMagi invasion
+0x04 [?TriggerCutscene_WenceThanksAgovo] = Set when loading Wence Black Agovo battle, Reset by script after the battle
+0x02 [?ShadowholdMarinaUnknown] = Set when loading Shadowhold Marina Jump scene. Reset when loading Shadowhold Marina Pathway.
+0x01 [Cald_Battle_Phase2_MiddleWest] = Set when triggering the second surprise battle between west & middle Ashyn houses during the ShadowMagi invasion
+		
+0x2af9 	
+0x80 [Cald_Battle_Phase2_West] = Set when triggering the second surprise battle between west edge and west Ashyn house during the ShadowMagi invasion
+0x40 [Cald_Battle_Phase2_MiddleEast] = Set when triggering the second surprise battle between middle & east Ashyn houses during the ShadowMagi invasion
+0x20 [Cald_Battle_Phase2_East] = Set when triggering the second surprise battle between east Ashyn house & east wall during the ShadowMagi invasion
+
+0x10 [Battle_Talk] = Trigger Enemy Magi text in Salafy's tutorial battle and Morag's Underneath battle: Salafy = "Oh no, my Weebo is defeated". Morag = "More impressive than I thought" Reset on battle with magi start, Set every time an enemy creature is defeated in a battle with a magi. Also manually set at the start of the Warrada battle in the Cald geyser.
+0x08 HLDMAZE08Chest3 = Shadowhold - screwdriver room south - Gortah
+0x04 [Cald_Battle_PreventExit] = Set at beginning and reset at end of ShadowMagi invasion. Changes the scene hotspots to the invasion hotspots (coward and surprise house attack)
+0x02 [?Cald_Battle_Unknown] = ?Reset at end of ShadowMagi invasion, but not set in the first place
+(0x01) ? possibly unused
+		
+0x2afa 	
+0x80 NRMVASH12_Chest2 = Vash Naroom - Evu's - Remedy Drink
+0x40 [TriggerCutscene_ArderialEscort] = Set when Zet is defeated. Triggers cutscene in the clouds. Resets at the cutscene starts.
+0x20 [?Visited_Palace] = Set right as palace is loaded during the cutscene
+0x10 [Cald_Party_Fall_Into_Inn_Cutscene] = Set as Dan jumps into the Cald Inn after the magic trick during the party. Reset at beginning of cutscene
+0x08 [OrwinCutsceneHide] = Set when Seer travels to see Orwin, Reset at end of cutscene. Set when Eidon brings Dan after Orothe Geyser. Reset at beginning of cutscene. Set when Seer goes to cure Orwin. Reset at beginning of cutscene. Hides Orwin and his helper from the scene, so the scene can be manually populated for the cutscene maybe.
+0x04 Battle_No_Booty = Disables Loot and Experience from a battle. Set at start of Salafy tutorial battle, reset at end of every battle
+0x02 [Battle_Run_Disable] = Disables Run for enemy magi fights excluding Salafy. Also Set for Black Agovo Wence battle and Gortah battles. Reset at end of battle
+0x01 [?SaveGame_Unknown1] = Set on game init, reset on New Game, set when saving
+		
+0x2afb 	
+(0x80) ? possibly unused
+
+GC_ARD_GEYSER intersparsed with a few unrelated vars:
+0x40 ARDGEYSER01_Door1 = Arderial geyser entrance door opened
+0x20 [?SaveGame_Unknown2] = Set on game init, reset on New Game, Set on game save
+0x10 ARDGEYSER02_Door10 = Arderial Geyser key maze west second door opened
+0x08 ARDGEYSER02_Door3 = Arderial Geyser key maze west first door opened
+0x04 ARDGEYSER02_Door2 = Arderial Geyser key maze middle first door opened
+0x02 ARDGEYSER02_Door4 = Arderial Geyser key maze middle second door opened
+0x01 ARDGEYSER02_Door9 = Arderial Geyser key maze middle third door opened
+		
+0x2afc 	
+0x80 ARDGEYSER02_Door5 = Arderial Geyser key maze east cul-de-sac door opened
+0x40 ARDGEYSER02_Door1 = Arderial Geyser key maze east first door opened
+0x20 ARDGEYSER02_Door6 = Arderial Geyser key maze east second door opened
+0x10 ARDGEYSER02_Door7 = Arderial Geyser key maze east third door opened
+0x08 ARDGEYSER02_Door8 = Arderial Geyser key maze final door opened
+0x04 Ardgeyser_Boxxle1 = Set when passing the west cald puzzles to mark it as solved (even if you cheated by flying). Reset when deactivating west cald switch.
+0x02 Ardgeyser_Trig8 = Arderial Geyser west cald switch. Reset when entering Arderial Geyser
+0x01 Ardgeyser_Trig9 = Arderial Geyser east cald switch. Reset when entering Arderial Geyser
+		
+0x2afd 	
+0x80 Ardgeyser_Trig13 = Arderial Geyser west naroom north switch. Reset when entering Arderial Geyser
+0x40 Ardgeyser_Trig14 = Arderial Geyser west naroom west switch. Reset when entering Arderial Geyser
+0x20 Ardgeyser_Trig12 = Arderial Geyser east naroom west switch. Reset when entering Arderial Geyser
+0x10 Ardgeyser_Trig11 = Arderial Geyser east naroom east switch. Reset when entering Arderial Geyser
+0x08 Ardgeyser_Trig1 = Arderial Geyser pipe switch 1. Reset when entering Arderial Geyser
+0x04 ARDGEYSER13_Door1 = Arderial Geyser behind first pipe west first door opened
+0x02 ARDGEYSER13_Door2 = Arderial Geyser behind first pipe east door opened
+
+0x01 [Rock_Shuffling] = Set at start of Orlon's rock shuffle during the Vash party. Reset at end of shuffle
+		
+0x2afe 	
+0x80 [Cald_Battle_Phase3] = Set when triggering the boss battle during Ashyn ShadowMagi invasion
+0x40 ARDGEYSER14_Door1 = Arderial Geyser behind first pipe west second door opened
+0x20 [TriggerCutscene_Cald_Party_Play] = Set to load party play cutscene, reset at beginning of cutscene
+0x10 [Cald_Party_LavaArboll] = Set when Lava Arboll trick cutscene starts. Reset during Cald party when entering east Ashyn so you can repeat the cutscene.
+0x08 [Dug_Deep_Cell] = Set when you dig out the 1 diggable tile in the northeast cell of the Shadowhold deep cells. Prevents it from respawning
+0x04 [Credits] = Set when summoning credits start. Reset at end of summoning credits
+0x02 ARDGEYSER19_Door1 = Arderial Geyser starry end first door opened
+0x01 ARDGEYSER19_Door2 = Arderial Geyser starry end northeast door opened
+		
+0x2aff 	
+0x80 ARDGEYSER19_Door3 = Arderial Geyser starry end second door opened
+0x40 Ardgeyser_Trig2 = Arderial Geyser pipe switch 2. Reset when entering Arderial Geyser
+0x20 Ardgeyser_Trig4 = Arderial Geyser pipe switch 4. Reset when entering Arderial Geyser
+0x10 Ardgeyser_Trig3 = Arderial Geyser pipe switch 3. Reset when entering Arderial Geyser
+0x08 ARDGEYSER25_Door1 = Arderial Geyser small starry cul-de-sac door opened
+0x04 Ardgeyser_Trig5 = Arderial Geyser pipe switch 7. Reset when entering Arderial Geyser
+0x02 Ardgeyser_Trig6 = Arderial Geyser pipe switch 6. Reset when entering Arderial Geyser
+0x01 Ardgeyser_Trig7 = Arderial Geyser pipe switch 5. Reset when entering Arderial Geyser
+		
+0x2b00 	
+0x80 Ardgeyser_Trig10 = Arderial Geyser end cald switch. Reset when entering Arderial Geyser
+0x40 [?Korg_Defated] = Set when Korg is defeated
+
+(0x20) ? possibly unused
+(0x10) ? possibly unused
+0x08 [?Agram_Vanished] = Set when Agram vanishes after being defeated, possibly to trigger cutscene of stone people reviving
+0x04 [Vash13_Door_West] = Reset when entering Training grounds. Set when at 9 o'clock position of head
+0x02 [Vash13_Door_South] = Reset when entering Training grounds. Set when at 5 o'clock of head
+(0x01) ? possibly unused
+		
+0x2b01 	
+0x80 [Funeral_CanProgress] = Set when the funeral party makes it through the first scene to the end. Allows you to progress to the next scene.
+0x40 [Vash13_Door_CloseOnLoad] = Related to the Training Room door. Unclear what causes it to be set/reset. If this bit is set, the door will be shut closed when entering the Training room?
+0x20 [OrotheanBelt] = Set when Dan gets the Orothean belt
+0x10 [?OrotheOverworld_Unknown] = Set when Dan enters the Orothe overworld and reset immediately after.
+0x08 [?AbandonedTower_Unknown] = Set when starting indoors Abandoned Tower scene in Underneath.
+0x04 [Ashgars_KeySearchMode] = Prevents Dan from leaving Ashgar's house, and lets Dan grab the key. Set when entering Asghar's house to get the key. Reset when Dan ends cutscene on south Ashyn bridge
+0x02 [Cald_Battle_Indoors] = Set when Tony tries to enter center house during ShadowMagi invasion in Ashyn. Prevents the surprise battle from triggering again
+0x01 [Wence_Shooting] = Set as Wence shoots arrow at Morag - Reset once Morag disappears. Perhaps Sprite-rendering-related?
+		
+0x2b02 	
+0x80 [Overworld_Ferry] = Set when travelling via Ferry in the Overworld (including the first cutscene), reset after the end of the trip
+0x40 [?Palette_Unknown] = Set when travelling in Underneath Geyser's west/north tube, reset after travelled through. Ditto for using core stone portals. Related to palette fading?
+0x20 [Riding_Parathin] = Set when on Giant Parathin in Orothe overworld, and reset when disembarked. Reset when entering Oscent Mar or the Orothe Geyser
+0x10 [HldCell01_Feather_Taken] = set when feather is picked up in Shadowhold jail
+0x08 [TriggerCutscene_GiaScene_CaldGeyser] = Set at trigger cutscene for GiaScene_CaldGeyser, reset at beginning of cutscene
+0x04 [DualSummon] = Set and immediately reset every turn when Salafy/Agram tries to dualsummon
+0x02 [Vash13_Door_East] = Reset when entering Training grounds. Set at 4 o'clock position of head
+0x01 [Vash13_Door_North] = Reset when entering Training grounds. Set at 12 o'clock position of head
+		
+0x2b03 	
+0x80 [Vash13_PuzzleFailed] = Reset when entering Training grounds. If you step on the wrong hotspot (go the wrong way, or do more than 5 laps), then this is set, disabling all the Training ground hotspots until you leave and re-enter the scene
+0x40 [Vash13_PuzzleEnabled] = Reset when entering Training grounds. If Yaki absent, set when entering Training grounds (GC_CALD_GEYSER & GC_BATTLE_AGRAM, unlike GBC version where you can only do it during GC_CALD_GEYSER). If this bit is reset, all Training ground hotspots are disabled
+0x20 HDNLAVATUBE03_Trig1 = Set when triggering the switch in the secret room in the East Cald Tubes to open the door
+0x10 HDNROOM04_Chest2 = Underneath Tunnels - inside shortcut left - Gortah
+0x08 HDNUNDTUN04_Chest2 = Underneath Tunnels - bottom blast urn - Baloo Root
+0x04 HDNUNDTUN04_Chest1 = Underneath Tunnels - bottom blast urn - Water of Life
+0x02 FORT03_Chest1 = Abandoned Tower - middle floor - Baloo Sap
+0x01 Newgame_Plus = Set on New Game+ start
+		
+0x2b04 	
+0x80 WVEPATHVALLEY04_Chest1 = Weave - Farm wheat - Water of life
+
+(0x40) These are probably unused alignment bits
+(0x20)
+(0x10)
+(0x08)
+(0x04)
+(0x02)
+(0x01)
+		
+0x2b05 	
+Script_SaveVars [53 bytes]
+Vars controlled by script
+Variables in [] are GBA-exclusive and have invented names
+All values default to 0
