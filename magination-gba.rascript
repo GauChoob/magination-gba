@@ -2359,7 +2359,7 @@ achievement(
     trigger = game_loaded() && changes_from_to(HeroAbilities, 3, 4)
 )
 achievement(
-    title = "Highway to Heaven", points = 2,
+    title = "Highway to Heaven", points = 3,
     description = "Meet the Queen",
     id = 000000, badge = "000000",// type = "progression",
     trigger = game_loaded() && changes_from_to(HeroAbilities, 4, 5)
@@ -2466,12 +2466,12 @@ achievement(
 )
 achievement(
     title = "Junk Collector", points = 1,
-    description = "Find all 3 useless items on the ground",
+    description = "Find all 3 useless items on the ground: two Feathers and Wence's Arrow",
     id = 000000, badge = "000000",// type = "missable",
     trigger = collection(Treasure_Useless, Treasure_Useless_Length)
 )
 achievement(
-    title = "Jailbreak", points = 10,
+    title = "Jailbreak", points = 25,
     description = "After rescuing all 7 prisoners, claim a reward from each of them throughout the world",
     id = 000000, badge = "000000",// type = "missable",
     trigger = collection(HldPrisoners, HldPrisoners_Length)
@@ -2485,7 +2485,7 @@ achievement(
 achievement(
     title = "Bombs Away", points = 10,
     description = "Open 5 passageways using Blast Urns",
-    id = 000000, badge = "000000",// type = "missable",
+    id = 000000, badge = "000000",// type = "",
     trigger = collection(BlastUrns, 5) // We only require 5 out of the total of 9
 )
 
@@ -2551,8 +2551,8 @@ achievement(
     trigger = game_loaded() && always_false() // TODO
 )
 achievement(
-    title = "Twins", points = 3,
-    description = "Get a gift from either Karyn or Eryn",
+    title = "Twins' Kiss", points = 3,
+    description = "Get a Spice of Life or Pinch of Life from Karyn or Eryn",
     id = 000000, badge = "000000",// type = "missable",
     trigger = game_loaded() && changes_to(TCState, 4)
 )
@@ -2577,7 +2577,7 @@ achievement(
 achievement(
     title = "The Dark Side", points = 10,
     description = "Visit the Core Ringsmith",
-    id = 000000, badge = "000000",// type = "missable",
+    id = 000000, badge = "000000",// type = "",
     trigger = game_loaded() && always_false() // TODO
 )
 
@@ -2609,7 +2609,7 @@ achievement(
 achievement(
     title = "Now THAT is a BIG Mushroom", points = 25,
     description = "Encounter Ormagon",
-    id = 000000, badge = "000000",// type = "win_condition",
+    id = 000000, badge = "000000",// type = "missable",
     trigger = game_loaded() && get_creature(1, BattleCreature_Enemy2, Creature_Offset_ID) == Creature_Ormagon // We don't really need a delta here
 )
 
