@@ -26,9 +26,10 @@ class Var:
             return f'bit{self.bit}(0x{self.address:04X})'
         else:
             return self.name
-    
+
     def __int__(self):
         return 1
+
 
 class Bitfield:
     def __init__(self, name, my_vars, all_vars):
@@ -39,7 +40,7 @@ class Bitfield:
         for var in my_vars:
             self.bits[7 - var.bit] = 1
         self.all_vars = all_vars
-    
+
     def collect_bits(self):
         return int(''.join(map(str, self.bits)), 2)
 
@@ -60,9 +61,10 @@ class Bitfield:
             f"Bitfield(name='{self.name}', address={self.address}, "
             f"bits={self.bits}, my_vars={self.my_vars})"
         )
-    
+
     def __int__(self):
         return sum(self.bits)
+
 
 def validate(vars):
     names = set()
@@ -71,6 +73,7 @@ def validate(vars):
             if var.name in names:
                 print(f'Error: {var.name} appears multiple times in set!')
             names.add(var.name)
+
 
 def build_collections(vars):
     collection_map = {
@@ -81,9 +84,9 @@ def build_collections(vars):
         'Cald': 'Treasure_Cald',
         'Cald_Geyser': 'Treasure_CaldGeyser',
         'Shadowhold': 'Treasure_Shadowhold',
-        'Orothe': 'Treasure_Orothe',
+        'Orothe': 'Treasure_Orothe',  # Exclude the 3 Algae so the achievement is not missable
         'Orothe_Geyser': 'Treasure_OrotheGeyser',
-        'Arderial': 'Treasure_ArderialGeyser',  # Merge w geyser
+        'Arderial': 'Treasure_Arderial',
         'Arderial_Geyser': 'Treasure_ArderialGeyser',
         'Feather': 'Treasure_Useless',
         'HldPrisoner': 'HldPrisoners',
@@ -96,7 +99,7 @@ def build_collections(vars):
     for address in vars:
         for var in vars[address]:
             for collection in var.collections:
-                if collection in ['', 'Core', 'Stool']:  # Skip these
+                if collection in ['', 'Core', 'Stool', 'Algae']:  # Skip these
                     continue
                 target = collection_map[collection]
                 if target not in collections:
@@ -113,6 +116,7 @@ def build_collections(vars):
                 collections[target][address] = [bitfield]
                 bitfields[bitfield.address] = bitfield
     return collections, bitfields
+
 
 def main():
     with open('vars.csv', 'r') as f:
