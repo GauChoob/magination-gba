@@ -1,4 +1,9 @@
 Level 0 to 98 level-up costs
+
+Level 1 to 98 equation:
+Animite = Level*10
+InfusedAnimite = 3 + (Level + 1)//20
+
 00, 0
 10, 3
 20, 3

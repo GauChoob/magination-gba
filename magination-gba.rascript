@@ -1254,9 +1254,12 @@ function spell(id) =>
 ///////////////
 // Misc Vars //
 ///////////////
-BaseStrict_IsInBattle = byte(map(0x3000054))
+BaseStruct_IsInBattle = byte(map(0x3000054))
 function in_battle() =>
-    BaseStrict_IsInBattle == 1
+    BaseStruct_IsInBattle == 1
+BaseStruct_GraphicsSubStruct_TextboxIsBusy = byte(map(0x03001440))
+function in_textbox() =>
+    BaseStruct_GraphicsSubStruct_TextboxIsBusy == 1
 Ticker_byte = byte(map(0x30016C0)) // Actually a dword, but we use it to iterate over 256 frames
 Ticker = dword(map(0x30016C0))
 DanStruct_DanX = dword(map(0x3002F78))
@@ -1677,12 +1680,14 @@ function scene_id() =>
 Script_LinkedList = map(0x03003508)
 ScriptStruct_Frame = 0x04
 ScriptStruct_FrameOffset = 0x14
-function get_nth_script_frame(n) {
-    return dword(pointer(get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_Frame))
-}
-function get_nth_script_offset(n) {
-    return dword(pointer(get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_FrameOffset))
-}
+function get_nth_script_frame(n) =>
+    dword(pointer(get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_Frame))
+
+function get_nth_script_offset(n) =>
+    dword(pointer(get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_FrameOffset))
+
+function get_nth_script(n) =>
+    get_nth_script_frame(n) + get_nth_script_offset(n)
 
 ////////////////////////////
 // Misc General Functions //
@@ -1767,7 +1772,7 @@ function forge(creature) =>
     increases(InventoryStruct_RingCount) &&
     get_creature(0, InventoryStruct_RingCount - 1, Creature_Offset_ID) == creature
 
-achievement(
+achievement(//Good
     title = "Great Furok", points = 5,
     description = "Obtain a Great Furok by almost escaping the Tavel Gorge caves",
     id = 000000, badge = "000000", type = "missable",
@@ -1867,7 +1872,7 @@ achievement(
 // Spells //
 ////////////
 
-achievement(
+achievement(//Good
     title = "Throw Leaves at Enemies", points = 1,
     description = "Obtain Leaf Cut in Naroom",
     id = 000000, badge = "000000", type = "",
@@ -1936,11 +1941,12 @@ achievement(
 
 // Abilities //
 ///////////////
+Script_Eidon_DidItWork = 0x081838DA
 achievement(
     title = "Welcome to the Jungle", points = 1,
     description = "Obtain the Translation Bracelet",
     id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() //&&  // TODO
+    trigger = game_loaded() && get_nth_script(1) == Script_Eidon_DidItWork
 )
 achievement(
     title = "You're the Best Around", points = 1,
@@ -2868,21 +2874,28 @@ rich_presence_conditional_display(
 // Debug Functions //
 /////////////////////
 rich_presence_display(
-    "Scene: {0} - {1} Script1: {2} ({3}) Script2: {4} ({5}) Script3: {6} ({7}) Script4: {8} ({9}) Script5: {10} ({11}) Script6: {12} ({13})",
+    "Scene: {0} - {1} Script1: {2}+{3} ({4}) Script2: {5}+{6} ({7}) Script3: {8}+{9} ({10}) Script4: {11}+{12} ({13}) Script5: {14}+{15} ({16}) Script6: {17}+{18} ({19}) GameCount: {20}",
     rich_presence_value("SceneID", scene_id(), "VALUE"),
     rich_presence_lookup("SceneName", scene_id(), scene_lookup, "???"),
-    rich_presence_value("Script1", get_nth_script_frame(1), "VALUE"),
+    rich_presence_value("Script1Fr", get_nth_script_frame(1), "VALUE"),
     rich_presence_value("Script1Off", get_nth_script_offset(1), "VALUE"),
-    rich_presence_value("Script2", get_nth_script_frame(2), "VALUE"),
+    rich_presence_value("Script1", get_nth_script(1), "VALUE"),
+    rich_presence_value("Script2Fr", get_nth_script_frame(2), "VALUE"),
     rich_presence_value("Script2Off", get_nth_script_offset(2), "VALUE"),
-    rich_presence_value("Script3", get_nth_script_frame(3), "VALUE"),
+    rich_presence_value("Script2", get_nth_script(2), "VALUE"),
+    rich_presence_value("Script3Fr", get_nth_script_frame(3), "VALUE"),
     rich_presence_value("Script3Off", get_nth_script_offset(3), "VALUE"),
-    rich_presence_value("Script4", get_nth_script_frame(4), "VALUE"),
+    rich_presence_value("Script3", get_nth_script(3), "VALUE"),
+    rich_presence_value("Script4Fr", get_nth_script_frame(4), "VALUE"),
     rich_presence_value("Script4Off", get_nth_script_offset(4), "VALUE"),
-    rich_presence_value("Script5", get_nth_script_frame(5), "VALUE"),
+    rich_presence_value("Script4", get_nth_script(4), "VALUE"),
+    rich_presence_value("Script5Fr", get_nth_script_frame(5), "VALUE"),
     rich_presence_value("Script5Off", get_nth_script_offset(5), "VALUE"),
-    rich_presence_value("Script6", get_nth_script_frame(6), "VALUE"),
-    rich_presence_value("Script6Off", get_nth_script_offset(6), "VALUE")
+    rich_presence_value("Script5", get_nth_script(5), "VALUE"),
+    rich_presence_value("Script6Fr", get_nth_script_frame(6), "VALUE"),
+    rich_presence_value("Script6Off", get_nth_script_offset(6), "VALUE"),
+    rich_presence_value("Script6", get_nth_script(6), "VALUE"),
+    rich_presence_value("GameCountValue", GameCount, "VALUE")
 )
 
 for i in range(1, 5) {
