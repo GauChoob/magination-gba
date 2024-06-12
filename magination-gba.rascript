@@ -1715,7 +1715,7 @@ achievement(
 
 function creature_4th_ability_unlocked(i) =>
     (InventoryStruct_RingCount > i) && changes_to(get_creature(0, i, Creature_Offset_UnlockLevelAbility4), Creature_Ability_Unlocked)
-// Todo: test Power, battle level-up, and Crafting 4 ability creature and destroying a creature
+// Todo: test Power (works), battle level-up, and Crafting 4 ability creature and destroying a creature
 achievement(
     title = "Full Arsenal", points = 3,
     description = "Unlock a Dream Creature's 4th unique ability from a level-up",
@@ -2874,26 +2874,14 @@ rich_presence_conditional_display(
 // Debug Functions //
 /////////////////////
 rich_presence_display(
-    "Scene: {0} - {1} Script1: {2}+{3} ({4}) Script2: {5}+{6} ({7}) Script3: {8}+{9} ({10}) Script4: {11}+{12} ({13}) Script5: {14}+{15} ({16}) Script6: {17}+{18} ({19}) GameCount: {20}",
+    "Scene: {0} - {1} Script1: {2} Script2: {3} Script3: {4} Script4: {5} Script5: {6} Script6: {7} GameCount: {8}",
     rich_presence_value("SceneID", scene_id(), "VALUE"),
     rich_presence_lookup("SceneName", scene_id(), scene_lookup, "???"),
-    rich_presence_value("Script1Fr", get_nth_script_frame(1), "VALUE"),
-    rich_presence_value("Script1Off", get_nth_script_offset(1), "VALUE"),
     rich_presence_value("Script1", get_nth_script(1), "VALUE"),
-    rich_presence_value("Script2Fr", get_nth_script_frame(2), "VALUE"),
-    rich_presence_value("Script2Off", get_nth_script_offset(2), "VALUE"),
     rich_presence_value("Script2", get_nth_script(2), "VALUE"),
-    rich_presence_value("Script3Fr", get_nth_script_frame(3), "VALUE"),
-    rich_presence_value("Script3Off", get_nth_script_offset(3), "VALUE"),
     rich_presence_value("Script3", get_nth_script(3), "VALUE"),
-    rich_presence_value("Script4Fr", get_nth_script_frame(4), "VALUE"),
-    rich_presence_value("Script4Off", get_nth_script_offset(4), "VALUE"),
     rich_presence_value("Script4", get_nth_script(4), "VALUE"),
-    rich_presence_value("Script5Fr", get_nth_script_frame(5), "VALUE"),
-    rich_presence_value("Script5Off", get_nth_script_offset(5), "VALUE"),
     rich_presence_value("Script5", get_nth_script(5), "VALUE"),
-    rich_presence_value("Script6Fr", get_nth_script_frame(6), "VALUE"),
-    rich_presence_value("Script6Off", get_nth_script_offset(6), "VALUE"),
     rich_presence_value("Script6", get_nth_script(6), "VALUE"),
     rich_presence_value("GameCountValue", GameCount, "VALUE")
 )
