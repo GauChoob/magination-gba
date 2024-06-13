@@ -73,6 +73,7 @@ function get_nth_linked_list_entry(n, linked_list) {
     return pointer(_traverse_n_linked_list_nodes(n, linked_list), LinkedListStruct_Struct)
 }
 
+// Copy of the 2 above functions, but recursively added prev()
 function _prev_traverse_n_linked_list_nodes(n, linked_list) {
     if(n == 1)
         return linked_list
@@ -1701,11 +1702,12 @@ function get_nth_script_offset(n) =>
 function get_nth_script(n) =>
     get_nth_script_frame(n) + get_nth_script_offset(n)
 
+// Copy of the 3 above functions, but recursively added prev()
 function prev_get_nth_script_frame(n) =>
-    prev(dword(pointer(prev_get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_Frame)))
+    prev(dword(prev(pointer(prev_get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_Frame))))
 
 function prev_get_nth_script_offset(n) =>
-    prev(dword(pointer(prev_get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_FrameOffset)))
+    prev(dword(prev(pointer(prev_get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_FrameOffset))))
 
 function prev_get_nth_script(n) =>
     prev_get_nth_script_frame(n) + prev_get_nth_script_offset(n)
@@ -2248,7 +2250,7 @@ achievement(//TODO
 // Battles //
 /////////////
 function defeat(magi) =>
-     // The Creature_ID resets 2 frames before the BattleExit_Win flag appears, so we can't do a prev unfortunately, and so we use hits
+     // The Creature_ID resets 2 frames before the BattleExit_Win flag appears, so we can't do a prev unfortunately, and so we use hits. Prior is not great either because it's complicated to handle if you lose the battle
     never(!game_loaded()) && never(!in_battle()) && once(get_creature(1, BattleCreature_Magi, Creature_Offset_ID) == magi) && changes_from_to(Battle_Exit_Code, BattleExit_None, BattleExit_Win)
 function magi_maxenergy() =>
     get_creature(1, BattleCreature_Magi, Creature_Offset_MaxEnergy)
