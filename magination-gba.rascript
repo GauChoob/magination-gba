@@ -1982,12 +1982,7 @@ achievement(//TODO
 // Geysers //
 /////////////
 
-achievement(//TODO
-    title = "Hero of Naroom", points = 5,
-    description = "Complete the Naroom Shadow Geyser",
-    id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() && changes_from_to(GameCount, GC_NAROOM_GEYSER, GC_GLOVES)
-)
+// Hero of Naroom: See Battles
 achievement(//TODO
     title = "Hero of the Underneath", points = 5,
     description = "Complete the Underneath Shadow Geyser",
@@ -2025,7 +2020,7 @@ achievement(//TODO
     id = 000000, badge = "000000", type = "missable",
     trigger = collection(Treasure_Naroom, Treasure_Naroom_Length)
 )
-achievement(//TODO
+achievement(
     title = "Baby's First Pokedex", points = 1,
     description = "Open all the chest in the Naroom Geyser",
     id = 000000, badge = "000000", type = "missable",
@@ -2050,7 +2045,7 @@ achievement(//TODO
     trigger = collection(Treasure_Cald, Treasure_Cald_Length)
 )
 achievement(//TODO
-    title = "Diamonds: Girl's Best Friend", points = 5,
+    title = "Diamonds Are a Girl's Best Friend", points = 5,
     description = "Open all the chests in the Cald Geyser",
     id = 000000, badge = "000000", type = "missable",
     trigger = collection(Treasure_CaldGeyser, Treasure_CaldGeyser_Length)
@@ -2117,11 +2112,12 @@ achievement(//TODO
 
 // Misc //
 //////////
-achievement(//TODO
+Script_PoopGag_Oh = 0x081882AC
+achievement(
     title = "Outhouse", points = 1,
     description = "Look inside Gia's 'storage shed'",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && increases(Poop_Gag)
+    trigger = game_loaded() && get_nth_script(1) == Script_PoopGag_Oh
 )
 achievement(//TODO
     title = "So That's Where Soap Comes From", points = 1,
@@ -2205,33 +2201,40 @@ achievement(//TODO
 // Battles //
 /////////////
 function defeat(magi) =>
-    get_creature(1, BattleCreature_Magi, Creature_Offset_ID) == magi && changes_from_to(Battle_Exit_Code, BattleExit_None, BattleExit_Win)
+     // The Creature_ID resets 2 frames before the BattleExit_Win flag appears, so we can't do a prev unfortunately, and so we use hits
+    never(!game_loaded()) && never(!in_battle()) && once(get_creature(1, BattleCreature_Magi, Creature_Offset_ID) == magi) && changes_from_to(Battle_Exit_Code, BattleExit_None, BattleExit_Win)
 function magi_maxenergy() =>
     get_creature(1, BattleCreature_Magi, Creature_Offset_MaxEnergy)
 
+achievement(
+    title = "Hero of Naroom", points = 5,
+    description = "Complete the Naroom Shadow Geyser",
+    id = 000000, badge = "000000", type = "progression",
+    trigger = defeat(Creature_Togoth)
+)
 achievement(//TODO
     title = "Two Stooges", points = 10,
     description = "Defeat Korg and Zet",
     id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() && defeat(Creature_Zet)
+    trigger = defeat(Creature_Zet)
 )
 achievement(//TODO
     title = "Weebest", points = 25,
     description = "Defeat Salafy",
     id = 000000, badge = "000000", type = "",
-    trigger = game_loaded() && defeat(Creature_Salafy) && magi_maxenergy() == 999 // Salafy has 999 energy in her 4th form
+    trigger = defeat(Creature_Salafy) && never(magi_maxenergy() != 999) // Salafy has 999 energy in her 4th form
 )
 achievement(//TODO
     title = "Hero of Magi-Nation", points = 25,
     description = "Defeat Agram",
     id = 000000, badge = "000000", type = "win_condition",
-    trigger = game_loaded() && defeat(Creature_Agram)
+    trigger = defeat(Creature_Agram)
 )
 achievement(//TODO
     title = "Now THAT is a BIG Mushroom", points = 25,
     description = "Encounter Ormagon",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && get_creature(1, BattleCreature_Enemy2, Creature_Offset_ID) == Creature_Ormagon // We don't really need a delta here, even if the value is not re-initialized on New Game
+    trigger = game_loaded() && in_battle() && get_creature(1, BattleCreature_Enemy2, Creature_Offset_ID) == Creature_Ormagon // We don't really need a delta here, even if the value is not re-initialized on New Game
 )
 
 // Battle Mechanics //
@@ -2645,11 +2648,11 @@ gamecount_lookup = {
     GC_FIND_ORWIN: "Searching for Orwin",
     GC_QUEST_FOR_GIA: "Heading to see Gia",
     GC_NAROOM_GEYSER: "Facing the first Shadow Geyser",
-    GC_GLOVES: "Destroyed the first Shadow Geyser",
+    GC_GLOVES: "End of the first Shadow Geyser", // Changes at start of geyser boss fight
     GC_UND_INTRO: "Exploring the Underneath",
     GC_UND_QUAKE: "Investigating another earthquake",
     GC_UND_GEYSER: "Facing the second Shadow Geyser",
-    GC_UND_WASTED: "Destroying the second Shadow Geyser", // Changes at start of geyser boss battle
+    GC_UND_WASTED: "End of the second Shadow Geyser", // Changes at start of geyser boss battle
     GC_CALD_INTRO: "Leaving the Underneath",
     GC_ARBOLL_HUNT: "Hunting for that blasted Lava Arboll",
     GC_LAVA_BRIDGE: "Building a bridge",
