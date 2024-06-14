@@ -1686,6 +1686,9 @@ BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID = 0x0C
 function scene_id() =>
     word(pointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer, BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID))
 
+// Copy of the above function with prev recursively added
+function prev_scene_id() =>
+    prev(word(prev(pointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer, BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID))))
 ///////////////
 // Byte Code //
 ///////////////
@@ -1975,11 +1978,12 @@ achievement(
     id = 000000, badge = "000000", type = "progression",
     trigger = game_loaded() && changes_from_to(HeroAbilities, 0, 1)
 )
-achievement(//TODO
+Script_Eidon_CrystalGloves = 0x08187614
+achievement(
     title = "But Where Do My Pinkies Go?", points = 1,
     description = "Obtain the Crystal Gloves",
     id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() && changes_from_to(HeroAbilities, 1, 2)
+    trigger = game_loaded() && get_nth_script(1) == Script_Eidon_CrystalGloves
 )
 achievement(//TODO
     title = "Fancy Footwear", points = 2,
@@ -2136,13 +2140,13 @@ function agovo_win() =>
 function agovo_lose() =>
     AvoidAgovo_Played == 0 && AvoidAgovo_Win == 0
 achievement(
-    title = "Speedy Tony", points = 1,
+    title = "Speedy Tony", points = 5,
     description = "Beat Avoid the Agovos in under 7.0 seconds",
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && disable_when(repeated(70*6 - 1, always_true()), until=agovo_start()) && agovo_win() //Empirically tested to match with displayed leaderboard time
 )
 achievement(
-    title = "Flash Tony", points = 1,
+    title = "Flash Tony", points = 10,
     description = "Beat Avoid the Agovos in under 6.7 seconds",
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && disable_when(repeated(67*6 - 1, always_true()), until=agovo_start()) && agovo_win()
@@ -2159,6 +2163,33 @@ leaderboard(
     id = 0
 )
 
+function brub_start() =>
+    prev_scene_id() == Scene_Underneath_Bogrom_BrubRoom && scene_id() == Scene_Underneath_Whackamole
+function brub_end() =>
+    prev_scene_id() == Scene_Underneath_Whackamole && scene_id() == Scene_Underneath_Bogrom_BrubRoom
+achievement(
+    title = "Brub Scrub", points = 5,
+    description = "Score at least 70 points in Scrub the Brub",
+    id = 000000, badge = "000000",
+    trigger = brub_end() && Brub_Byte >= 70 // omit game_loaded() as we do a scene check in brub_end()
+)
+achievement(
+    title = "Brub Elite", points = 10,
+    description = "Score at least 80 points in Scrub the Brub",
+    id = 000000, badge = "000000",
+    trigger = brub_end() && Brub_Byte >= 80 // omit game_loaded() as we do a scene check in brub_end()
+)
+leaderboard(
+    title = "Scrub the Brub",
+    description = "Highest points in Scrub the Brub",
+    start = brub_start(), // omit game_loaded() as we do a scene check in brub_start()
+    cancel = always_false(),
+    submit = brub_end(),
+    value = Brub_Byte,
+    format = "VALUE",
+    lower_is_better = false,
+    id = 0
+)
 // Misc //
 //////////
 Script_PoopGag_Oh = 0x081882AC
@@ -2174,17 +2205,25 @@ achievement(//TODO
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && increases(Soap_Gag)
 )
-achievement(//TODO
+Script_UnderneathHistorian_Menu = 0x0818AC38
+// There are 24 dialogues, each separated exactly by 0x14 bytes
+Script_UnderneathHistorian_Dialogue1 = 0x0818AD08
+Script_UnderneathHistorian_Dialogue24 = 0x0818AED4
+function prev_underneath_historian_menu() =>
+    prev_get_nth_script(1) == Script_UnderneathHistorian_Menu
+function underneath_historian_dialogue() =>
+    get_nth_script(1) >= Script_UnderneathHistorian_Dialogue1 && get_nth_script(1) <= Script_UnderneathHistorian_Dialogue24
+achievement(
     title = "Too Many Mushrooms", points = 1,
-    description = "Ask the Underneath Historian to identify an item",
+    description = "Ask the Underneath Historian to identify 10 items",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && always_false() // TODO
+    trigger = game_loaded() && measured(repeated(10, prev_underneath_historian_menu() && underneath_historian_dialogue()))
 )
-achievement(//TODO
+achievement(
     title = "Acquired Taste", points = 3,
     description = "Eat 20 mushrooms",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && (changes_from_to(Mushrooms_Eaten, 19, 20) || changes_from_to(Mushrooms_Eaten, 39, 21)) // TODO - correct values?
+    trigger = game_loaded() && (changes_from_to(Mushrooms_Eaten, 20, 21) || changes_from_to(Mushrooms_Eaten, 40, 21))
 )
 achievement(//TODO
     title = "Ten Tons of Danger", points = 5,
