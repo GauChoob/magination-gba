@@ -796,7 +796,7 @@ Treasure_NaroomGeyser_Length = 5
 Treasure_NaroomGeyser = [
     Treasure_NaroomGeyser_2AB7 - WVEPATHVALLEY05_Chest1 - WVEPATHVALLEY02_Chest1 - NRMGLADE05_Chest1
 ]
-Treasure_Underneath_Length = 21
+Treasure_Underneath_Length = 20
 Treasure_Underneath = [
     Treasure_Underneath_2AB8 - bit7(0x2AB8) - WVEGIASHUT02_Chest1,
     UNDCAVERN02_Chest1,
@@ -809,7 +809,6 @@ Treasure_Underneath = [
     HDNUNDTUN01_Chest1,
     HDNUNDTUN01_Chest2,
     FORT02_Chest1,
-    Wences_Arrow,
     HDNROOM04_Chest2,
     HDNUNDTUN04_Chest2,
     HDNUNDTUN04_Chest1,
@@ -1731,21 +1730,22 @@ function game_loaded() =>
 
 // Ring-Related //
 //////////////////
+function count_equipped_rings() =>
+    sum_of(range(0, 9), i => equipped_ring(i)/EquippedRing_None)
 achievement(//TODO
     title = "Bling Bling", points = 3,
     description = "Equip 10 Rings",
     id = 000000, badge = "000000", type = "",
-    trigger = game_loaded() && changes_from(equipped_ring(9), EquippedRing_None)
+    trigger = game_loaded() && changes_from_to(count_equipped_rings(), 1, 0)
 )
 
 function creature_4th_ability_unlocked(i) =>
     (InventoryStruct_RingCount > i) && changes_to(get_creature(0, i, Creature_Offset_UnlockLevelAbility4), Creature_Ability_Unlocked)
-// Todo: test Power (works), battle level-up, and Crafting 4 ability creature and destroying a creature
-achievement(//TODO - Power works; check battle level-up and crafting Deep Hyren
+achievement(
     title = "Full Arsenal", points = 3,
-    description = "Unlock a Dream Creature's 4th unique ability from a level-up",
+    description = "Get a Dream Creature with 4 unique abilities",
     id = 000000, badge = "000000", type = "",
-    trigger = game_loaded() && !changes(InventoryStruct_RingCount) && any_of_creature(creature_4th_ability_unlocked)
+    trigger = game_loaded() && !changes(InventoryStruct_RingCount) && any_of_creature(creature_4th_ability_unlocked) // Works for level up, power, forge
 )
 
 function dan_cur_energy() =>
@@ -1814,13 +1814,13 @@ achievement(
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && forge(Creature_TimberHyren)
 )
-achievement(//TODO
+achievement(
     title = "Pummel Party", points = 5,
     description = "Forge Mushroom Hyren",
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && forge(Creature_MushroomHyren)
 )
-achievement(//TODO
+achievement(
     title = "Bury Your Foes", points = 5,
     description = "Forge Cave Hyren",
     id = 000000, badge = "000000", type = "",
@@ -1908,13 +1908,13 @@ achievement(
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && increases(spell(Spell_Grow))
 )
-achievement(//TODO
+achievement(
     title = "Rock and Roll", points = 3,
     description = "Obtain Cave In in the Underneath Shadow Geyser",
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && increases(spell(Spell_CaveIn))
 )
-achievement(//TODO
+achievement(
     title = "Ready to Rumble", points = 3,
     description = "Obtain Thunderquake in the Underneath Shadow Geyser",
     id = 000000, badge = "000000", type = "missable",
@@ -2009,12 +2009,6 @@ achievement(//TODO
 
 // Hero of Naroom: See Battles
 achievement(//TODO
-    title = "Hero of the Underneath", points = 5,
-    description = "Complete the Underneath Shadow Geyser",
-    id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() &&  changes_from_to(Glyph_Count, 2, 3)
-)
-achievement(//TODO
     title = "Hero of the Cald", points = 5,
     description = "Complete the Cald Shadow Geyser",
     id = 000000, badge = "000000", type = "progression",
@@ -2052,12 +2046,12 @@ achievement(
     trigger = collection(Treasure_NaroomGeyser, Treasure_NaroomGeyser_Length)
 )
 achievement(//TODO
-    title = "Professional Excavator Operation", points = 10,
+    title = "Professional Excavation", points = 10,
     description = "Open all the chests in the Underneath",
     id = 000000, badge = "000000", type = "",
     trigger = collection(Treasure_Underneath, Treasure_Underneath_Length)
 )
-achievement(//TODO
+achievement(
     title = "Running in Circles", points = 5,
     description = "Open all the chests in the Underneath Geyser",
     id = 000000, badge = "000000", type = "missable",
@@ -2123,8 +2117,8 @@ achievement(//TODO
     id = 000000, badge = "000000", type = "missable",
     trigger = measured(sum_of(PartyPeople, x => x) == PartyPeople_Length, when=game_loaded()) // TODO - Add script check
 )
-achievement(//TODO
-    title = "Bombs Away", points = 10,
+achievement(//TODO verify the 4 Cald passageways
+    title = "Bombs Away", points = 5,
     description = "Open 5 passageways using Blast Urns",
     id = 000000, badge = "000000", type = "",
     trigger = collection(BlastUrns, 5) // We only require 5 out of the total of 9
@@ -2167,7 +2161,7 @@ function brub_start() =>
     prev_scene_id() == Scene_Underneath_Bogrom_BrubRoom && scene_id() == Scene_Underneath_Whackamole
 function brub_end() =>
     prev_scene_id() == Scene_Underneath_Whackamole && scene_id() == Scene_Underneath_Bogrom_BrubRoom
-achievement(
+achievement(//TODO - Check Cald
     title = "Brub Scrub", points = 5,
     description = "Score at least 70 points in Scrub the Brub",
     id = 000000, badge = "000000",
@@ -2226,10 +2220,10 @@ achievement(
     trigger = game_loaded() && (changes_from_to(Mushrooms_Eaten, 20, 21) || changes_from_to(Mushrooms_Eaten, 40, 21))
 )
 achievement(//TODO
-    title = "Ten Tons of Danger", points = 5,
+    title = "Fiery Exorcist", points = 5,
     description = "Obtain Maelstrom from Valkan by defeating at least 5 ShadowMagi",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && always_false() // TODO - measured
+    trigger = game_loaded() && measured(Cald_Btl_Count >= 5)
 )
 achievement(//TODO
     title = "Skeleton Key", points = 5,
@@ -2299,6 +2293,12 @@ achievement(
     description = "Complete the Naroom Shadow Geyser",
     id = 000000, badge = "000000", type = "progression",
     trigger = defeat(Creature_Togoth)
+)
+achievement(
+    title = "Hero of the Underneath", points = 5,
+    description = "Complete the Underneath Shadow Geyser",
+    id = 000000, badge = "000000", type = "progression",
+    trigger = defeat(Creature_Ogar)
 )
 achievement(//TODO
     title = "Two Stooges", points = 10,
