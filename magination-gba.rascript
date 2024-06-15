@@ -2161,7 +2161,7 @@ function brub_start() =>
     prev_scene_id() == Scene_Underneath_Bogrom_BrubRoom && scene_id() == Scene_Underneath_Whackamole
 function brub_end() =>
     prev_scene_id() == Scene_Underneath_Whackamole && scene_id() == Scene_Underneath_Bogrom_BrubRoom
-achievement(//TODO - Check Cald
+achievement(
     title = "Brub Scrub", points = 5,
     description = "Score at least 70 points in Scrub the Brub",
     id = 000000, badge = "000000",
@@ -2219,11 +2219,11 @@ achievement(
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && (changes_from_to(Mushrooms_Eaten, 20, 21) || changes_from_to(Mushrooms_Eaten, 40, 21))
 )
-achievement(//TODO
-    title = "Fiery Exorcist", points = 5,
+achievement(
+    title = "Fiery Exorcist", points = 3,
     description = "Obtain Maelstrom from Valkan by defeating at least 5 ShadowMagi",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && measured(Cald_Btl_Count >= 5)
+    trigger = measured(Cald_Btl_Count >= 5) && increases(relic(Relic_Maelstorm)) && scene_id() == Scene_Cald_Valkan_Room && GameCount == GC_CALD_INTRO // Skip game_loaded since we check scene
 )
 achievement(//TODO
     title = "Skeleton Key", points = 5,
