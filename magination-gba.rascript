@@ -1920,7 +1920,7 @@ achievement(
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && increases(spell(Spell_Thunderquake))
 )
-achievement(//TODO
+achievement(
     title = "Have Some Flame", points = 5,
     description = "Obtain Fireball in the Cald",
     id = 000000, badge = "000000", type = "",
@@ -2193,11 +2193,12 @@ achievement(
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && get_nth_script(1) == Script_PoopGag_Oh
 )
+Script_SoapGag_IAlwaysWondered = 0x08187B34
 achievement(//TODO
     title = "So That's Where Soap Comes From", points = 1,
     description = "Tell Eidon about Oflardt's stories",
     id = 000000, badge = "000000", type = "missable",
-    trigger = game_loaded() && increases(Soap_Gag)
+    trigger = game_loaded() && prev_get_nth_script(1) == Script_SoapGag_IAlwaysWondered && get_nth_script(1) != Script_SoapGag_IAlwaysWondered
 )
 Script_UnderneathHistorian_Menu = 0x0818AC38
 // There are 24 dialogues, each separated exactly by 0x14 bytes

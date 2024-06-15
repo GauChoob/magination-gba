@@ -536,6 +536,7 @@ ProgramInitEndsHere
 03002B05 Script_SaveVars
 03002B3A Script_GameCount
 03002B3C CameraRelatedSection
+03002EB4 EldritchAwlScriptID
 03002EB8 DanStruct
 03002F50 DanStruct.1EInMenuOrBattle1FOutsideOfMenu
 03002F78 DanStruct.DanX
