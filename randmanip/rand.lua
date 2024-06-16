@@ -44,7 +44,7 @@ function Rand:update()
         self:next()
         loop_count = loop_count + 1
         if loop_count > 100000 then
-            console:log('Unable to find random value! Maybe you loaded an earlier state? Resetting to 0xDEADBEEF\n')
+            console:log('Unable to find random value! Maybe you loaded an earlier state? Resetting to 0xDEADBEEF')
             self:reset()
             break
         end
@@ -69,14 +69,12 @@ end
 function Awl:update()
     new_awl = self.ram_id()
     if self.last_id ~= new_awl then
-        self.last_scene = scene_id()
-        self.last_id = new_awl
+        awl:change()
     end
 end
 
 function Awl:saved()
-    self.last_scene = scene_id()
-    self.last_id = ram_id()
+    awl:change()
 end
 
 function Awl.ram_id()
@@ -90,6 +88,14 @@ function Awl.ram_can_warp()
     return 'No'
 end
 
+function Awl:change()
+    scene = scene_id()
+    if self.last_scene ~= scene then
+        console:log(string.format('Awl Change: %s to %s', scene_name(self.last_scene), scene_name(scene)))
+    end
+    self.last_scene = scene
+    self.last_id = awl.ram_id()
+end
 
 scene_names = {
     [0] = 'null',
@@ -520,6 +526,7 @@ function saved()
     awl:saved()
 end
 
+console:log('Loading Magi-Nation Tracker')
 rand = Rand.new()
 awl = Awl.new()
 buffer = console:createBuffer('info')

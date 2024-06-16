@@ -53,9 +53,6 @@ function map(address) {
 // potentially cause false triggers
 function pointer(address, offset) =>
     dword(address) - GBA_EWRAM + RETRO_EWRAM + offset
-// Dereference an address containing a pointer to IWRAM
-//function iram_pointer(address, offset) =>
-//    dword(address) - GBA_IWRAM + RETRO_IWRAM + offset
 
 
 // Traverse through a linked list and return the nth entry
@@ -85,7 +82,7 @@ function prev_get_nth_linked_list_entry(n, linked_list) {
 }
 
 // Prev functions
-// TODO - need to manually recursively apply prev to any pointers, can't just use these helper functions
+// n.b. we can't use these functions on pointers, we need to manually define a prev_pointer function.
 function increments(var) =>
     var - prev(var) == 1
 
@@ -1272,7 +1269,7 @@ function in_battle() =>
 BaseStruct_GraphicsSubStruct_TextboxIsBusy = byte(map(0x03001440))
 function in_textbox() =>
     BaseStruct_GraphicsSubStruct_TextboxIsBusy == 1
-Ticker_byte = byte(map(0x30016C0)) // Actually a dword, but we use it to iterate over 256 frames
+Ticker_byte = byte(map(0x30016C0)) // Actually a dword, but we can use it to iterate over 256 frames
 Ticker = dword(map(0x30016C0))
 DanStruct_DanX = dword(map(0x3002F78))
 DanStruct_DanY = dword(map(0x3002F7C))
@@ -1721,7 +1718,6 @@ function splash_screen() =>
     dword(BaseStruct_SceneRelatedStruct_SceneObjectPointer) == 0 // Scene has a null pointer
 
 function game_loaded() =>
-    !splash_screen() && // TODO - do we really need to guard against the splash screens?
     prev(scene_id()) != Scene_Misc_StartScreen_Main
 
 //////////////////
@@ -1826,13 +1822,13 @@ achievement(
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && forge(Creature_CaveHyren)
 )
-achievement(//TODO
+achievement(
     title = "Flightless Wings", points = 5,
     description = "Forge Magma Hyren",
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && forge(Creature_MagmaHyren)
 )
-achievement(//TODO
+achievement(
     title = "Purifying Flame", points = 5,
     description = "Forge Flame Hyren",
     id = 000000, badge = "000000", type = "missable",
@@ -1926,7 +1922,7 @@ achievement(
     id = 000000, badge = "000000", type = "",
     trigger = game_loaded() && increases(spell(Spell_Fireball))
 )
-achievement(//TODO
+achievement(
     title = "After the Flame, Only Ashes Remain", points = 2,
     description = "Obtain Flame Geyser in the Cald Shadow Geyser",
     id = 000000, badge = "000000", type = "missable",
@@ -1985,7 +1981,7 @@ achievement(
     id = 000000, badge = "000000", type = "progression",
     trigger = game_loaded() && get_nth_script(1) == Script_Eidon_CrystalGloves
 )
-achievement(//TODO
+achievement(
     title = "Fancy Footwear", points = 2,
     description = "Obtain Agadon's Boots",
     id = 000000, badge = "000000", type = "progression",
@@ -2007,8 +2003,8 @@ achievement(//TODO
 // Geysers //
 /////////////
 
-// Hero of Naroom: See Battles
-achievement(//TODO
+// Hero of Naroom & Underneath: See Battles
+achievement(
     title = "Hero of the Cald", points = 5,
     description = "Complete the Cald Shadow Geyser",
     id = 000000, badge = "000000", type = "progression",
@@ -2037,7 +2033,7 @@ achievement(//TODO
     title = "Smash All the Pots", points = 10,
     description = "Open all the chests and in Naroom and the Weave, and find the 2 items hidden in Vash Naroom and 1 item hidden in the Wheat Farm",
     id = 000000, badge = "000000", type = "missable",
-    trigger = collection(Treasure_Naroom, Treasure_Naroom_Length)
+    trigger = collection(Treasure_Naroom, Treasure_Naroom_Length) // Requires Orothean Belt and Ashgar's Key
 )
 achievement(
     title = "Baby's First Pokedex", points = 1,
@@ -2045,11 +2041,11 @@ achievement(
     id = 000000, badge = "000000", type = "missable",
     trigger = collection(Treasure_NaroomGeyser, Treasure_NaroomGeyser_Length)
 )
-achievement(//TODO
+achievement(
     title = "Professional Excavation", points = 10,
     description = "Open all the chests in the Underneath",
     id = 000000, badge = "000000", type = "",
-    trigger = collection(Treasure_Underneath, Treasure_Underneath_Length)
+    trigger = collection(Treasure_Underneath, Treasure_Underneath_Length) // Requires Agadon's Boots
 )
 achievement(
     title = "Running in Circles", points = 5,
@@ -2057,14 +2053,14 @@ achievement(
     id = 000000, badge = "000000", type = "missable",
     trigger = collection(Treasure_UnderneathGeyser, Treasure_UnderneathGeyser_Length)
 )
-achievement(//TODO
+achievement(
     title = "Burning Up", points = 10,
     description = "Open all the chests in the Cald",
     id = 000000, badge = "000000", type = "",
-    trigger = collection(Treasure_Cald, Treasure_Cald_Length)
+    trigger = collection(Treasure_Cald, Treasure_Cald_Length) // Requires Agadon's Boots
 )
-achievement(//TODO
-    title = "Diamonds Are a Girl's Best Friend", points = 5,
+achievement(
+    title = "Molten Animite", points = 5,
     description = "Open all the chests in the Cald Geyser",
     id = 000000, badge = "000000", type = "missable",
     trigger = collection(Treasure_CaldGeyser, Treasure_CaldGeyser_Length)
@@ -2194,7 +2190,7 @@ achievement(
     trigger = game_loaded() && get_nth_script(1) == Script_PoopGag_Oh
 )
 Script_SoapGag_IAlwaysWondered = 0x08187B34
-achievement(//TODO
+achievement(
     title = "So That's Where Soap Comes From", points = 1,
     description = "Tell Eidon about Oflardt's stories",
     id = 000000, badge = "000000", type = "missable",
@@ -2224,25 +2220,27 @@ achievement(
     title = "Fiery Exorcist", points = 3,
     description = "Obtain Maelstrom from Valkan by defeating at least 5 ShadowMagi",
     id = 000000, badge = "000000", type = "missable",
-    trigger = measured(Cald_Btl_Count >= 5) && increases(relic(Relic_Maelstorm)) && scene_id() == Scene_Cald_Valkan_Room && GameCount == GC_CALD_INTRO // Skip game_loaded since we check scene
+    trigger = scene_id() == Scene_Cald_Valkan_Room && measured(Cald_Btl_Count >= 5) && increases(relic(Relic_Maelstorm)) && GameCount == GC_CALD_INTRO // Skip game_loaded since we check scene
 )
-achievement(//TODO
+achievement(
     title = "Skeleton Key", points = 5,
     description = "Find the Channeled Gem using Ashgar's Key",
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && increases(WVEPATHVALLEY07Chest2)
 )
-achievement(//TODO
+achievement(
     title = "Bargainer", points = 3,
     description = "Haggle the ferryman down to his lowest price",
     id = 000000, badge = "000000", type = "missable",
     trigger = game_loaded() && changes_from_to(Ferry_Price, 3, 7)
 )
-achievement(//TODO
-    title = "Running Lap", points = 5,
+function training_door_enabled() =>
+    prev(Vash13_Door_Open) == 0 && Vash13_PuzzleFailed == 0 && Vash13_PuzzleEnabled == 1
+achievement(
+    title = "Closet Unicorn", points = 5,
     description = "Open the training equipment door",
-    id = 000000, badge = "000000", type = "missable", // TODO remove missable? can open at end of game?
-    trigger = game_loaded() && always_false() // TODO
+    id = 000000, badge = "000000", type = "", // Unlike the GBC, this is not missable because the door is openable at the end of the game
+    trigger = scene_id() == Scene_Naroom_Vash_Training && trigger_when(Vash13_Door_Open == 1) && training_door_enabled() 
 )
 achievement(//TODO
     title = "Second Largest Screwdriver", points = 25,
