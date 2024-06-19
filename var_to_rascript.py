@@ -89,7 +89,8 @@ def build_collections(vars):
         'Arderial': 'Treasure_Arderial',
         'Arderial_Geyser': 'Treasure_ArderialGeyser',
         'Feather': 'Treasure_Useless',
-        'HldPrisoner': 'HldPrisoners',
+        'HldPrisonerTalk': 'HldPrisonerTalks',  # Overworld
+        'HldPrisoner': 'HldPrisoners',  # Shadowhold
         'Party': 'PartyPeople',  # PartyGia intentionally excluded as it is a freebie
         'BlastUrn': 'BlastUrns',
     }

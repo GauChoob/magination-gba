@@ -116,7 +116,7 @@ DirectoryID,SceneID,Location,Inaccessible,Short Name,Root:,08186B00
 ,109,Underneath_Tunnels_IntersectionFort,0,Underneath Tunnels,,
 ,110,Underneath_Tunnels_PathwayFort,0,Underneath Tunnels,,
 ,111,Underneath_Tunnels_PathwayFortLoopIntersections_A,0,Underneath Tunnels,,
-,112,Underneath_Tunnels_PathwayFortLoopIntersections_B_Unused,1,Hacking! Unused Location!,,
+,112,Underneath_Tunnels_PathwayFortLoopIntersections_B,1,Underneath Tunnels,,
 ,113,Underneath_Tunnels_PathwayFortLoopIntersections_C,0,Underneath Tunnels,,
 ,114,Underneath_Tunnels_PathwayFortLoopIntersections_D,0,Underneath Tunnels,,
 ,115,Underneath_Tunnels_WestCache_Rock,0,Underneath Tunnels,,
