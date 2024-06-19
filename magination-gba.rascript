@@ -1988,7 +1988,7 @@ achievement(
     title = "But Where Do My Pinkies Go?", points = 1,
     description = "Obtain the Crystal Gloves",
     id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() && get_nth_script(1) == Script_Eidon_CrystalGloves
+    trigger = game_loaded() && get_nth_script(1) == Script_Eidon_CrystalGloves // Optimize timing over using HeroAbilities
 )
 achievement(
     title = "Fancy Footwear", points = 2,
@@ -1996,11 +1996,11 @@ achievement(
     id = 000000, badge = "000000", type = "progression",
     trigger = game_loaded() && changes_from_to(HeroAbilities, 2, 3)
 )
-achievement(//TODO
+achievement(
     title = "Under the Sea", points = 2,
     description = "Obtain the Orothean Belt",
     id = 000000, badge = "000000", type = "progression",
-    trigger = game_loaded() && changes_from_to(HeroAbilities, 3, 4)
+    trigger = game_loaded() && increases(OrotheanBelt)
 )
 achievement(//TODO
     title = "Highway to Heaven", points = 3,
@@ -2074,7 +2074,7 @@ achievement(
     id = 000000, badge = "000000", type = "missable",
     trigger = collection(Treasure_CaldGeyser, Treasure_CaldGeyser_Length)
 )
-achievement(//TODO
+achievement(
     title = "No Sense of Self-Preservation", points = 10,
     description = "Open all the chests in the Shadowhold",
     id = 000000, badge = "000000", type = "missable",
