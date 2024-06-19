@@ -1740,7 +1740,7 @@ function count_equipped_rings() =>
 achievement(//TODO
     title = "Bling Bling", points = 3,
     description = "Equip 10 Rings",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && changes_from_to(count_equipped_rings(), 1, 0)
 )
 
@@ -1749,7 +1749,7 @@ function creature_4th_ability_unlocked(i) =>
 achievement(
     title = "Full Arsenal", points = 3,
     description = "Get a Dream Creature with 4 unique abilities",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && !changes(InventoryStruct_RingCount) && any_of_creature(creature_4th_ability_unlocked) // Works for level up, power, forge
 )
 
@@ -1789,7 +1789,7 @@ function drank_10_water() =>
 achievement(
     title = "Hydro Homie", points = 5,
     description = "Drink 10 Waters of Life",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && decreases(item(Item_WaterOfLife)) && drank_10_water()
 )
 
@@ -1804,97 +1804,97 @@ function forge(creature) =>
 achievement(
     title = "Great Furok", points = 5,
     description = "Obtain a Great Furok by almost escaping the Tavel Gorge caves",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && Nrm_Intro_Count < 2 && forge(Creature_Furok) && First_Creature == 2
 )
 achievement(
     title = "Leaves that Cut", points = 5,
     description = "Forge Leaf Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_LeafHyren)
 )
 achievement(
     title = "Tree Power", points = 5,
     description = "Forge Timber Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_TimberHyren)
 )
 achievement(
     title = "Pummel Party", points = 5,
     description = "Forge Mushroom Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_MushroomHyren)
 )
 achievement(
     title = "Bury Your Foes", points = 5,
     description = "Forge Cave Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_CaveHyren)
 )
 achievement(
     title = "Flightless Wings", points = 5,
     description = "Forge Magma Hyren",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && forge(Creature_MagmaHyren)
 )
 achievement(
     title = "Purifying Flame", points = 5,
     description = "Forge Flame Hyren",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && forge(Creature_FlameHyren)
 )
 achievement(//TODO
     title = "Sitting Pretty", points = 5,
     description = "Forge Coral Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_CoralHyren)
 )
 achievement(//TODO
     title = "Ruler of the Depths", points = 5,
     description = "Forge Deep Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_DeepHyren)
 )
 achievement(//TODO
     title = "Beast of the Sea", points = 5,
     description = "Forge Megathan",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_Megathan)
 )
 achievement(//TODO
     title = "Zeus' Bolt", points = 5,
     description = "Forge Lightning Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_LightningHyren)
 )
 achievement(//TODO
     title = "Thor's Hammer", points = 5,
     description = "Forge Thunder Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_ThunderHyren)
 )
 achievement(//TODO
     title = "Wind Fish", points = 5,
     description = "Forge Orathan Flyer",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_OrathanFlyer)
 )
 achievement(//TODO
     title = "Middle Management?", points = 5,
     description = "Forge Darkbreed Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_DarkbreedHyren)
 )
 achievement(//TODO
     title = "Pure Terror", points = 5,
     description = "Forge Core Hyren",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_CoreHyren)
 )
 achievement(//TODO
     title = "Gotta Catch 'Em All", points = 50,
     description = "Forge all the Dream Creatures",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && always_false() // TODO
 )
 
@@ -1904,67 +1904,67 @@ achievement(//TODO
 achievement(
     title = "Throw Leaves at Enemies", points = 1,
     description = "Obtain Leaf Cut in Naroom",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && increases(spell(Spell_LeafCut))
 )
 achievement(
     title = "Throw Healing at Friends", points = 1,
     description = "Obtain Grow in Naroom",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && increases(spell(Spell_Grow))
 )
 achievement(
     title = "Rock and Roll", points = 3,
     description = "Obtain Cave In in the Underneath Shadow Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_CaveIn))
 )
 achievement(
     title = "Ready to Rumble", points = 3,
     description = "Obtain Thunderquake in the Underneath Shadow Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_Thunderquake))
 )
 achievement(
     title = "Have Some Flame", points = 5,
     description = "Obtain Fireball in the Cald",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && increases(spell(Spell_Fireball))
 )
 achievement(
     title = "After the Flame, Only Ashes Remain", points = 2,
     description = "Obtain Flame Geyser in the Cald Shadow Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_FlameGeyser))
 )
 achievement(//TODO
     title = "Bogged Down by Seaweed", points = 1,
     description = "Obtain Entangle in Orothe",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && increases(spell(Spell_Entangle))
 )
 achievement(//TODO
     title = "Where Are My Glasses?", points = 1,
     description = "Decipher the Blurry Scroll in Orothe",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && increases(spell(Spell_DispelX))  // TODO - wrong trigger time?
 )
 achievement(//TODO
     title = "Bend Water to Your Will", points = 3,
     description = "Obtain Tidal Wave in the Orothe Shadow Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_TidalWave))
 )
 achievement(//TODO
     title = "Zaptacular", points = 3,
     description = "Obtain Lightning before facing Morag",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_Lightning))
 )
 achievement(//TODO
     title = "Winds of Protection", points = 3, // TODO what does Updraft do in GBA? Maybe name needs to change
     description = "Obtain Updraft before facing Morag",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_Updraft))
 )
 
@@ -1974,38 +1974,38 @@ Script_Eidon_DidItWork = 0x081838DA
 achievement(
     title = "Welcome to the Jungle", points = 1,
     description = "Obtain the Translation Bracelet",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && get_nth_script(1) == Script_Eidon_DidItWork
 )
 achievement(
     title = "You're the Best Around", points = 1,
     description = "Obtain the Energy Band",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(HeroAbilities, 0, 1)
 )
 Script_Eidon_CrystalGloves = 0x08187614
 achievement(
     title = "But Where Do My Pinkies Go?", points = 1,
     description = "Obtain the Crystal Gloves",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && get_nth_script(1) == Script_Eidon_CrystalGloves // Optimize timing over using HeroAbilities
 )
 achievement(
     title = "Fancy Footwear", points = 2,
     description = "Obtain Agadon's Boots",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(HeroAbilities, 2, 3)
 )
 achievement(
     title = "Under the Sea", points = 2,
     description = "Obtain the Orothean Belt",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && increases(OrotheanBelt)
 )
 achievement(//TODO
     title = "Highway to Heaven", points = 3,
     description = "Meet the Queen",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(HeroAbilities, 4, 5)
 )
 
@@ -2016,19 +2016,19 @@ achievement(//TODO
 achievement(
     title = "Hero of the Cald", points = 5,
     description = "Complete the Cald Shadow Geyser",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(Glyph_Count, 3, 4)
 )
 achievement(//TODO
     title = "Hero of Orothe", points = 10,
     description = "Complete the Orothe Shadow Geyser",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(Glyph_Count, 4, 5)
 )
 achievement(//TODO
     title = "Hero of Arderial", points = 10,
     description = "Defeat Morag",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(Glyph_Count, 5, 6)
 )
 
@@ -2041,73 +2041,73 @@ achievement(//TODO
 achievement(//TODO
     title = "Smash All the Pots", points = 10,
     description = "Open all the chests and in Naroom and the Weave, and find the 2 items hidden in Vash Naroom and 1 item hidden in the Wheat Farm",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_Naroom, Treasure_Naroom_Length) // Requires Orothean Belt and Ashgar's Key
 )
 achievement(
     title = "Baby's First Pokedex", points = 1,
     description = "Open all the chest in the Naroom Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_NaroomGeyser, Treasure_NaroomGeyser_Length)
 )
 achievement(
     title = "Professional Excavation", points = 10,
     description = "Open all the chests in the Underneath",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = collection(Treasure_Underneath, Treasure_Underneath_Length) // Requires Agadon's Boots
 )
 achievement(
     title = "Running in Circles", points = 5,
     description = "Open all the chests in the Underneath Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_UnderneathGeyser, Treasure_UnderneathGeyser_Length)
 )
 achievement(
     title = "Burning Up", points = 10,
     description = "Open all the chests in the Cald",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = collection(Treasure_Cald, Treasure_Cald_Length) // Requires Agadon's Boots
 )
 achievement(
     title = "Molten Animite", points = 5,
     description = "Open all the chests in the Cald Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_CaldGeyser, Treasure_CaldGeyser_Length)
 )
 achievement(
     title = "No Sense of Self-Preservation", points = 10,
     description = "Open all the chests in the Shadowhold",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_Shadowhold, Treasure_Shadowhold_Length)
 )
 achievement(//TODO
     title = "Fishing for Booty", points = 10,
     description = "Open all the chests in Orothe, including the invisible hidden chest in the Underwater Ruins",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = collection(Treasure_Orothe, Treasure_Orothe_Length)
 )
 achievement(//TODO
     title = "Swept Away", points = 5,
     description = "Open all the chests in the Orothe Geyser",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_OrotheGeyser, Treasure_OrotheGeyser_Length)
 )
 achievement(//TODO
     title = "Taste the Rainbow", points = 5,
     description = "Open all the chests in Arderial, and find the hidden item in one of the Arderial buildings",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = collection(Treasure_Arderial, Treasure_Arderial_Length)
 )
 achievement(//TODO
     title = "Keymaster", points = 5,
     description = "Open all the chests on your way to fight Morag",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_ArderialGeyser, Treasure_ArderialGeyser_Length)
 )
 achievement(//TODO
     title = "Junk Collector", points = 1,
     description = "Find all 3 useless items: two Feathers and Wence's Arrow",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection(Treasure_Useless, Treasure_Useless_Length)
 )
 function collection_hldprisoner_prev() =>
@@ -2119,19 +2119,19 @@ function collection_hldprisoner_condition() =>
 achievement(//TODO
     title = "Jailbreak", points = 25,
     description = "After rescuing all 7 prisoners, claim a reward from each of them throughout the world",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = collection_hldprisoner_prev() && collection_hldprisoner()
 )
 achievement(//TODO
     title = "Simpsons Homage", points = 10,
     description = "Do everything at the Naroom party, then leave",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = measured(sum_of(PartyPeople, x => x) == PartyPeople_Length, when=game_loaded()) // TODO - Add script check
 )
 achievement(//TODO verify the 4 Cald passageways
     title = "Bombs Away", points = 5,
     description = "Open 5 passageways using Blast Urns",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = collection(BlastUrns, 5) // We only require 5 out of the total of 9
 )
 
@@ -2147,13 +2147,13 @@ function agovo_lose() =>
 achievement(
     title = "Speedy Tony", points = 5,
     description = "Beat Avoid the Agovos in under 7.0 seconds",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && disable_when(repeated(70*6 - 1, always_true()), until=agovo_start()) && agovo_win() //Empirically tested to match with displayed leaderboard time
 )
 achievement(
     title = "Flash Tony", points = 10,
     description = "Beat Avoid the Agovos in under 6.7 seconds",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && disable_when(repeated(67*6 - 1, always_true()), until=agovo_start()) && agovo_win()
 )
 leaderboard(
@@ -2175,13 +2175,13 @@ function brub_end() =>
 achievement(
     title = "Brub Scrub", points = 5,
     description = "Score at least 70 points in Scrub the Brub",
-    id = 000000, badge = "000000",
+    id = 000000,
     trigger = brub_end() && Brub_Byte >= 70 // omit game_loaded() as we do a scene check in brub_end()
 )
 achievement(
     title = "Brub Elite", points = 10,
     description = "Score at least 80 points in Scrub the Brub",
-    id = 000000, badge = "000000",
+    id = 000000,
     trigger = brub_end() && Brub_Byte >= 80 // omit game_loaded() as we do a scene check in brub_end()
 )
 leaderboard(
@@ -2201,14 +2201,14 @@ Script_PoopGag_Oh = 0x081882AC
 achievement(
     title = "Outhouse", points = 1,
     description = "Look inside Gia's 'storage shed'",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && get_nth_script(1) == Script_PoopGag_Oh
 )
 Script_SoapGag_IAlwaysWondered = 0x08187B34
 achievement(
     title = "So That's Where Soap Comes From", points = 1,
     description = "Tell Eidon about Oflardt's stories",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && prev_get_nth_script(1) == Script_SoapGag_IAlwaysWondered && get_nth_script(1) != Script_SoapGag_IAlwaysWondered
 )
 Script_UnderneathHistorian_Menu = 0x0818AC38
@@ -2222,31 +2222,31 @@ function underneath_historian_dialogue() =>
 achievement(
     title = "Too Many Mushrooms", points = 1,
     description = "Ask the Underneath Historian to identify 10 items",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && measured(repeated(10, prev_underneath_historian_menu() && underneath_historian_dialogue()))
 )
 achievement(
     title = "Acquired Taste", points = 3,
     description = "Eat 20 mushrooms",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && (changes_from_to(Mushrooms_Eaten, 20, 21) || changes_from_to(Mushrooms_Eaten, 40, 21))
 )
 achievement(
     title = "Fiery Exorcist", points = 3,
     description = "Obtain Maelstrom from Valkan by defeating at least 5 ShadowMagi",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = scene_id() == Scene_Cald_Valkan_Room && measured(Cald_Btl_Count >= 5) && increases(relic(Relic_Maelstorm)) && GameCount == GC_CALD_INTRO // Skip game_loaded since we check scene
 )
 achievement(
     title = "Skeleton Key", points = 5,
     description = "Find the Channeled Gem using Ashgar's Key",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(WVEPATHVALLEY07Chest2)
 )
 achievement(
     title = "Bargainer", points = 3,
     description = "Haggle the ferryman down to his lowest price",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && changes_from_to(Ferry_Price, 3, 7)
 )
 function training_door_enabled() =>
@@ -2254,44 +2254,44 @@ function training_door_enabled() =>
 achievement(
     title = "Closet Unicorn", points = 5,
     description = "Open the training equipment door",
-    id = 000000, badge = "000000", type = "", // Unlike the GBC, this is not missable because the door is openable at the end of the game
+    id = 000000, type = "", // Unlike the GBC, this is not missable because the door is openable at the end of the game
     trigger = scene_id() == Scene_Naroom_Vash_Training && trigger_when(Vash13_Door_Open == 1) && training_door_enabled() 
 )
 Script_Shadowhold_SecondLargestScrewdriver = 0x081AB204
 achievement(
     title = "Second Largest Screwdriver", points = 25,
     description = "Examine the large screwdriver near some Jingjacks",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && get_nth_script(1) == Script_Shadowhold_SecondLargestScrewdriver
 )
 achievement(//TODO
     title = "Double the Pleasure", points = 3,
     description = "Get a Spice of Life from Karyn or a Pinch of Life from Eryn",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && changes_to(TCState, 4)
 )
 achievement(//TODO
     title = "Savior", points = 25,
     description = "Cure Orwin",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && decreases(Sick_Orwin) // TODO timing
 )
 achievement(//TODO
     title = "Funeral", points = 5,
     description = "After defeating Agram, attend a funeral instead of going home",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && increases(Gia_Funeral)
 )
 achievement(//TODO
     title = "Spoiled Kyros", points = 10,
     description = "After defeating Agram, attend a party instead of going home",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && always_false() // TODO
 )
 achievement(//TODO
     title = "The Dark Side", points = 10,
     description = "Visit the Core Ringsmith",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = game_loaded() && always_false() // TODO
 )
 
@@ -2306,37 +2306,37 @@ function magi_maxenergy() =>
 achievement(
     title = "Hero of Naroom", points = 5,
     description = "Complete the Naroom Shadow Geyser",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = defeat(Creature_Togoth)
 )
 achievement(
     title = "Hero of the Underneath", points = 5,
     description = "Complete the Underneath Shadow Geyser",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = defeat(Creature_Ogar)
 )
 achievement(//TODO
     title = "Two Stooges", points = 10,
     description = "Defeat Korg and Zet",
-    id = 000000, badge = "000000", type = "progression",
+    id = 000000, type = "progression",
     trigger = defeat(Creature_Zet)
 )
 achievement(//TODO
     title = "Weebest", points = 25,
     description = "Defeat Salafy",
-    id = 000000, badge = "000000", type = "",
+    id = 000000, type = "",
     trigger = defeat(Creature_Salafy) && never(magi_maxenergy() != 999) // Salafy has 999 energy in her 4th form
 )
 achievement(//TODO
     title = "Hero of Magi-Nation", points = 25,
     description = "Defeat Agram",
-    id = 000000, badge = "000000", type = "win_condition",
+    id = 000000, type = "win_condition",
     trigger = defeat(Creature_Agram)
 )
 achievement(//TODO
     title = "Now THAT is a BIG Mushroom", points = 25,
     description = "Encounter Ormagon",
-    id = 000000, badge = "000000", type = "missable",
+    id = 000000, type = "missable",
     trigger = game_loaded() && in_battle() && get_creature(1, BattleCreature_Enemy2, Creature_Offset_ID) == Creature_Ormagon // We don't really need a delta here, even if the value is not re-initialized on New Game
 )
 
