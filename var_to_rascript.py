@@ -19,11 +19,11 @@ class Var:
     def definition(self):
         if self.null:
             return ''
-        return f'{self.name} = bit{self.bit}(0x{self.address:04X})\n'
+        return f'{self.name} = bit{self.bit}(map(0x0300{self.address:04X}))\n'
 
     def representation(self):
         if self.null:
-            return f'bit{self.bit}(0x{self.address:04X})'
+            return f'bit{self.bit}(map(0x0300{self.address:04X}))'
         else:
             return self.name
 
@@ -45,7 +45,7 @@ class Bitfield:
         return int(''.join(map(str, self.bits)), 2)
 
     def definition(self):
-        ret = f'{self.name}_{self.address:04X} = bitcount(0x{self.address:04X})'
+        ret = f'{self.name}_{self.address:04X} = bitcount(map(0x0300{self.address:04X}))'
         if sum(self.bits) == 8:
             return ret + '\n'
         return ret + '  // excluding ' + ', '.join([self.all_vars[self.address][i].representation() for i in range(8) if self.bits[i] == 0]) + '\n'

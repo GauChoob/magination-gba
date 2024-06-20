@@ -113,7 +113,7 @@ HLDMAZE20Chest1,0x2AC1,7,Shadowhold
 HLDMAZE21Chest1,0x2AC2,0,Shadowhold
 UnusedBit_2AC2_1,0x2AC2,1,
 HLDMAZE04Chest2,0x2AC2,2,Shadowhold
-WVESHORTCUT01_Chest1,0x2AC2,3,Naroom
+UnusedBit_2AC2_3,0x2AC2,3,
 UnusedBit_2AC2_4,0x2AC2,4,
 UnusedBit_2AC2_5,0x2AC2,5,
 UnusedBit_2AC2_6,0x2AC2,6,

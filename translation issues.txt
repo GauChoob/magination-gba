@@ -1,7 +1,9 @@
-Plague status is actually Confusion
+Plague status is all status?
 "Toney" is used instead of Daney at some places by Blu
 Tusk Bwisp is not Jore?
 Creature names lookup table could be changed to give full names
 Historian Baloo Leaf mistakes item?
 Gia: "Are you ? sure you want to go THIS way?"
 Historian: makes *you're* face turn blue
+Tony jumping down Marina: double space somewhere
+Tony talking to HldPrisoner: "I don't think I I thanked you properly"
