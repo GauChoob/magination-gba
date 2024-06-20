@@ -3006,7 +3006,7 @@ for i in range(1, 8) {
         start = Ticker_byte == 0x01,
         cancel = always_false(),
         submit = always_false(),
-        value = get_nth_script_frame(i) + get_nth_script_offset(i),
+        value = get_nth_script(i),
         format = "VALUE",
         lower_is_better = false,
         id = 0
