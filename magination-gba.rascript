@@ -1935,17 +1935,18 @@ achievement(
     id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_FlameGeyser))
 )
-achievement(//TODO
+achievement(
     title = "Bogged Down by Seaweed", points = 1,
     description = "Obtain Entangle in Orothe",
     id = 000000, type = "",
     trigger = game_loaded() && increases(spell(Spell_Entangle))
 )
-achievement(//TODO
+Script_OrotheHistorian_DispelXEnd = 0x0819658A
+achievement(
     title = "Where Are My Glasses?", points = 1,
     description = "Decipher the Blurry Scroll in Orothe",
     id = 000000, type = "",
-    trigger = game_loaded() && increases(spell(Spell_DispelX))  // TODO - wrong trigger time?
+    trigger = game_loaded() && get_nth_script(1) == Script_OrotheHistorian_DispelXEnd
 )
 achievement(//TODO
     title = "Bend Water to Your Will", points = 3,
@@ -2017,7 +2018,7 @@ achievement(
     id = 000000, type = "progression",
     trigger = game_loaded() && changes_from_to(Glyph_Count, 3, 4)
 )
-achievement(//TODO
+achievement(
     title = "Hero of Orothe", points = 10,
     description = "Complete the Orothe Shadow Geyser",
     id = 000000, type = "progression",
@@ -2078,13 +2079,13 @@ achievement(
     id = 000000, type = "missable",
     trigger = collection(Treasure_Shadowhold, Treasure_Shadowhold_Length)
 )
-achievement(//TODO
+achievement(
     title = "Fishing for Booty", points = 10,
     description = "Open all the chests in Orothe, including the invisible hidden chest in the Underwater Ruins",
     id = 000000, type = "",
     trigger = collection(Treasure_Orothe, Treasure_Orothe_Length)
 )
-achievement(//TODO
+achievement(
     title = "Swept Away", points = 5,
     description = "Open all the chests in the Orothe Geyser",
     id = 000000, type = "missable",
@@ -2142,6 +2143,8 @@ function agovo_win() =>
     AvoidAgovo_Win == 1
 function agovo_lose() =>
     AvoidAgovo_Played == 0 && AvoidAgovo_Win == 0
+function agovo_cancel() => // Eldritch Awl exit
+    scene_id() != Scene_Naroom_Vash_South_AgovoRoom && scene_id() != Scene_Naroom_Vash_ChallengeAgovo
 achievement(
     title = "Speedy Tony", points = 5,
     description = "Beat Avoid the Agovos in under 7.0 seconds",
@@ -2158,7 +2161,7 @@ leaderboard(
     title = "Avoid the Agovos",
     description = "Fastest time in Avoid the Agovos",
     start = game_loaded() && agovo_start(),
-    cancel = agovo_lose(),
+    cancel = agovo_lose() || agovo_cancel(),
     submit = agovo_win(),
     value = always_true(),
     format = "FRAMES",
@@ -2170,6 +2173,8 @@ function brub_start() =>
     prev_scene_id() == Scene_Underneath_Bogrom_BrubRoom && scene_id() == Scene_Underneath_Whackamole
 function brub_end() =>
     prev_scene_id() == Scene_Underneath_Whackamole && scene_id() == Scene_Underneath_Bogrom_BrubRoom
+function brub_cancel() => // Eldritch Awl exit
+    scene_id() != Scene_Underneath_Bogrom_BrubRoom && scene_id() != Scene_Underneath_Whackamole
 achievement(
     title = "Brub Scrub", points = 5,
     description = "Score at least 70 points in Scrub the Brub",
@@ -2186,7 +2191,7 @@ leaderboard(
     title = "Scrub the Brub",
     description = "Highest points in Scrub the Brub",
     start = brub_start(), // omit game_loaded() as we do a scene check in brub_start()
-    cancel = always_false(),
+    cancel = brub_cancel(),
     submit = brub_end(),
     value = Brub_Byte,
     format = "VALUE",
@@ -2994,25 +2999,14 @@ rich_presence_display(
     rich_presence_value("GameCountValue", GameCount, "VALUE")
 )
 
-for i in range(1, 5) {
+for i in range(1, 8) {
     leaderboard(
         title = "Track Script Frame " + i,
         description = "",
         start = Ticker_byte == 0x01,
         cancel = always_false(),
         submit = always_false(),
-        value = get_nth_script_frame(i),
-        format = "VALUE",
-        lower_is_better = false,
-        id = 0
-    )
-    leaderboard(
-        title = "Track Script Offset " + i,
-        description = "",
-        start = Ticker_byte == 0x01,
-        cancel = always_false(),
-        submit = always_false(),
-        value = get_nth_script_offset(i),
+        value = get_nth_script_frame(i) + get_nth_script_offset(i),
         format = "VALUE",
         lower_is_better = false,
         id = 0
