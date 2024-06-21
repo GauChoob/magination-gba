@@ -1735,7 +1735,7 @@ function game_loaded() =>
 //////////////////
 function count_equipped_rings() =>
     sum_of(range(0, 9), i => equipped_ring(i)/EquippedRing_None)
-achievement(//TODO
+achievement(
     title = "Bling Bling", points = 3,
     description = "Equip 10 Rings",
     id = 000000, type = "",
@@ -1859,19 +1859,19 @@ achievement(
     id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_Megathan)
 )
-achievement(//TODO
+achievement(
     title = "Zeus' Bolt", points = 5,
     description = "Forge Lightning Hyren",
     id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_LightningHyren)
 )
-achievement(//TODO
+achievement(
     title = "Thor's Hammer", points = 5,
     description = "Forge Thunder Hyren",
     id = 000000, type = "",
     trigger = game_loaded() && forge(Creature_ThunderHyren)
 )
-achievement(//TODO
+achievement(
     title = "Wind Fish", points = 5,
     description = "Forge Orathan Flyer",
     id = 000000, type = "",
@@ -1948,7 +1948,7 @@ achievement(
     id = 000000, type = "",
     trigger = game_loaded() && get_nth_script(1) == Script_OrotheHistorian_DispelXEnd
 )
-achievement(//TODO
+achievement(
     title = "Bend Water to Your Will", points = 3,
     description = "Obtain Tidal Wave in the Orothe Shadow Geyser",
     id = 000000, type = "missable",
@@ -2001,11 +2001,12 @@ achievement(
     id = 000000, type = "progression",
     trigger = game_loaded() && increases(OrotheanBelt)
 )
-achievement(//TODO
+Script_Jaela_EyeOfTheStorm = 0x081AD11C
+achievement(
     title = "Highway to Heaven", points = 3,
     description = "Meet the Queen",
     id = 000000, type = "progression",
-    trigger = game_loaded() && changes_from_to(HeroAbilities, 4, 5)
+    trigger = game_loaded() && get_nth_script(5) == Script_Jaela_EyeOfTheStorm
 )
 
 // Geysers //
@@ -2091,7 +2092,7 @@ achievement(
     id = 000000, type = "missable",
     trigger = collection(Treasure_OrotheGeyser, Treasure_OrotheGeyser_Length)
 )
-achievement(//TODO
+achievement(
     title = "Taste the Rainbow", points = 5,
     description = "Open all the chests in Arderial, and find the hidden item in one of the Arderial buildings",
     id = 000000, type = "",
@@ -2322,17 +2323,17 @@ achievement(
     id = 000000, type = "progression",
     trigger = defeat(Creature_Ogar)
 )
-achievement(//TODO
+achievement(
     title = "Two Stooges", points = 10,
     description = "Defeat Korg and Zet",
     id = 000000, type = "progression",
     trigger = defeat(Creature_Zet)
 )
-achievement(//TODO
+achievement(
     title = "Weebest", points = 25,
     description = "Defeat Salafy",
     id = 000000, type = "",
-    trigger = defeat(Creature_Salafy) && never(magi_maxenergy() != 999) // Salafy has 999 energy in her 4th form
+    trigger = defeat(Creature_Salafy) && once(magi_maxenergy() == 999) // Salafy has 999 energy in her 4th form. Like the Creature_ID, it resets 2 frames before the BattleExit_Win flag appears
 )
 achievement(//TODO
     title = "Hero of Magi-Nation", points = 25,
