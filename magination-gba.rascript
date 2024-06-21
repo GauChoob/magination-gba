@@ -2336,7 +2336,7 @@ achievement(//TODO
     id = 000000, type = "win_condition",
     trigger = defeat(Creature_Agram)
 )
-achievement(//TODO
+achievement(
     title = "Now THAT is a BIG Mushroom", points = 25,
     description = "Encounter Ormagon",
     id = 000000, type = "missable",
