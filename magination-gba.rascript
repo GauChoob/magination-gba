@@ -1725,7 +1725,7 @@ function splash_screen() =>
     dword(BaseStruct_SceneRelatedStruct_SceneObjectPointer) == 0 // Scene has a null pointer
 
 function game_loaded() =>
-    prev(scene_id()) != Scene_Misc_StartScreen_Main
+    prev_scene_id() != Scene_Misc_StartScreen_Main
 
 //////////////////
 // Achievements //
@@ -1954,14 +1954,14 @@ achievement(
     id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_TidalWave))
 )
-achievement(//TODO
+achievement(
     title = "Zaptacular", points = 3,
     description = "Obtain Lightning before facing Morag",
     id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_Lightning))
 )
-achievement(//TODO
-    title = "Winds of Protection", points = 3, // TODO what does Updraft do in GBA? Maybe name needs to change
+achievement(
+    title = "Taking Flight", points = 3, // Actually boosts Speed and not Defence (as in GBC)
     description = "Obtain Updraft before facing Morag",
     id = 000000, type = "missable",
     trigger = game_loaded() && increases(spell(Spell_Updraft))
@@ -2007,29 +2007,6 @@ achievement(
     description = "Meet the Queen",
     id = 000000, type = "progression",
     trigger = game_loaded() && get_nth_script(5) == Script_Jaela_EyeOfTheStorm
-)
-
-// Geysers //
-/////////////
-
-// Hero of Naroom & Underneath: See Battles
-achievement(
-    title = "Hero of the Cald", points = 5,
-    description = "Complete the Cald Shadow Geyser",
-    id = 000000, type = "progression",
-    trigger = game_loaded() && changes_from_to(Glyph_Count, 3, 4)
-)
-achievement(
-    title = "Hero of Orothe", points = 10,
-    description = "Complete the Orothe Shadow Geyser",
-    id = 000000, type = "progression",
-    trigger = game_loaded() && changes_from_to(Glyph_Count, 4, 5)
-)
-achievement(//TODO
-    title = "Hero of Arderial", points = 10,
-    description = "Defeat Morag",
-    id = 000000, type = "progression",
-    trigger = game_loaded() && changes_from_to(Glyph_Count, 5, 6)
 )
 
 
@@ -2098,7 +2075,7 @@ achievement(
     id = 000000, type = "",
     trigger = collection(Treasure_Arderial, Treasure_Arderial_Length)
 )
-achievement(//TODO
+achievement(
     title = "Keymaster", points = 5,
     description = "Open all the chests on your way to fight Morag",
     id = 000000, type = "missable",
@@ -2303,8 +2280,8 @@ achievement(
     trigger = game_loaded() && get_nth_script(1) == Script_Ringsmith_Hello
 )
 
-// Battles //
-/////////////
+// Battles & Geysers //
+///////////////////////
 function defeat(magi) =>
      // The Creature_ID resets 2 frames before the BattleExit_Win flag appears, so we can't do a prev unfortunately, and so we use hits. Prior is not great either because it's complicated to handle if you lose the battle
     never(!game_loaded()) && never(!in_battle()) && once(get_creature(1, BattleCreature_Magi, Creature_Offset_ID) == magi) && changes_from_to(Battle_Exit_Code, BattleExit_None, BattleExit_Win)
@@ -2324,6 +2301,18 @@ achievement(
     trigger = defeat(Creature_Ogar)
 )
 achievement(
+    title = "Hero of the Cald", points = 5,
+    description = "Complete the Cald Shadow Geyser",
+    id = 000000, type = "progression",
+    trigger = game_loaded() && changes_from_to(Glyph_Count, 3, 4)
+)
+achievement(
+    title = "Hero of Orothe", points = 10,
+    description = "Complete the Orothe Shadow Geyser",
+    id = 000000, type = "progression",
+    trigger = game_loaded() && changes_from_to(Glyph_Count, 4, 5)
+)
+achievement(
     title = "Two Stooges", points = 10,
     description = "Defeat Korg and Zet",
     id = 000000, type = "progression",
@@ -2334,6 +2323,12 @@ achievement(
     description = "Defeat Salafy",
     id = 000000, type = "",
     trigger = defeat(Creature_Salafy) && once(magi_maxenergy() == 999) // Salafy has 999 energy in her 4th form. Like the Creature_ID, it resets 2 frames before the BattleExit_Win flag appears
+)
+achievement(
+    title = "Hero of Arderial", points = 10,
+    description = "Defeat Morag",
+    id = 000000, type = "progression",
+    trigger = defeat(Creature_Morag) && GameCount == GC_ARDERIAL_GEYSER
 )
 achievement(//TODO
     title = "Hero of Magi-Nation", points = 25,
