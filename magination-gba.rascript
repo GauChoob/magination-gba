@@ -70,19 +70,7 @@ function get_nth_linked_list_entry(n, linked_list) {
     return pointer(_traverse_n_linked_list_nodes(n, linked_list), LinkedListStruct_Struct)
 }
 
-// Copy of the 2 above functions, but recursively added prev()
-function _prev_traverse_n_linked_list_nodes(n, linked_list) {
-    if(n == 1)
-        return linked_list
-    else
-        return prev(pointer(_traverse_n_linked_list_nodes(n-1, linked_list), LinkedListStruct_NextNode))
-}
-function prev_get_nth_linked_list_entry(n, linked_list) {
-    return prev(pointer(_traverse_n_linked_list_nodes(n, linked_list), LinkedListStruct_Struct))
-}
-
 // Prev functions
-// n.b. we can't use these functions on pointers, we need to manually define a prev_pointer function.
 function increments(var) =>
     var - prev(var) == 1
 
@@ -1689,9 +1677,6 @@ BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID = 0x0C
 function scene_id() =>
     word(pointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer, BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID))
 
-// Copy of the above function with prev recursively added
-function prev_scene_id() =>
-    prev(word(prev(pointer(BaseStruct_SceneRelatedStruct_SceneObjectPointer, BaseStruct_SceneRelatedStruct_SceneObjectPointer_Offset_SceneID))))
 ///////////////
 // Byte Code //
 ///////////////
@@ -1708,15 +1693,6 @@ function get_nth_script_offset(n) =>
 function get_nth_script(n) =>
     get_nth_script_frame(n) + get_nth_script_offset(n)
 
-// Copy of the 3 above functions, but recursively added prev()
-function prev_get_nth_script_frame(n) =>
-    prev(dword(prev(pointer(prev_get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_Frame))))
-
-function prev_get_nth_script_offset(n) =>
-    prev(dword(prev(pointer(prev_get_nth_linked_list_entry(n, Script_LinkedList), ScriptStruct_FrameOffset))))
-
-function prev_get_nth_script(n) =>
-    prev_get_nth_script_frame(n) + prev_get_nth_script_offset(n)
 ////////////////////////////
 // Misc General Functions //
 ////////////////////////////
@@ -1725,7 +1701,7 @@ function splash_screen() =>
     dword(BaseStruct_SceneRelatedStruct_SceneObjectPointer) == 0 // Scene has a null pointer
 
 function game_loaded() =>
-    prev_scene_id() != Scene_Misc_StartScreen_Main
+    prev(scene_id()) != Scene_Misc_StartScreen_Main
 
 //////////////////
 // Achievements //
@@ -2116,7 +2092,7 @@ achievement(
 ///////////////
 Script_AvoidTheAgovos_ReadyGo = 0x0819BAB6
 function agovo_start() =>
-    AvoidAgovo_Played == 1 && prev_get_nth_script(1) == Script_AvoidTheAgovos_ReadyGo && get_nth_script(1) != Script_AvoidTheAgovos_ReadyGo
+    AvoidAgovo_Played == 1 && changes_from(get_nth_script(1), Script_AvoidTheAgovos_ReadyGo)
 function agovo_win() =>
     AvoidAgovo_Win == 1
 function agovo_lose() =>
@@ -2148,9 +2124,9 @@ leaderboard(
 )
 
 function brub_start() =>
-    prev_scene_id() == Scene_Underneath_Bogrom_BrubRoom && scene_id() == Scene_Underneath_Whackamole
+    changes_from_to(scene_id(), Scene_Underneath_Bogrom_BrubRoom, Scene_Underneath_Whackamole)
 function brub_end() =>
-    prev_scene_id() == Scene_Underneath_Whackamole && scene_id() == Scene_Underneath_Bogrom_BrubRoom
+    changes_from_to(scene_id(), Scene_Underneath_Whackamole, Scene_Underneath_Bogrom_BrubRoom)
 function brub_cancel() => // Eldritch Awl exit
     scene_id() != Scene_Underneath_Bogrom_BrubRoom && scene_id() != Scene_Underneath_Whackamole
 achievement(
@@ -2190,14 +2166,14 @@ achievement(
     title = "So That's Where Soap Comes From", points = 1,
     description = "Tell Eidon about Oflardt's stories",
     id = 000000, type = "missable",
-    trigger = game_loaded() && prev_get_nth_script(1) == Script_SoapGag_IAlwaysWondered && get_nth_script(1) != Script_SoapGag_IAlwaysWondered
+    trigger = game_loaded() && changes_from(get_nth_script(1), Script_SoapGag_IAlwaysWondered)
 )
 Script_UnderneathHistorian_Menu = 0x0818AC38
 // There are 24 dialogues, each separated exactly by 0x14 bytes
 Script_UnderneathHistorian_Dialogue1 = 0x0818AD08
 Script_UnderneathHistorian_Dialogue24 = 0x0818AED4
 function prev_underneath_historian_menu() =>
-    prev_get_nth_script(1) == Script_UnderneathHistorian_Menu
+    prev(get_nth_script(1)) == Script_UnderneathHistorian_Menu
 function underneath_historian_dialogue() =>
     get_nth_script(1) >= Script_UnderneathHistorian_Dialogue1 && get_nth_script(1) <= Script_UnderneathHistorian_Dialogue24
 achievement(
