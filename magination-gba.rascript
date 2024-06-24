@@ -1873,22 +1873,50 @@ achievement(
     trigger = game_loaded() && forge(Creature_CoreHyren)
 )
 
-//get_creature(0, InventoryStruct_RingCount - 1, Creature_Offset_ID) == creature
-/*function count_creature(id) =>
-    once(get_creature(0, InventoryStruct_RingCount - 1, Creature_Offset_ID) == id)
-function all_creatures() =>
-    measured(tally_of(range(Creature_Abaquist, Creature_Xyx), Creature_Xyx - Creature_Abaquist + 1, count_creature))*/
-/*function check_slot(slot, creature_id) =>
+
+// We have to iterate our checks over 256 frames to check the 148 owned rings, because (86 creature_ids * 148 rings) = 12728 possibilities, which overflows the maximum achievement length of 65536 characters
+// Luckily, it takes only 4 seconds to iterate over all the possibilities, and it's not feasible to craft a ring in this amount of time
+function valid_iteration_for_i_in_range_255(is_prev) =>
+    // is_prev: 0 if we count all crafted rings, 1 if we exclude the last crafted ring
+    // Looping from 0 to 255 using Ticker_byte
+    // Verify that the index Ticker_byte points to a ring that Dan actually owns (optionally excluding the last crafted ring)
+    Ticker_byte < InventoryStruct_RingCount - is_prev
+ 
+function valid_creature_id_for_i_in_range_255(creature_id) =>
+    // Looping from 0 to 255 using Ticker_byte
+    // Verify that InventoryStruct.Rings[Ticker]'s creature_id matches
+    get_creature(0, Ticker_byte, Creature_Offset_ID) == creature_id
+function count_creature(is_prev, creature_id) =>
+    // is_prev: 0 if we count all crafted rings, 1 if we exclude the last crafted ring
+    // Looping from 0 to 255 using Ticker_byte
+    // Verify that the indexed ring Ticker_byte is owned by Dan and that the creature_id matches for the current index
+    // and remember the hit if there is a match
+    once(valid_iteration_for_i_in_range_255(is_prev) && valid_creature_id_for_i_in_range_255(creature_id))
+function tally_all_creatures(is_prev) =>
+    // is_prev: 0 if we count all crafted rings, 1 if we exclude the last crafted ring
+    // Tally all the creatures from Abaquist to Xyx if Dan owns said creature
+    tally_of(range(Creature_Abaquist, Creature_Xyx), Creature_Xyx - Creature_Abaquist + 1, creature_id => count_creature(is_prev, creature_id))
+function reset_all_creatures() =>
+    // 1) Reset if game is not loaded
+    // 2) Reset if a ring is destroyed
+    !game_loaded() || decreases(InventoryStruct_RingCount)
+function all_creatures_save_protection() =>
+    // 1) The last creature should be unique, we expect the tally to never be complete unless we are using a save state
+    // 2) If the last creature is unique, we expect the RingCount to have increased by 1 (as opposed by a larger number if loading from the Start Menu)
+    disable_when(tally_all_creatures(1)) && (InventoryStruct_RingCount - prior(InventoryStruct_RingCount) == 1)
+/* Does not work because math is too complicated:
+function check_slot(slot, creature_id) =>
     get_creature(0, slot, Creature_Offset_ID) == creature_id
 function count_creature(creature_id) =>
     any_of(range(0, InventoryStruct_Creature_Last), i => check_slot(i, creature_id))
 function all_creatures() =>
     measured(repeated(Creature_Xyx - Creature_Abaquist + 1, all_of(range(Creature_Abaquist, Creature_Xyx), count_creature)))*/
-achievement(//TODO
+achievement(
     title = "Gotta Catch 'Em All", points = 50,
     description = "Forge all the Dream Creatures",
     id = 000000, type = "",
-    trigger = game_loaded() && all_creatures() // TODO
+    trigger = measured(tally_all_creatures(0)) && all_creatures_save_protection() && (always_false() || never(reset_all_creatures()))
+    //                Trigger if all IDs found &&         Save protection         &&      Force alt group: Reset conditions
 )
 
 // Spells //
@@ -2970,7 +2998,7 @@ rich_presence_conditional_display(
     rich_presence_lookup("Comma1", commas(BattleCreature_Enemy4), comma_lookup1),
     rich_presence_lookup("Creature", battle_creature(BattleCreature_Magi), creature_lookup)
 )
-/*rich_presence_display(
+rich_presence_display(
     "{0}Mission: {1}. Location: {2}. Level {3} ({4}/{5}).",
     rich_presence_lookup("NewGamePlus", Newgame_Plus, newgameplus_lookup),
     rich_presence_lookup("GameCount", GameCount, gamecount_lookup, "???"),
@@ -2978,11 +3006,12 @@ rich_presence_conditional_display(
     rich_presence_value("DanLevel", dan_level()),
     rich_presence_value("DanCurEnergy", dan_cur_energy()),
     rich_presence_value("DanMaxEnergy", dan_max_energy())
-)*/ //TODO currently using debug RP, replace with this commented out RP
+)
 
 /////////////////////
 // Debug Functions //
 /////////////////////
+/*
 rich_presence_display(
     "Scene: {0} - {1} Script1: {2} Script2: {3} Script3: {4} Script4: {5} Script5: {6} Script6: {7} GameCount: {8}",
     rich_presence_value("SceneID", scene_id(), "VALUE"),
@@ -3021,5 +3050,5 @@ leaderboard(
     lower_is_better = false,
     id = 0
 )
-
+*/
 
