@@ -671,8 +671,11 @@ ProgramInitEndsHere
 030015C2 BaseStruct.SubStruct.TextBox.TilemapBuffer_Size180.End
 030015DC BaseStruct_SubStruct2
 030016C0 Ticker
-03001C14 UnknownStruct
-03001C18 UnknownStruct_Struct348_Pointer
+03001C14 BattleRelatedStruct size F8?
+03001C18 BattleRelatedStruct.Struct348_Pointer
+03001C20 BattleRelatedStruct.CreatureAttackingPointer
+03001C24 BattleRelatedStruct.CreatureTargettedPointer
+03001C58 BattleRelatedStruct.Battle_Pending_Damage [32-bit]
 030028FC RNGesus_8bytes
 03002AB4 Script_Treasure
 03002ADC Script_SaveBits
@@ -687,6 +690,11 @@ ProgramInitEndsHere
 03002F88 DanStruct.DanX_Movement
 03002F8C DanStruct.DanY_Movement
 03002FAC DanStruct.DanDirection
+030034A8 DanStruct.EncounterStruct
+030034A8 DanStruct.EncounterStruct.EncounterTablePointer
+006B EncounterTable.Length (byte)
+006C EncounterTable.UnknownParam
+006D EncounterTable.NumberOfSparks
 030034DC DanStruct.InventoryStructPointer
 030034E0 DanStruct_End_HereMaybe
 030034E4 DanStruct_End_OrMaybeHere

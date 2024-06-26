@@ -1,21 +1,67 @@
 
+Rand:
+[03002900]!
 
-Eldritch Awl tracker
+080189CE - DreamSparkInitialize
+08019080 - DreamSpark - X
+080190C0 - DreamSpark - Y
+0802F8D8 - BattleStart - EncounterTable
 
-DreamSparkInitialized
+080094D6 - Luck
+0800DCEE - Battle_SortCmdOrder <- Luck
+08007C1C - Attack_Func_Standard <- Luck
+
+080004B2 - Command_Func_Focus
+
+08007CB4 - Battle_Determine_Hit
+080082B2 - Battle_AI_Debug_Creature - Choose attack
+080084E0 - Battle_AI_Debug_Creature - Choose target
+
+08009136 LevelUp_Creature - unused
+0800914A LevelUp_Creature - EnergyUp
+080091A8 LevelUp_Creature - StrUp
+08009258 LevelUp_Creature - SkillUp
+0800927C LevelUp_Creature - SpeedUp
+080092A0 LevelUp_Creature - DefUp
+080092C0 LevelUp_Creature - DefBonus
+08009306 LevelUp_Creature - ResistUp
+0800 LevelUp_Creature - ResistBonus
+0800 LevelUp_Creature - Ability <- Luck
+
+
+Load Map:
+    DreamSparkInitialize
+    Loop:
+        DreamSpark
+Load Battle:
+    BattleStart
+    Every turn:
+        Battle_AI_Debug_Creature
+        Battle_SortCmdOrder
+        Attack_Wrapper
+            Command_Func_X
+
+
+DreamSparkInitialize
     rand(50)+25 per dream spark
 DreamSpark (loop until valid destination? up to 64 tries):
-    rand(200)-100
-    rand(160)-80
-
+    x = rand(200)-100
+    y = rand(160)-80
 
 BattleStart
-    rand(len(rand_battle_list)) ?
+    rand(len(encounter_list)) ?
+
+Battle_SortCmdOrder
+    Determine who goes first
+    For all 8 creatures, even if "dead":
+        Speed + Luck(10)
 
 Turn End
 LevelUp:
+    Enemy and allied creatures level up starting from Level 1
+    (as opposed to the GBC where enemy creatures level up starting from Level 0)
     rand() LVL_UP_STAT_INDEX (unused)
-    rand(4) EnergyUp
+    1 + rand(4) EnergyUp
     rand(8) StrUp [1,2,1,2,0,3,2,1]
     rand(10) Skill from table
     rand(10) Speed from table
@@ -38,8 +84,33 @@ Strong = [0, 3, 1, 1, 1, 1, 0, 1, 2, 0]
 BattleLuck
     rand(255)*val/255*(+-luck%)
 
-AI_Creature
-    while CommandIsNotUnlocked:
+Battle_AI_Debug_Creature
+    while CommandIsNotUnlocked or InvalidEnergy or InvalidTarget:
         Command = rand(5)
-    rand(2)?
-Luck
+    TargetDecrementing = rand(2)
+    if TargetDecrementing:
+        Attack from Ally3 -> Ally0
+    else
+        Attack from Ally0 -> Ally3
+
+Luck(Magnitude):
+    max = (Magnitude*Luck_Table[Luck]/99)
+    rand(255)*(2*max + 1) - max
+
+Attack_Wrapper
+    Battle_Determine_Hit
+        (Different rules for Hidden)
+        If 2*OpponentSpeed + rand(255) > Accuracy -> Miss
+            If rand(100) < 5 -> Miss
+                Both -> Miss
+        Hit!
+    Attack_Func_Standard or Skill_Func_Standard
+        min, max from Attack_Table[Str/Skill + Luck(10)]
+        delta = max - min
+        damage = min + (99 - OpponentDef/Resist)*delta/100
+        damage = 1 + damage*scale/255
+
+Command_Func_Focus
+    Enemy Magi silently focus for 0 energy? To confirm
+    Dan:
+        1 + rand(8)

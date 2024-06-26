@@ -71,9 +71,6 @@ function get_nth_linked_list_entry(n, linked_list) {
 }
 
 // Prev functions
-function increments(var) =>
-    var - prev(var) == 1
-
 function increases(var) =>
     prev(var) < var
 
@@ -928,7 +925,7 @@ HldPrisonerTalks = [
 InventoryStruct_CreatureDan = map(0x203C374)
 InventoryStruct_Creatures = map(0x203C39C)
 InventoryStruct_Creature_Size = 0x28
-InventoryStruct_Creature_Last = 0x93 // 0x00 to 0x93
+InventoryStruct_Creature_Last = 0x93 // 0x00 to 0x93 for a total of 0x94
 
 InventoryStruct_RingCount = byte(map(0x203DABC))
 InventoryStruct_EquippedRings = map(0x203DABE)
@@ -1004,7 +1001,7 @@ Creature_Offset_UnlockLevelAbility4 = 0x23
 Creature_Offset_Relic1 = 0x24
 Creature_Offset_Relic2 = 0x25
 
-// Creature_Offset_UnlockLevelAbility1 magic numbers
+// Creature_Offset_UnlockLevelAbility magic numbers
 Creature_Ability_DoesNotExist = 0xC8
 Creature_Ability_Unlocked = 0xFF
 
@@ -1261,11 +1258,14 @@ function spell(id) =>
 BaseStruct_IsInBattle = byte(map(0x3000054))
 function in_battle() =>
     BaseStruct_IsInBattle == 1
+
 BaseStruct_GraphicsSubStruct_TextboxIsBusy = byte(map(0x03001440))
 function in_textbox() =>
     BaseStruct_GraphicsSubStruct_TextboxIsBusy == 1
+
 Ticker_byte = byte(map(0x30016C0)) // Actually a dword, but we can use it to iterate over 256 frames
 Ticker = dword(map(0x30016C0))
+
 DanStruct_DanX = dword(map(0x3002F78))
 DanStruct_DanY = dword(map(0x3002F7C))
 DanStruct_DanDirection = dword(map(0x3002FAC))
@@ -1875,7 +1875,7 @@ achievement(
 
 
 // We have to iterate our checks over 256 frames to check the 148 owned rings, because (86 creature_ids * 148 rings) = 12728 possibilities, which overflows the maximum achievement length of 65536 characters
-// Luckily, it takes only 4 seconds to iterate over all the possibilities, and it's not feasible to craft a ring in this amount of time
+// Luckily, it takes only about 4 seconds to iterate over all the possibilities, and empirically it's not possible to craft 2 rings within 256 frames.
 function valid_iteration_for_i_in_range_255(is_prev) =>
     // is_prev: 0 if we count all crafted rings, 1 if we exclude the last crafted ring
     // Looping from 0 to 255 using Ticker_byte
@@ -2042,7 +2042,7 @@ achievement(
     title = "Smash All the Pots", points = 10,
     description = "Open all the chests and in Naroom and the Weave, and find the 2 items hidden in Vash Naroom and 1 item hidden in the Wheat Farm",
     id = 000000, type = "missable",
-    trigger = collection(Treasure_Naroom, Treasure_Naroom_Length) // Requires Orothean Belt and Ashgar's Key
+    trigger = collection(Treasure_Naroom, Treasure_Naroom_Length) // Requires Orothean Belt and Ashgar's Key. Missable only for chests obtained with Ashgar's Key
 )
 achievement(
     title = "Baby's First Pokedex", points = 1,
@@ -2179,15 +2179,15 @@ function brub_cancel() => // Eldritch Awl exit
     scene_id() != Scene_Underneath_Bogrom_BrubRoom && scene_id() != Scene_Underneath_Whackamole
 achievement(
     title = "Brub Scrub", points = 5,
-    description = "Score at least 70 points in Scrub the Brub",
+    description = "Score at least 65 points in Scrub the Brub",
     id = 000000,
-    trigger = brub_end() && Brub_Byte >= 70 // omit game_loaded() as we do a scene check in brub_end()
+    trigger = brub_end() && Brub_Byte >= 65 // omit game_loaded() as we do a scene check in brub_end()
 )
 achievement(
     title = "Brub Elite", points = 10,
-    description = "Score at least 80 points in Scrub the Brub",
+    description = "Score at least 75 points in Scrub the Brub",
     id = 000000,
-    trigger = brub_end() && Brub_Byte >= 80 // omit game_loaded() as we do a scene check in brub_end()
+    trigger = brub_end() && Brub_Byte >= 75 // omit game_loaded() as we do a scene check in brub_end()
 )
 leaderboard(
     title = "Scrub the Brub",
@@ -2365,13 +2365,15 @@ achievement(
     title = "Now THAT is a BIG Mushroom", points = 25,
     description = "Encounter Ormagon",
     id = 000000, type = "missable",
-    trigger = game_loaded() && in_battle() && get_creature(1, BattleCreature_Enemy2, Creature_Offset_ID) == Creature_Ormagon // We don't really need a delta here, even if the value is not re-initialized on New Game
+    trigger = game_loaded() && in_battle() && get_creature(1, BattleCreature_Enemy2, Creature_Offset_ID) == Creature_Ormagon // We don't really need a delta here, even if the value is not re-initialized on New Game. The value is re-initialized before a new battle
 )
 
 // Battle Mechanics //
 //////////////////////
 // Drink Water, Fever Dream, One-Hit KO
 // Mauled to Death, Damage Not Applied
+// TODO - test with Japan
+// Win a battle without summoning any creatures
 
 ///////////////////
 // Rich Presence //
@@ -3050,5 +3052,16 @@ leaderboard(
     lower_is_better = false,
     id = 0
 )
-*/
 
+leaderboard(
+    title = "Metronome",
+    description = "Debug 256 frame timer",
+    start = Ticker_byte == 0x02,
+    cancel = Ticker_byte == 0x00,
+    submit = always_false(),
+    value = Ticker_byte,
+    format = "VALUE",
+    lower_is_better = false,
+    id = 0
+)
+*/
