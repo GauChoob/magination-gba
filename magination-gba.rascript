@@ -1,16 +1,6 @@
 // Magi Nation
 // #ID = 13941
 
-// GBADoc: https://gbadev.net/gbadoc/intro.html
-// no$gba reference: http://problemkaputt.de/gbatek-gba-reference.htm
-
-// Gameboy Advance Memory map: https://github.com/RetroAchievements/rcheevos/blob/develop/src/rcheevos/consoleinfo.c#L449
-// static const rc_memory_region_t _rc_memory_regions_gameboy_advance[] = {
-//    { 0x000000U, 0x007FFFU, 0x03000000U, RC_MEMORY_TYPE_SYSTEM_RAM, "System RAM" }, /* 32KB  Internal Work RAM */
-//    { 0x008000U, 0x047FFFU, 0x02000000U, RC_MEMORY_TYPE_SYSTEM_RAM, "System RAM" }, /* 256KB External Work RAM */
-//    { 0x048000U, 0x057FFFU, 0x0E000000U, RC_MEMORY_TYPE_SAVE_RAM, "Save RAM" }      /* 64KB  Game Pak SRAM */
-//};
-
 
 ////////////
 // Memory //
