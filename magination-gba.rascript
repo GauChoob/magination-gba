@@ -935,8 +935,8 @@ EquippedRing_None = 0xFF
 
 InventoryStruct_Animite = map(0x203DB32)
 
-BattleCreaturesStruct_CreatureDan = map(0x20278F8)
-BattleCreaturesStruct_CreatureSize = 0x140
+BattleStruct_BattleCreaturesStruct_CreatureDan = map(0x20278F8)
+BattleStruct_BattleCreaturesStruct_CreatureSize = 0x140
 BattleCreature_Dan = 0x00
 BattleCreature_Ally1 = 0x01
 BattleCreature_Ally2 = 0x02
@@ -951,7 +951,7 @@ BattleCreature_Magi = 0x09
 function get_creature(battle, i, offset) {
     // Get the target address
     if(battle == 1)
-        address = BattleCreaturesStruct_CreatureDan + i*BattleCreaturesStruct_CreatureSize + offset
+        address = BattleStruct_BattleCreaturesStruct_CreatureDan + i*BattleStruct_BattleCreaturesStruct_CreatureSize + offset
     else
         address = InventoryStruct_Creatures + i*InventoryStruct_Creature_Size + offset
     // return a byte or word
@@ -1252,6 +1252,21 @@ Spell_CunningBlow = 0x13
 function spell(id) =>
     byte(InventoryStruct_Spells + id)
 
+///////////////////
+// BattleCommand //
+///////////////////
+
+BattleStruct_NumberBounce_LinkedList = dword(map(0x0202B1F4))
+BattleStruct_NumberBounce_LinkedList_Empty = 0x0202B1F8
+function damage_displayed() =>
+    BattleStruct_NumberBounce_LinkedList != BattleStruct_NumberBounce_LinkedList_Empty
+
+BattleCommandStruct_CreatureAttackingPointer = dword(map(0x03001C20))
+BattleCommandStruct_CreatureTargetPointer = dword(map(0x03001C24))
+BattleCommandStruct_CreatureTargetID = dword(map(0x03001C28))
+BattleCommandStruct_HealingAttack = byte(map(0x03001C3D))
+BattleCommandStruct_TerminatingAttack = byte(map(0x03001C3F))
+
 ///////////////
 // Misc Vars //
 ///////////////
@@ -1269,8 +1284,6 @@ Ticker = dword(map(0x30016C0))
 DanStruct_DanX = dword(map(0x3002F78))
 DanStruct_DanY = dword(map(0x3002F7C))
 DanStruct_DanDirection = dword(map(0x3002FAC))
-
-
 
 ////////////
 // Scenes //
@@ -2372,7 +2385,7 @@ achievement(
 //////////////////////
 // Drink Water, Fever Dream, One-Hit KO
 // Mauled to Death, Damage Not Applied
-// TODO - test with Japan
+// TODO - test with Japan localization
 // Win a battle without summoning any creatures
 
 ///////////////////

@@ -13,7 +13,9 @@ Rand:
 
 080004B2 - Command_Func_Focus
 
+0800128C - Shred - Termination check
 08007CB4 - Battle_Determine_Hit
+08007D20 - Battle_Determine_Hit - check #2
 080082B2 - Battle_AI_Debug_Creature - Choose attack
 080084E0 - Battle_AI_Debug_Creature - Choose target
 
@@ -39,7 +41,9 @@ Load Battle:
         Battle_AI_Debug_Creature
         Battle_SortCmdOrder
         Attack_Wrapper
-            Command_Func_X
+            Battle_Determine_Hit
+            Attack_Func_Standard or Skill_Func_Standard
+            Command_Func_X e.g. Termination chance
 
 
 DreamSparkInitialize
@@ -110,7 +114,18 @@ Attack_Wrapper
         damage = min + (99 - OpponentDef/Resist)*delta/100
         damage = 1 + damage*scale/255
 
+Battle_End
+    GBC Cash: 0xFF && (2*min(0xFF, sum(dead creatures' levels)) + 1), capped to a max of 999 animite in inventory
+    DoTwice:
+        Battle_RandDeadCreature: rand(n + 1), where n is number of dead enemy creatures
+            Dead creature list: Sequential list of UNIQUE creature IDs
+            If you roll the highest number, no creature is obtained
+        If (rand(255) & 0b00001111) < 8 and valid creature, give animite
+
 Command_Func_Focus
     Enemy Magi silently focus for 0 energy? To confirm
     Dan:
         1 + rand(8)
+
+Shred
+    rand(100) < 25

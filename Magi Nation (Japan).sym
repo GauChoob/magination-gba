@@ -188,8 +188,11 @@ BattleEnd
 02028D64 Struct0C_8
 02028D70 Struct0C_8_End
 
-02028D74 Struct26F8
-0202B46C Struct26F8_End
+02028D74 BattleMallocStruct (0x26F8 bytes)
+0202B3A7 BattleMallocStruct.DeadCreatureTypes ?8
+0202B1F4 NumberBouncy_LinkedList contains digits flying in air
+0202B1F8 NumberBouncy_LinkedList_End dummy entry when nothing in list
+0202B46C BattleMallocStruct.Struct26F8_End
 BattleAbove
 
 0202B474 StructAC
@@ -671,11 +674,14 @@ ProgramInitEndsHere
 030015C2 BaseStruct.SubStruct.TextBox.TilemapBuffer_Size180.End
 030015DC BaseStruct_SubStruct2
 030016C0 Ticker
-03001C14 BattleRelatedStruct size F8?
-03001C18 BattleRelatedStruct.Struct348_Pointer
-03001C20 BattleRelatedStruct.CreatureAttackingPointer
-03001C24 BattleRelatedStruct.CreatureTargettedPointer
-03001C58 BattleRelatedStruct.Battle_Pending_Damage [32-bit]
+03001C14 BattleCommandStruct size F8?
+03001C18 BattleCommandStruct.Struct348_Pointer
+03001C20 BattleCommandStruct.CreatureAttackingPointer
+03001C24 BattleCommandStruct.CreatureTargettedPointer
+03001C28 BattleCommandStruct.CreatureTargettedIndex (32-bit), 0-9
+03001C3D BattleCommandStruct.HealingAttack [8-bit] 0/1
+03001C3F BattleCommandStruct.TerminatingAttack [8-bit] 0/1
+03001C58 BattleCommandStruct.Battle_Pending_Damage [32-bit]
 030028FC RNGesus_8bytes
 03002AB4 Script_Treasure
 03002ADC Script_SaveBits
