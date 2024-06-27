@@ -319,11 +319,11 @@ OROCORAL05_Chest3 = bit3(map(0x03002AD6))
 OROCORAL02_Chest1 = bit4(map(0x03002AD7))
 OROCORAL02_Chest2 = bit3(map(0x03002AD7))
 OROCORAL02_Chest3 = bit2(map(0x03002AD7))
-Treasure_Shadowhold_2AD8 = bitcount(map(0x03002AD8))  // excluding bit7(map(0x03002AD8)), OROCORAL05_Empty, HLDMAZE23_Chest1
+Treasure_Shadowhold_2AD8 = bitcount(map(0x03002AD8))  // excluding HLDMAZE23_Chest1, OROCORAL05_Empty, bit3(map(0x03002AD8))
+HLDMAZE23_Chest1 = bit7(map(0x03002AD8))
 OROCORAL05_Empty = bit6(map(0x03002AD8))
 HldChest1 = bit5(map(0x03002AD8))
 HldChest2 = bit4(map(0x03002AD8))
-HLDMAZE23_Chest1 = bit3(map(0x03002AD8))
 HldChest4 = bit2(map(0x03002AD8))
 HldChest5 = bit1(map(0x03002AD8))
 HldChest6 = bit0(map(0x03002AD8))
@@ -843,7 +843,7 @@ Treasure_Shadowhold = [
     Treasure_Shadowhold_2AC1 - bit7(map(0x03002AC1)) - bit3(map(0x03002AC1)) - bit1(map(0x03002AC1)),
     HLDMAZE21Chest1,
     HLDMAZE04Chest2,
-    Treasure_Shadowhold_2AD8 - bit7(map(0x03002AD8)) - OROCORAL05_Empty - HLDMAZE23_Chest1,
+    Treasure_Shadowhold_2AD8 - HLDMAZE23_Chest1 - OROCORAL05_Empty - bit3(map(0x03002AD8)),
     HldChest7,
     HldChest8,
     HLDMAZE04Chest1,
@@ -1266,6 +1266,7 @@ BattleCommandStruct_CreatureTargetPointer = dword(map(0x03001C24))
 BattleCommandStruct_CreatureTargetID = dword(map(0x03001C28))
 BattleCommandStruct_HealingAttack = byte(map(0x03001C3D))
 BattleCommandStruct_TerminatingAttack = byte(map(0x03001C3F))
+BattleCommandStruct_BattlePendingDamage = dword(map(0x03001C58))
 
 ///////////////
 // Misc Vars //
@@ -1741,7 +1742,7 @@ achievement(
 )
 
 function dan_cur_energy() =>
-    get_creature(0, -1, Creature_Offset_CurEnergy)
+    get_creature(1, BattleCreature_Dan, Creature_Offset_CurEnergy)
 function dan_max_energy() =>
     get_creature(0, -1, Creature_Offset_MaxEnergy)
 function dan_level() =>
@@ -2181,7 +2182,7 @@ leaderboard(
     value = always_true(),
     format = "FRAMES",
     lower_is_better = true,
-    id = 0
+    id = 106154
 )
 
 function brub_start() =>
@@ -2211,7 +2212,7 @@ leaderboard(
     value = Brub_Byte,
     format = "VALUE",
     lower_is_better = false,
-    id = 0
+    id = 106155
 )
 // Misc //
 //////////
@@ -2387,6 +2388,32 @@ achievement(
 // Mauled to Death, Damage Not Applied
 // TODO - test with Japan localization
 // Win a battle without summoning any creatures
+
+function battlecreature(i) =>
+    GBA_EWRAM + BattleStruct_BattleCreaturesStruct_CreatureDan + i*BattleStruct_BattleCreaturesStruct_CreatureSize // Manually un-map the address since we are using this as a pointer destinatioon
+
+function damage(magnitude) =>
+    damage_displayed() && BattleCommandStruct_HealingAttack == 0 && BattleCommandStruct_BattlePendingDamage >= magnitude
+
+function terminate() =>
+    damage_displayed() && BattleCommandStruct_TerminatingAttack == 1
+
+function ally_attacks_enemy() =>
+    BattleCommandStruct_CreatureAttackingPointer <= battlecreature(BattleCreature_Ally4) && BattleCommandStruct_CreatureTargetID >= BattleCreature_Enemy1
+
+achievement(
+    title = "Mauled to Death", points = 5,
+    description = "Deal 100 or more damage in one attack to an enemy",
+    id = 000000, type = "",
+    trigger = game_loaded() && in_battle() && damage(100) && ally_attacks_enemy()
+)
+achievement(
+    title = "One-Hit KO", points = 5,
+    description = "Terminate an enemy with an insta-kill attack",
+    id = 000000, type = "",
+    trigger = game_loaded() && in_battle() && terminate() && ally_attacks_enemy()
+)
+
 
 ///////////////////
 // Rich Presence //

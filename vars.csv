@@ -286,11 +286,11 @@ OROCORAL02_Chest2,0x2AD7,4,Orothe
 OROCORAL02_Chest3,0x2AD7,5,Orothe
 UnusedBit_2AD7_6,0x2AD7,6,
 UnusedBit_2AD7_7,0x2AD7,7,
-UnusedBit_2AD8_0,0x2AD8,0,
+HLDMAZE23_Chest1,0x2AD8,0,Core
 OROCORAL05_Empty,0x2AD8,1,
 HldChest1,0x2AD8,2,Shadowhold
 HldChest2,0x2AD8,3,Shadowhold
-HLDMAZE23_Chest1,0x2AD8,4,Core
+UnusedBit_2AD8_4,0x2AD8,4,
 HldChest4,0x2AD8,5,Shadowhold
 HldChest5,0x2AD8,6,Shadowhold
 HldChest6,0x2AD8,7,Shadowhold

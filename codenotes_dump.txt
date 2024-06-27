@@ -404,7 +404,7 @@ ARDGEYSER02_Chest12 = unimplemented chest with Baloo Sap
 (0x01) HDNUNDTUN04_Chest2 = replaced by 0x2B03:3
 		
 0x2ad8 	
-(0x80) HLDMAZE23_Chest1 = replaced with 0x2AD8:3
+0x80 HLDMAZE23_Chest1 = Core Ringsmith - Star Key (this chest actually isn't openable in the GBC version - it was possibly a debug chest that they removed the trigger from, although it graphically is visible in the GBC game. Therefore, this chest only exists in the GBA version)
 
 The GBC-ordering of chests ends here. All vars from now on were added on at the end by the GBA development team. There are three types of chests here:
 1) Null chests that are always set to give the appearance of an empty chest
@@ -414,7 +414,7 @@ The GBC-ordering of chests ends here. All vars from now on were added on at the 
 0x40 [OROCORAL05_Empty] = Set on game init to always disable chest - Corals - southeast - Contains null
 0x20 HldChest1 = Shadowhold - middle east pathway door - Shadow Key
 0x10 HldChest2 = Shadowhold - middle east pathway puzzle room west - Shadow Key
-0x08 HLDMAZE23_Chest1 = Core Ringsmith - Star Key (this chest actually isn't openable in the GBC version - it was possibly a debug chest that they removed the trigger from, although it graphically is visible in the GBC game. Therefore, this chest only exists in the GBA version) (overwrites HldChest3 which was replaced by 0x2AF6:2)
+(0x08) HldChest3 = replaced by 0x2AF6:2
 0x04 HldChest4 = Shadowhold - labyrinth puzzle pathway - Shadow Key
 0x02 HldChest5 = Shadowhold - deep first puzzle northwest - Shadow Key
 0x01 HldChest6 = Shadowhold - deep south pathway west - Shadow Key
