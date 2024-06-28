@@ -99,7 +99,7 @@ Battle_AI_Debug_Creature
 
 Luck(Magnitude):
     max = (Magnitude*Luck_Table[Luck]/99)
-    rand(255)*(2*max + 1) - max
+    rand(255)*(2*max + 1)/255 - max
 
 Attack_Wrapper
     Battle_Determine_Hit
