@@ -135,5 +135,8 @@ class Creature:
 
 rand = Rand()
 creatures = creature_table('randmanip/creature_table.csv')
+
+
+[rand.next() for _ in range(50)]
 hyren = Creature(creatures['Leaf_Hyren'], 50, rand)
 print(hyren)
