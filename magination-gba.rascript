@@ -2268,7 +2268,7 @@ achievement(
 )
 Script_Shadowhold_SecondLargestScrewdriver = 0x081AB204
 achievement(
-    title = "Second Largest Screwdriver", points = 25,
+    title = "Second Largest Screwdriver", points = 10,
     description = "Examine the large screwdriver near some Goraths",
     id = 442810, type = "missable",
     trigger = game_loaded() && get_nth_script(1) == Script_Shadowhold_SecondLargestScrewdriver
