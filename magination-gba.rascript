@@ -1,5 +1,6 @@
 // Magi Nation
 // #ID = 13941
+// #MinimumVersion = 1.3
 
 
 ////////////
